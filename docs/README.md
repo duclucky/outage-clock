@@ -2,7 +2,7 @@
 
 ## Identity
 
-IDEA-043; OutageClock; outage-clock; Intelligent Contracts; DESIGN before code.
+IDEA-043; OutageClock; outage-clock; Intelligent Contracts; BUILDING, admission spec committed before code.
 Studionet61999 expressly selected by owner in this chat. Workspace D1 unchanged.
 Public repo not yet created. No product source from an existing project is reused.
 This specification completes the copied PROJECT-SPEC-TEMPLATE sections.
