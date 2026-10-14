@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.venv/
+node_modules/
+.codex/
+AGENTS.md
+CLAUDE.md
+__pycache__/
+.pytest_cache/
+.gltest_cache/
+artifacts/
+precheck-report.*
+grade-report.json
+*.log

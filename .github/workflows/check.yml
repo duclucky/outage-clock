@@ -1,0 +1,21 @@
+name: check
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: windows-latest
+    env:
+      PYTHONUTF8: '1'
+      GENVM_VERSION: v0.2.16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: python -m venv .venv
+      - run: .venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+      - run: npm ci --ignore-scripts
+      - run: npm run check
