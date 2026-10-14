@@ -1,4 +1,7 @@
-# Final contract review
+# Contract review - current semantic readiness suspended
+
+The original PASS table below is historical and superseded for semantic correctness
+by the S08 finding at the end. Structural and payment proofs remain valid.
 
 One active OutageClock source, eight writes and six views; contract-only Intelligent
 Contracts. No user-facing app, Vercel, consumer mirror or previously submitted code
@@ -47,3 +50,14 @@ Residual risk: validators and the consistency reviewer can share interpretation
 errors. V1 is a concrete observed example; V2 guards and tests reduce that risk
 without proving semantic truth for every future incident. The protocol deliberately
 claims agreed reported-time treatment, not measured service availability.
+
+
+## Follow-up semantic finding - acceptance suspended
+
+The2026-10-14 real-model synthetic benchmark finalized S08 as NOT_APPLIES
+where the frozen conservative policy requires UNVERIFIABLE for conflicting
+title/body service scope. This is a concrete false definite judgment, despite
+MAJORITY_AGREE and the semantic critic. Structural411-case tests and prior payment
+proofs remain valid, but the previous semantic readiness verdict is superseded.
+No expected label, production code, prompt, validator or grading bot was changed
+to make this case pass. See JUDGMENT-CAMPAIGN.md and the retained raw-safe result.

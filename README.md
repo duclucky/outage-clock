@@ -1,5 +1,11 @@
 # OutageClock
 
+> SEMANTIC REVIEW REQUIRED (2026-10-14): the expanded real-model synthetic
+> benchmark found a definite answer on a contradictory-scope case S08 where the
+> locked conservative policy requires UNVERIFIABLE. Existing payment/lifecycle
+> evidence remains valid; semantic submission readiness is suspended pending
+> correction and revalidation. See docs/JUDGMENT-CAMPAIGN.md.
+
 Reusable GenLayer Intelligent Contract for a paid, one-use protocol entitlement
 whose exercise deadline can be extended by agreed official disruption intervals.
 Validators independently fetch the official OpenAI incident feed and interpret
@@ -13,12 +19,13 @@ One ASCII `OutageClock`,8writes/6views; pinned matched v0.2.16 runner and SDK1.1
 V2 deployment and all four real lifecycle cases are complete. Local tests and
 actual network receipts are separate evidence. [Public repository](https://github.com/duclucky/outage-clock) and a
 [successful CI run](https://github.com/duclucky/outage-clock/actions/runs/38510219155)
-verify all 120 cases.
+verified the earlier120-case baseline. Expanded411-case
+[CI also passed](https://github.com/duclucky/outage-clock/actions/runs/38552106717).
 
 ## Validate
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. Current local result:105 Python direct cases,13 receipt cases and2 output/exit-status regressions,
+`npm run check`. Current local result:396 Python direct cases,13 receipt cases and2 output/exit-status regressions,
 semantic lint and AST metadata all pass, zero skipped.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,
@@ -59,8 +66,7 @@ its bound native child finalized, contract decreased 1 GEN, recipient increased
 V1 is superseded and recovered: its Costs classification contradicted its own
 rationale, so no exercise was allowed. Buyer received the full 1 GEN refund and
 native balance/liability closed at zero. [Archived recovery](docs/evidence/studionet/archive/v1/recovery-flagged-v1.json).
-V2 adds a separate semantic consistency review; unsupported, ambiguous or
-contradictory classifications cannot finalize the clock. Every validator still
+V2 adds a separate semantic consistency review; the S08 benchmark shows that the critic can miss a scope contradiction. Every validator still
 independently fetches and interprets the source and must agree on the complete
 interval meanings and bound facts, rather than rationale strings or JSON shape.
 
@@ -86,3 +92,12 @@ against the active V2 or send another transaction.
 repo/explorer/CI links and actual lifecycle summary. [Acceptance](docs/ACCEPTANCE.md):
 original grader0BLOCKER,1 reviewed helper WARN; npmcheck/gltest and all four grade
 gates PASS. This is readiness evidence, not Portal acceptance or an official score.
+
+
+## Expanded judgment campaign
+
+[Campaign protocol](docs/JUDGMENT-CAMPAIGN.md) separates411 local protocol cases
+from real-model synthetic GenVM evaluation. The production contract source remains
+unchanged. A dedicated common-mode-error witness confirms that passing consensus
+cannot guarantee semantic truth when all interpreters/critics share a mistake.
+The real-model campaign is in progress; no universal accuracy claim is made.

@@ -2,7 +2,7 @@
 
 ## Identity
 
-IDEA-043; OutageClock; outage-clock; Intelligent Contracts; VERIFIED_PUBLIC, admission spec committed before code.
+IDEA-043; OutageClock; outage-clock; Intelligent Contracts; SEMANTIC_REVIEW_REQUIRED, admission spec committed before code.
 Studionet61999 expressly selected by owner in this chat, also permitted by current
 D1 after verified Studio Dev unavailability. This project does not edit shared D1.
 Public repo https://github.com/duclucky/outage-clock created. No product source from an existing project is reused.

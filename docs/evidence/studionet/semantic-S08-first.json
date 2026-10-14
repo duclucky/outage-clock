@@ -1,0 +1,47 @@
+{
+  "kind": "SYNTHETIC_CORPUS_REAL_GENVM_FULL_CONSENSUS",
+  "network": "studionet",
+  "chainId": 61999,
+  "valueGEN": "0",
+  "productionSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "corpusSHA256": "c62be0a4b5dec414c60ef5611ca26ce7a2e6c170003b56950c02d6f935bfbaa5",
+  "diagnosticSHA256": "f4a5f7dba85faeb35300c738edd23d14809fd18ca065a17662dc1bc714fa1133",
+  "transactionHash": "0x8d495beab2c714a257c53cc662fcdf69cfb450c290338a479ea3a65a1542a421",
+  "contractAddress": "0x2355cfa1a54Bcd1908564eCfE2db8E586801b03E",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "scenario": {
+    "id": "S08",
+    "scope": "Fetch current organization Costs data through the Compliance API.",
+    "rows": [
+      {
+        "id": "E08:U00",
+        "start": 0,
+        "end": 100,
+        "status": "identified",
+        "title": "Compliance API Costs unavailable",
+        "body": "The Compliance API Costs endpoint is fully unaffected. Only separate API Platform billing exports are delayed."
+      }
+    ],
+    "expected": {
+      "E08:U00": "UNVERIFIABLE"
+    },
+    "basis": "Manually fixed from the stated conservative policy before any model run; synthetic evidence, not a provider event.",
+    "category": "contradictory_scope"
+  },
+  "result": {
+    "id": "S08",
+    "expected": {
+      "E08:U00": "UNVERIFIABLE"
+    },
+    "observed": {
+      "E08:U00": "NOT_APPLIES"
+    },
+    "reason": "The official update for interval E08:U00 explicitly states that the CANONICAL_CHANNEL ('Fetch current organization Costs data through the Compliance API') is 'fully unaffected.' The scope of the incident as stated is limited to 'separate API Platform billing exports,' which is unrelated to the agreed internal protocol channel.",
+    "exactMatch": false,
+    "unsafeDefinite": true,
+    "conservativeAbstention": false
+  },
+  "productionFundsAffected": false
+}
