@@ -14,7 +14,7 @@ try{
    const commit=execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim();
    const schema=await safe(()=>reader.getContractSchemaForCode(source.toString('utf8')));
    if(Object.keys(schema.methods??{}).length!==14||schema.methods.accept.payable!==true)throw Error('Exact source schema failed');
-   d={network:'studionet',chainId:61999,rpc:RPC,sourceCommit:commit,sourceSHA256:sourceHash,version:'OC_V1',runner:'py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6',valueGEN:'0',status:'PREPARED'};save('deployment.json',d);
+   d={network:'studionet',chainId:61999,rpc:RPC,sourceCommit:commit,sourceSHA256:sourceHash,version:'OC_V2',runner:'py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6',valueGEN:'0',status:'PREPARED'};save('deployment.json',d);
   }
   if(!d.transactionHash){
    const account=actors()[0];d.preSubmitNonce=String(await reader.getCurrentNonce({address:account.address}));save('deployment.json',d);

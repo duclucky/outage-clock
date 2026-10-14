@@ -1,0 +1,124 @@
+{
+  "file": "lifecycle-affected.json",
+  "network": "studionet",
+  "chainId": 61999,
+  "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7",
+  "sourceSHA256": "8a1cdc94bcfd685aa83e0cd40bf7b4442937db7061851ec3031631b18478a8d7",
+  "case": "affected",
+  "leaseId": "oc-affected-8a1cdc94",
+  "issuer": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "buyer": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+  "scope": "Fetch complete current organization Costs data specifically through the Compliance API; delays or missing fresh data impede this agreed channel even when other channels work.",
+  "incidentIds": [
+    "01M4GV1M2A3K38T73JCVCD9G0R"
+  ],
+  "referenceStart": 1791566598,
+  "referenceEnd": 1791820967,
+  "acceptDeadline": 1791948316,
+  "baseDeadline": 1791948466,
+  "cap": 300,
+  "steps": {
+    "create": {
+      "method": "create_lease",
+      "args": [
+        "oc-affected-8a1cdc94",
+        "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "Fetch complete current organization Costs data specifically through the Compliance API; delays or missing fresh data impede this agreed channel even when other channels work.",
+        "[\"01M4GV1M2A3K38T73JCVCD9G0R\"]",
+        1791566598,
+        1791820967,
+        1791948316,
+        1791948466,
+        300
+      ],
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0x047dafcd59fac73ef1bc5cfc8708ea4d594a430a591bb669966cf7965282cb32",
+      "signedAt": "2026-10-14T03:22:48.083Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7"
+    },
+    "accept": {
+      "method": "accept",
+      "args": [
+        "oc-affected-8a1cdc94",
+        "ed86cfa8ee535407d060f0c36349f9211698f110d7e5fabca39e51edf37fd017"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1",
+      "beforeContractGEN": "0",
+      "transactionHash": "0x0db5ec69c45e37ecb37052ef1c5fb8e5c04a9c3d1a0b0d32418e5e0856a9b2cc",
+      "signedAt": "2026-10-14T03:23:29.774Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7",
+      "afterContractGEN": "1",
+      "depositVerified": true
+    },
+    "review": {
+      "method": "review_clock",
+      "args": [
+        "oc-affected-8a1cdc94"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "1",
+      "transactionHash": "0x16c7f749e3d4ad583570cb873022b935164e8a5a3e360e693bf71378f04f3213",
+      "signedAt": "2026-10-14T03:24:10.036Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7"
+    }
+  },
+  "preparedAt": "2026-10-14T03:22:46.773Z",
+  "clock": {
+    "base_deadline": 1791948466,
+    "effective_deadline": 1791948766,
+    "extension_seconds": 300,
+    "hard_cutoff": 1791948766,
+    "last_attempt": "oc-affected-8a1cdc94:T1",
+    "lease_id": "oc-affected-8a1cdc94",
+    "reported_seconds": 254098,
+    "verified": true
+  },
+  "attempt": {
+    "attempt_id": "oc-affected-8a1cdc94:T1",
+    "intervals": [
+      {
+        "class": "NOT_APPLIES",
+        "end": 1791566869,
+        "id": "01M4GV1M2A3K38T73JCVCD9G0R:01M4GV1M2AYFPXHSVEN9J3VV1G",
+        "start": 1791566598
+      },
+      {
+        "class": "APPLIES",
+        "end": 1791571585,
+        "id": "01M4GV1M2A3K38T73JCVCD9G0R:01M4GV9WN6CQJ085324GXRTZTB",
+        "start": 1791566869
+      },
+      {
+        "class": "APPLIES",
+        "end": 1791583439,
+        "id": "01M4GV1M2A3K38T73JCVCD9G0R:01M4GZSTQD80N1F9QNVV9MCPFN",
+        "start": 1791571585
+      },
+      {
+        "class": "APPLIES",
+        "end": 1791820967,
+        "id": "01M4GV1M2A3K38T73JCVCD9G0R:01M4HB3JQR38KYXS3RSAZBT2FC",
+        "start": 1791583439
+      }
+    ],
+    "lease_id": "oc-affected-8a1cdc94",
+    "outcome": "READY",
+    "reason": "The agreed channel is fetching complete current organization Costs data through the Compliance API. Interval 1 explicitly says delays are in the Costs API while other reporting channels remain available, and does not clearly state the Compliance API itself is affected; because the incident title says Compliance API but the body names a different API endpoint, that scope is conflicting, so this should be UNVERIFIABLE? However the schema only allows one class and the interval has insufficient/conflicting scope, therefore UNVERIFIABLE is the correct classification. Intervals 2 and 3 explicitly state delayed Costs data through the Compliance API, which impedes fetching complete current data there, so APPLIES. Interval 4 remains APPLIES because although mitigation is in place and processing has",
+    "source_digest": "7e18158d70581c98b13bb5f3cdad124efc65b7c1286f3714f81434b1038fe222",
+    "stage": "OK",
+    "timestamp": 1791948250
+  }
+}

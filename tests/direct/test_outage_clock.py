@@ -46,9 +46,10 @@ def source(ids=None):
 def model(classes=None,ids=None):
     ids=ids or [ID]
     return {'classes':classes or {f'{i}:u{k}':'APPLIES' for i in ids for k in range(4)},'reason':'Meaning independently checked.'}
-def mock(vm,decision=None,body=None,status=200):
+def mock(vm,decision=None,body=None,status=200,consistency=None):
     vm.mock_web(r'.*status\.openai\.com.*',{'status':status,'body':json.dumps(source() if body is None else body)})
-    vm.mock_llm(r'.*OutageClock.*',json.dumps(model() if decision is None else decision))
+    vm.mock_llm(r'.*OutageClock independent reported-time reviewer.*',json.dumps(model() if decision is None else decision))
+    vm.mock_llm(r'.*OutageClock consistency verifier.*',json.dumps({'consistent':True} if consistency is None else consistency))
 def ready(c,vm,a,**kw):
     lease=paid(c,vm,a);mock(vm,**kw);vm.sender=a[1];c.review_clock(lease);return lease
 def snap(c,lease):return (c.get_lease(lease),c.get_clock(lease),c.get_accounting())
@@ -264,3 +265,22 @@ def test_duplicate_json_key_llm_cannot_set_clock(contract,direct_vm,direct_accou
     before=snap(contract,lease)
     with pytest.raises(Exception):contract.review_clock(lease)
     assert snap(contract,lease)==before
+
+def test_semantic_consistency_rejection_blocks_contradictory_class_and_rationale(contract,direct_vm,direct_accounts):
+    lease=paid(contract,direct_vm,direct_accounts)
+    decision={**model(),'reason':'This scope is conflicting and must be UNVERIFIABLE for interval zero.'}
+    mock(direct_vm,decision=decision,consistency={'consistent':False})
+    contract.review_clock(lease)
+    assert j(contract.get_lease(lease))['state']=='RETRYABLE'
+    assert j(contract.get_clock(lease))['verified'] is False
+    assert j(contract.get_accounting())['credit_gen']=='0'
+
+@pytest.mark.parametrize('consistency',[{}, {'consistent':'true'}, {'consistent':1}, {'consistent':False}])
+def test_missing_or_non_boolean_consistency_never_authorizes_clock(contract,direct_vm,direct_accounts,consistency):
+    lease=paid(contract,direct_vm,direct_accounts)
+    mock(direct_vm,consistency=consistency)
+    contract.review_clock(lease)
+    assert j(contract.get_lease(lease))['state']=='RETRYABLE'
+    assert j(contract.get_clock(lease))['verified'] is False
+    assert j(contract.get_accounting())['escrow_gen']=='1'
+    assert j(contract.get_accounting())['credit_gen']=='0'

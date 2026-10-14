@@ -15,7 +15,7 @@ Deployment and paid execution are PENDING; local checks are not network proof.
 ## Validate
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. Current local result:96 Python direct cases and13 receipt cases,
+`npm run check`. Current local result:101 Python direct cases and13 receipt cases,
 semantic lint and AST metadata all pass, zero skipped.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,

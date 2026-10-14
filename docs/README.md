@@ -185,12 +185,12 @@ Cure/appeal/restore N/A; pending retry and timed refund are complete recovery pa
 
 ### Value-destination matrix
 
-| Value branch | Source | Locked | Release | Refund | Forfeit | Terminal/retry/duplicate | Canonical proof |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Accepted1GEN | Exact buyer | Unresolved/READY escrow1 | Issuer credit1 only buyer valid exercise | Buyer credit1 at verified expiry or pending hardcutoff | None | RETRYABLE retains escrow until due recovery; one allocation | lease/clock/accounting |
-| Exercised credit1 | Existing escrow | Issuer credit1 | Same issuer EOA | N/A valid consumed right | None | Permanent collectible; duplicate withdraw fails | credit/native balance/child receipt/recipient balance |
-| Unused/pending recovery1 | Existing escrow | Buyer credit1 | Same buyer EOA | Original actual payer only | None | All sourcefail/attemptcap/no review branches recover at hardcutoff; one debit | Same proof |
-| Unaccepted offer | No payer/no value | Zero | None | None | None | Cancel then close; zero everywhere | lease/accounting |
+| Value item | Payer/source | Locked state | Release destination | Refund destination | Forfeit destination | Terminal states covered | Duplicate/late/retry behavior | Canonical proof view |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Accepted1GEN | Exact buyer | Unresolved/READY escrow1 | Issuer credit1 only valid buyer exercise | Buyer credit1 at verified expiry or hard cutoff | None | EXERCISED/REFUNDED | RETRYABLE locks until due recovery; exactly one allocation | lease/clock/accounting |
+| Exercised credit1 | Existing escrow | Issuer credit1 | Same issuer EOA | N/A valid consumed right | None | EXERCISED/CLOSED after withdrawal | Permanent collectible; duplicate withdraw rejects | credit/native/child/recipient evidence |
+| Unused/pending recovery1 | Existing escrow | Buyer credit1 | Same buyer EOA | Actual payer only | None | REFUNDED/CLOSED after withdrawal | Sourcefail/attemptcap/no review recover at hard cutoff; one debit | credit/native/child/recipient evidence |
+| Unaccepted offer | No payer/value | Zero | None | None | None | CANCELLED/CLOSED | Cancel/close each once, zero everywhere | lease/accounting |
 
 ## Reusable interface
 
@@ -263,6 +263,21 @@ Safe allowlisted statuses/IDs/values/canonical reads only. Verify public source,
 Explorer address/tx, CI and unchanged grading command with actual project/address.
 
 ## Definition of Done
+
+### V2 semantic consistency repair (specified before code)
+
+The V1 live review returned a critical class that contradicted its own rationale.
+No exercise was allowed; the funded right expires into the existing buyer refund.
+Retain that evidence and archive V1 after exact native refund and zero closure.
+Before accepting a complete classification, a separate semantic consistency pass
+must inspect the locked channel, exact official intervals, enum vector and full
+bounded rationale against the same conservative policy. False, missing, malformed
+or unavailable consistency evidence maps every interval to UNVERIFIABLE, leaves
+the right RETRYABLE, and cannot create a clock, exercise or credit. Each validator
+independently repeats acquisition, interpretation and consistency review; critical
+source facts and enum decisions must still agree. Rationale wording need not match.
+The review_clock safety row and all existing recovery/value destinations remain
+binding. Add regression tests for contradictory rationale and fail-closed critic.
 
 All11 phases,14 gates and6 directives with proof; production ASCII/header/one class
 lint; full direct/metadata/parser tests and npmcheck; real meaningful judgment,

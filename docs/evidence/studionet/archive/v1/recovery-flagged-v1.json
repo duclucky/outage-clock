@@ -1,0 +1,105 @@
+{
+  "file": "recovery-flagged-v1.json",
+  "network": "studionet",
+  "chainId": 61999,
+  "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7",
+  "sourceSHA256": "8a1cdc94bcfd685aa83e0cd40bf7b4442937db7061851ec3031631b18478a8d7",
+  "leaseId": "oc-affected-8a1cdc94",
+  "reason": "Contradictory rationale and critical class; no exercise allowed",
+  "steps": {
+    "recover": {
+      "method": "recover",
+      "args": [
+        "oc-affected-8a1cdc94"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "1",
+      "transactionHash": "0x46af685d20da91f797e0dd6a831d5ff8201937ac6650f72fdd880e97fcd7b0ae",
+      "signedAt": "2026-10-14T03:32:50.236Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7"
+    },
+    "withdraw": {
+      "beforeContractGEN": "1",
+      "beforeRecipientGEN": "4.521000000000001975",
+      "method": "withdraw",
+      "args": [
+        "oc-affected-8a1cdc94"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "transactionHash": "0x77449cf90b58e51fd24d90a395f842f0a160fbcbeaab1b4bd8dc7104c6062cc7",
+      "signedAt": "2026-10-14T03:33:31.203Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7",
+      "nativeProof": {
+        "transactionHash": "0x59c636fa713f2515b76c6373447d8f78f2e53159a1909a66d0ca4d0062a966a1",
+        "status": "FINALIZED",
+        "sender": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7",
+        "recipient": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "valueGEN": "1",
+        "parentHash": "0x77449cf90b58e51fd24d90a395f842f0a160fbcbeaab1b4bd8dc7104c6062cc7",
+        "executionResult": null
+      },
+      "afterContractGEN": "0",
+      "afterRecipientGEN": "5.521000000000001975"
+    },
+    "close": {
+      "method": "close_lease",
+      "args": [
+        "oc-affected-8a1cdc94"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xfa1b5e20c5e50426555fcd0ee5327cfc74e49e131129b82cb598dc57b2fbfd6a",
+      "signedAt": "2026-10-14T03:34:11.160Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x47C23DA28497d38863D71006A17a8d11A4bb6ba7"
+    }
+  },
+  "lease": {
+    "accept_deadline": 1791948316,
+    "attempts": 1,
+    "base_deadline": 1791948466,
+    "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+    "digest": "ed86cfa8ee535407d060f0c36349f9211698f110d7e5fabca39e51edf37fd017",
+    "escrow_gen": "0",
+    "exercised": false,
+    "extension_cap": 300,
+    "hard_cutoff": 1791948766,
+    "incident_ids": [
+      "01M4GV1M2A3K38T73JCVCD9G0R"
+    ],
+    "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+    "last_attempt": "oc-affected-8a1cdc94:T1",
+    "lease_id": "oc-affected-8a1cdc94",
+    "reference_end": 1791820967,
+    "reference_start": 1791566598,
+    "scope": "Fetch complete current organization Costs data specifically through the Compliance API; delays or missing fresh data impede this agreed channel even when other channels work.",
+    "state": "CLOSED"
+  },
+  "credit": {
+    "credit_gen": "0",
+    "lease_id": "oc-affected-8a1cdc94",
+    "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+    "withdrawn_gen": "1"
+  },
+  "accounting": {
+    "credit_gen": "0",
+    "escrow_gen": "0",
+    "liability_gen": "0",
+    "received_gen": "1",
+    "withdrawn_gen": "1"
+  },
+  "nativeBalanceGEN": "0",
+  "complete": true,
+  "verifiedAt": "2026-10-14T03:34:53.380Z"
+}
