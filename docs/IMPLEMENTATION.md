@@ -51,3 +51,14 @@ Live V2 verification:4 CLOSED cases,20 FINALIZED/SUCCESS parent writes,3 exact
 Source equals deployed bytes and source commit. Exercise timestamp lies after
 nominal expiry and before capped effective deadline; due refund/cancel timestamps
 are independently checked. Archived V1 recovery is re-verified read-only.
+
+
+Acceptance tooling repair: Windows PowerShell5.1 interpreted harmless gltest INFO
+stderr as terminating NativeCommandError under redirected output. Two new process
+regressions failed before scripts/local_tool.py existed. The wrapper combines all
+output onto stdout and preserves both0 and7 exit codes; no lines or test failures
+are filtered. npm check now has105 Python,13 receipt and2 stream/status cases.
+The original grader also invokes gltest directly, so use PowerShell7 and prepend
+the project's pinned .venv/Scripts to PATH; both npmcheck and gltest now PASS.
+The grader's three code-file hashes stayed unchanged. Static result0BLOCKER,1WARN;
+all four grade gates PASS. Exit1 denotes the retained warning, not a test failure.

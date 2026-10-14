@@ -1,5 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import{successful,nativeChild}from'../scripts/receipts.mjs';
+import {spawnSync} from 'node:child_process';
+import path from 'node:path';
 const sender='0x'+'1'.repeat(40),recipient='0x'+'2'.repeat(40);
 test('raw successful receipt projects only safe fields',()=>{
  const p=successful({status:'FINALIZED',result_name:'MAJORITY_AGREE',to_address:sender,consensus_data:{leader_receipt:[{execution_result:'SUCCESS',node_config:{secret:'synthetic'}}]}},'hash');
@@ -12,3 +14,11 @@ const expected={sender,recipient,valueGEN:'1',parentHash:'parent'};
 test('native child without VM result still binds exact1GEN origin and parent',()=>assert.equal(nativeChild(raw,'child',expected).valueGEN,'1'));
 for(const field of ['status','from_address','to_address','value','triggered_by'])test('native transfer missing '+field+' rejects',()=>{const changed={...raw};delete changed[field];assert.throws(()=>nativeChild(changed,'child',expected));});
 test('explicit native child failure rejects',()=>assert.throws(()=>nativeChild({...raw,error:'synthetic failure'},'child',expected)));
+
+for(const exitCode of[0,7])test('local tool combines diagnostic streams and preserves exit '+exitCode,()=>{
+ const python=path.resolve('.venv/Scripts/python.exe');
+ const program=`import sys;print('synthetic stdout');sys.stderr.write('synthetic INFO\\n');sys.exit(${exitCode})`;
+ const r=spawnSync(python,['scripts/local_tool.py',python,'-c',program],{encoding:'utf8'});
+ assert.equal(r.status,exitCode);assert.equal(r.stderr,'');
+ assert.ok(r.stdout.includes('synthetic INFO'));assert.ok(r.stdout.includes('synthetic stdout'));
+});

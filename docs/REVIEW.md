@@ -37,4 +37,8 @@ evidence; the four specified integration cases are live Studionet evidence.
 One static payability warning is expected for private _no_value, which explicitly
 rejects value on nonpayable methods. Only public accept receives value; AST and
 actual deployed schema both prove payable metadata. Do not make the helper payable
-or weaken the grader. Final full acceptance run, public repo and CI still pending.
+or weaken the grader. Full unchanged acceptance:0BLOCKER,1 reviewed WARN; npmcheck and gltest PASS,
+all four grade gates PASS. Public repo and successful initial CI verified.
+Windows PowerShell5.1 stderr behavior required project output routing plus
+PowerShell7 for the complete local orchestrator, preserving all checks and exit
+codes. See [Microsoft native output behavior](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.5).

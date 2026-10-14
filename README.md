@@ -11,12 +11,14 @@ hard recovery refunds the actual buyer1GEN. Only own-wallet credits are withdraw
 Category: Intelligent Contracts. Owner-selected Studionet61999. No app/frontend.
 One ASCII `OutageClock`,8writes/6views; pinned matched v0.2.16 runner and SDK1.1.8.
 V2 deployment and all four real lifecycle cases are complete. Local tests and
-actual network receipts are separate evidence. Publication and CI are pending.
+actual network receipts are separate evidence. [Public repository](https://github.com/duclucky/outage-clock) and an initial
+[successful CI run](https://github.com/duclucky/outage-clock/actions/runs/38509545893)
+are available; the new output-compatibility regressions are verified locally.
 
 ## Validate
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. Current local result:105 Python direct cases and13 receipt cases,
+`npm run check`. Current local result:105 Python direct cases,13 receipt cases and2 output/exit-status regressions,
 semantic lint and AST metadata all pass, zero skipped.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,

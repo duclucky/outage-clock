@@ -2,10 +2,10 @@
 
 ## Identity
 
-IDEA-043; OutageClock; outage-clock; Intelligent Contracts; VERIFIED_PRIVATE, admission spec committed before code.
+IDEA-043; OutageClock; outage-clock; Intelligent Contracts; VERIFIED_PUBLIC, admission spec committed before code.
 Studionet61999 expressly selected by owner in this chat, also permitted by current
 D1 after verified Studio Dev unavailability. This project does not edit shared D1.
-Public repo not yet created. No product source from an existing project is reused.
+Public repo https://github.com/duclucky/outage-clock created. No product source from an existing project is reused.
 This specification completes the copied PROJECT-SPEC-TEMPLATE sections.
 
 ## One-sentence product hook
@@ -294,7 +294,7 @@ but no right is claimed to predate acceptance. Exact locked incident set is not
 exhaustive history. Reporting-timestamp proxy is not measured customer downtime.
 Status source controls its published facts; disappearing/changed feed can force
 retry/refund.2..16updates/incident,1..3incidents,3attempts,one1GEN right. No browser
-app, external gateway execution, legal right or adopter. Four real lifecycle cases verified; public repo and CI pending.
+app, external gateway execution, legal right or adopter. Four real lifecycle cases verified; public repo and successful initial CI verified.
 
 ## Kill criteria
 

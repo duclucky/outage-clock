@@ -6,7 +6,7 @@ $env:GENVM_VERSION='v0.2.16'
 if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
 & .\.venv\Scripts\genvm-lint.exe check contracts/outage_clock.py
 if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
-& .\.venv\Scripts\gltest.exe tests/ -q --tb=short
+& .\.venv\Scripts\python.exe scripts/local_tool.py .\.venv\Scripts\gltest.exe tests/ -q --tb=short
 if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
 & node --test tests/receipts.test.mjs
 if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
