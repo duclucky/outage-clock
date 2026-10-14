@@ -45,12 +45,13 @@ def source(ids=None):
     return dict(page=dict(id=PAGE,url='https://status.openai.com/'),incidents=records,padding='x'*1200)
 def model(classes=None,ids=None):
     ids=ids or [ID]
-    return {'classes':classes or {f'{i}:u{k}':'APPLIES' for i in ids for k in range(4)},'reason':'Meaning independently checked.'}
+    values=classes or {f'{i}:u{k}':'APPLIES' for i in ids for k in range(4)}
+    return {'classes':values,'intervals':{key:{'title_scope':'EXACT','title':value,'body':value,'generic':False,'recovery':False,'body_conflict':False} for key,value in values.items()},'reason':'Meaning independently checked.'}
 def mock(vm,decision=None,body=None,status=200,consistency=None):
     vm.mock_web(r'.*status\.openai\.com.*',{'status':status,'body':json.dumps(source() if body is None else body)})
     vm.mock_llm(r'.*OutageClock independent reported-time reviewer.*',json.dumps(model() if decision is None else decision))
     decision = model() if decision is None else decision
-    default_audit={'consistent':True,'intervals':{key:{'title':value,'body':value,'generic':False,'recovery':False,'conflict':False} for key,value in decision.get('classes',{}).items()}}
+    default_audit={'intervals':decision.get('intervals',{})}
     vm.mock_llm(r'.*OutageClock consistency verifier.*',json.dumps(default_audit if consistency is None else consistency))
 def ready(c,vm,a,**kw):
     lease=paid(c,vm,a);mock(vm,**kw);vm.sender=a[1];c.review_clock(lease);return lease

@@ -10,9 +10,10 @@ import {receipt} from './receipts.mjs';
 try {
  const reader=client(); await identity(reader);
  const revision=process.argv[2]??'OC_V2';
- if(!['OC_V2','OC_V3'].includes(revision))throw Error('Unknown benchmark revision');
- const suffix=revision==='OC_V3'?'-v3':'';
- const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${suffix}.json`),'utf8'));
+ if(!['OC_V2','OC_V3','OC_V4'].includes(revision))throw Error('Unknown benchmark revision');
+ const suffix=revision==='OC_V2'?'':`-v${revision.slice(-1)}`;
+ const corpusSuffix=revision==='OC_V2'?'':'-v3';
+ const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${corpusSuffix}.json`),'utf8'));
  const source=fs.readFileSync(path.join(ROOT,'.codex/semantic_probe.py'));
  const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
  const corpusHash=sha(JSON.stringify(corpus)),sourceHash=sha(source);
@@ -41,7 +42,7 @@ try {
   const raw=await safe(()=>reader.request({method:'eth_getTransactionByHash',params:[batch.transactionHash]}));
   Object.assign(batch,receipt(raw,batch.transactionHash));save(name,record);
   if(batch.status!=='FINALIZED')throw Error('Benchmark still pending; resume saved hash');
-  if(batch.executionResult==='SUCCESS'&&!['UNDETERMINED','MAJORITY_DISAGREE','DISAGREE'].includes(batch.consensusResult)){
+  if(batch.executionResult==='SUCCESS'&&batch.consensusResult==='MAJORITY_AGREE'){
    const deployed=await safe(()=>reader.getContractCode(batch.contractAddress));
    if(sha(Buffer.from(deployed))!==sourceHash)throw Error('Diagnostic source mismatch');
    if(await balance(reader,batch.contractAddress)!=='0')throw Error('Diagnostic must hold zero GEN');

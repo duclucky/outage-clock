@@ -8,19 +8,23 @@ import {receipt} from './receipts.mjs';
 try{
  const r=client();await identity(r);
  const revision=process.argv[2]??'OC_V2';
- if(!['OC_V2','OC_V3'].includes(revision))throw Error('Unknown benchmark revision');
- const suffix=revision==='OC_V3'?'-v3':'';
+ if(!['OC_V2','OC_V3','OC_V4'].includes(revision))throw Error('Unknown benchmark revision');
+ const suffix=revision==='OC_V2'?'':`-v${revision.slice(-1)}`;
+ const corpusSuffix=revision==='OC_V2'?'':'-v3';
  const record=file(`semantic-benchmark${suffix}-20261014.json`);
  if(!record?.complete)throw Error('Benchmark must finish first');
- const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${suffix}.json`),'utf8'));
+ const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${corpusSuffix}.json`),'utf8'));
  const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
  if(sha(JSON.stringify(corpus))!==record.corpusSHA256)throw Error('Locked corpus changed');
- const verification={network:'studionet',chainId:61999,revision,at:new Date().toISOString(),batches:[],caseRuns:[],
+ const verification={network:'studionet',chainId:61999,revision,at:new Date().toISOString(),
+  candidateSourceSHA256:record.productionSHA256,corpusSHA256:record.corpusSHA256,diagnosticSHA256:record.diagnosticSHA256,batches:[],caseRuns:[],
   rubric:'Frozen synthetic conservative-policy expectations, not universal provider truth',absoluteFutureAccuracyProven:false};
  for(const b of record.batches){
+  console.log(JSON.stringify({stage:'VERIFY_BATCH',revision,repetition:b.repetition,caseIds:b.caseIds}));
   const raw=await safe(()=>r.request({method:'eth_getTransactionByHash',params:[b.transactionHash]}));
   const current=receipt(raw,b.transactionHash);
   if(current.status!=='FINALIZED'||current.executionResult!==b.executionResult||current.consensusResult!==b.consensusResult)throw Error('Batch evidence changed');
+  if(b.results.length&&current.consensusResult!=='MAJORITY_AGREE')throw Error('Observed semantic result lacks majority agreement');
   const item={...current,valueGEN:'0',caseIds:b.caseIds,repetition:b.repetition};
   if(b.results.length){
    const code=await safe(()=>r.getContractCode(b.contractAddress));

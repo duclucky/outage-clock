@@ -7,6 +7,14 @@ try{
   const accounts=actors();if(accounts[0].address.toLowerCase()===accounts[1].address.toLowerCase())throw Error('Role separation');
   console.log(JSON.stringify({network:'studionet',chainId:61999,rpc:RPC,roles:await Promise.all(accounts.map(async(a,i)=>({role:i?'buyer':'issuer',address:a.address,balanceGEN:await balance(reader,a.address)})))}));
  }else{
+  const version=source.toString('ascii').match(/^VERSION = "(OC_V[24])"$/m)?.[1];
+  if(!version)throw Error('Unrecognized source policy version');
+  if(version==='OC_V4'){
+   const benchmark=file('semantic-benchmark-v4-20261014.json');
+   if(!benchmark?.complete||benchmark.productionSHA256!==sourceHash||benchmark.summary?.plannedCaseRuns!==36||benchmark.summary?.exactMatches!==36||benchmark.summary?.completedCaseRuns!==36||benchmark.summary?.failedBatches!==0)throw Error('OC_V4 semantic execution gate pending or failed');
+   const verified=file('semantic-benchmark-verification-v4-20261014.json');
+   if(verified?.semanticReadiness!=='FINITE_CORPUS_ONLY'||verified.candidateSourceSHA256!==sourceHash||verified.summary?.exactMatches!==36||verified.batches?.length!==12||verified.batches.some(b=>b.status!=='FINALIZED'||b.executionResult!=='SUCCESS'||b.consensusResult!=='MAJORITY_AGREE'))throw Error('OC_V4 independent semantic re-verification pending or failed');
+  }
   let d=file('deployment.json');
   if(d&&d.sourceSHA256!==sourceHash)throw Error('Existing source identity differs; explicit archive required');
   if(!d){
@@ -14,7 +22,7 @@ try{
    const commit=execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim();
    const schema=await safe(()=>reader.getContractSchemaForCode(source.toString('utf8')));
    if(Object.keys(schema.methods??{}).length!==14||schema.methods.accept.payable!==true)throw Error('Exact source schema failed');
-   d={network:'studionet',chainId:61999,rpc:RPC,sourceCommit:commit,sourceSHA256:sourceHash,version:'OC_V2',runner:'py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6',valueGEN:'0',status:'PREPARED'};save('deployment.json',d);
+   d={network:'studionet',chainId:61999,rpc:RPC,sourceCommit:commit,sourceSHA256:sourceHash,version,runner:'py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6',valueGEN:'0',status:'PREPARED'};save('deployment.json',d);
   }
   if(!d.transactionHash){
    const account=actors()[0];d.preSubmitNonce=String(await reader.getCurrentNonce({address:account.address}));save('deployment.json',d);

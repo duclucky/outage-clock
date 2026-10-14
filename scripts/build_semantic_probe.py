@@ -23,7 +23,7 @@ semantic = copy.deepcopy(leader)
 semantic.body = copy.deepcopy(leader.body[begin:])
 decision_code = ast.unparse(semantic)
 validator_code = ast.unparse(validator)
-helpers = "\n\n".join(ast.unparse(n) for n in module.body if isinstance(n, ast.FunctionDef) and n.name in {"_no_value", "_unique_pairs", "_json", "_classes", "_critical", "_audit_classes"})
+helpers = "\n\n".join(ast.unparse(n) for n in module.body if isinstance(n, ast.FunctionDef) and n.name in {"_no_value", "_unique_pairs", "_json", "_classes", "_critical", "_scope_assessment", "_combined_vectors", "_scope_prompt"})
 probe = "\n".join(source.splitlines()[:3]) + "\nimport json\nimport hashlib\n\n" + helpers + "\n\n"
 probe += '''class OutageSemanticProbe(gl.Contract):
     report: str
@@ -57,7 +57,7 @@ fidelity = {"productionSHA256": hashlib.sha256(source.encode()).hexdigest(),
             "probeSHA256": hashlib.sha256(probe.encode()).hexdigest(),
             "decisionASTSHA256": hashlib.sha256(ast.dump(semantic).encode()).hexdigest(),
             "validatorASTSHA256": hashlib.sha256(ast.dump(validator).encode()).hexdigest(),
-            "auditASTSHA256": hashlib.sha256(ast.dump(next(n for n in module.body if isinstance(n, ast.FunctionDef) and n.name == "_audit_classes")).encode()).hexdigest(),
+            "componentASTSHA256": hashlib.sha256("".join(ast.dump(n) for n in module.body if isinstance(n, ast.FunctionDef) and n.name in {"_scope_assessment", "_combined_vectors", "_scope_prompt", "_critical"}).encode()).hexdigest(),
             "sameProductionSemanticBlock": True, "sameProductionValidator": True,
             "syntheticInputOnly": True, "valueGEN": "0", "custody": False}
 (ROOT / ".codex/semantic-probe-fidelity.json").write_text(json.dumps(fidelity, indent=2) + "\n")

@@ -91,3 +91,7 @@ No new model output had been observed when this checkpoint was committed.
 Real-model execution command: `node scripts/semantic_benchmark.mjs OC_V3`.
 Read-only independent recheck: `node scripts/summarize_semantic_benchmark.mjs OC_V3`.
 Status: local verification complete; new model and paid lifecycle evidence pending.
+
+Public candidate CI also passed436 cases (421 direct +15 Node),zero skipped:
+https://github.com/duclucky/outage-clock/actions/runs/38555109749
+Candidate source commit:50a713c20fe95f5e40a79b1592535d08c3e2bab2.

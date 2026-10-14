@@ -24,9 +24,16 @@ verified the earlier120-case baseline. Expanded411-case
 
 ## Validate
 
+The working tree contains the owner-approved OC_V4 component candidate. Its
+independent title/body assessments and deterministic conflict rules are specified
+in [the remediation plan](docs/COMPONENT-REMEDIATION.md). OC_V3 failed real-model
+revalidation and was never promoted or funded. OC_V2 remains the deployed
+historical revision until new semantic and paid lifecycle verification complete.
+
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. Current local result:396 Python direct cases,13 receipt cases and2 output/exit-status regressions,
-semantic lint and AST metadata all pass, zero skipped.
+`npm run check`. The OC_V4 local run passed430 Python direct cases,13 receipt cases
+and2 output/exit-status regressions (445 total), semantic lint and AST metadata,
+zero skipped. Real-model and production lifecycle acceptance remain separate.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,
 temporal gates, claim-to-code and honest limits before implementation.

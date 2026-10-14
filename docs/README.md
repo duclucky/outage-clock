@@ -3,10 +3,12 @@
 ## Identity
 
 IDEA-043; OutageClock; outage-clock; Intelligent Contracts; SEMANTIC_REVIEW_REQUIRED, admission spec committed before code.
-The working source is the owner-approved OC_V3 candidate; OC_V2 remains the
+The working source is the owner-approved OC_V4 component candidate; OC_V2 remains the
 deployed historical revision until the new semantic and lifecycle gates pass.
-[Scope remediation](SCOPE-REMEDIATION.md) locks the revised policy, affected safety
-row, regression checks and execution sequence before implementation.
+[Scope remediation](SCOPE-REMEDIATION.md) and [component remediation](COMPONENT-REMEDIATION.md)
+lock the revised policy, affected safety row, regression checks and execution
+sequence before implementation. OC_V3 failed real-model revalidation and was
+never promoted or funded.
 Studionet61999 expressly selected by owner in this chat, also permitted by current
 D1 after verified Studio Dev unavailability. This project does not edit shared D1.
 Public repo https://github.com/duclucky/outage-clock created. No product source from an existing project is reused.
@@ -166,14 +168,16 @@ scope from quoted data. No signer-string/image/hash is treated as origin evidenc
 Leader fetches/validates source before LLM. Expected segment IDs/endpoints derived
 by code. Model returns {classes:{exact_segment_id:enum},reason:string}; enums are
 APPLIES,NOT_APPLIES,UNVERIFIABLE. Strict complete classes, unique JSON keys, no
-missing/extra/duplicate IDs. OC_V3's second pass independently reads title/body
-scope without seeing the first answer. Deterministic code checks its exact IDs,
-enums and strict boolean flags, then derives conflict/continuation/recovery and
-requires agreement with the first decision. Opposite definite title/body scope
-forces UNVERIFIABLE unless explicit current recovery supersedes an old outage
-title. Broad titles do not assert all narrower modes. Invalid audit approval or
-fields make all intervals UNVERIFIABLE; valid per-interval conflict affects that
-interval and blocks the entire clock. Ignore rationale wording differences. Validator
+missing/extra/duplicate IDs. OC_V4 uses two independent component assessments of
+title granularity, title/body scope, continuation, explicit current recovery and
+internal body conflict. The second never sees the first. Deterministic code
+derives each verdict vector and requires agreement; dissent is UNVERIFIABLE.
+Only opposing definite EXACT title/body scope creates a precedence conflict;
+explicit current recovery can supersede an old outage title. Broad titles do
+not assert all narrower modes. Malformed first output reverts before mutation;
+malformed second output yields all UNVERIFIABLE. Settlement invariants recompute
+classes from the supplied assessments before any state change. A single
+UNVERIFIABLE blocks the whole clock. Ignore rationale wording differences. Validator
 rejects non-Return leader, independently fetches/replays and compares exact source
 digest, interval identities/endpoints and complete semantic classes. Legacy
 sandboxed gl.vm.run_nondet on matched v0.2.16; no run_nondet_unsafe.

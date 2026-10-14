@@ -53,6 +53,10 @@ def test_all_81_candidate_vectors_require_same_independent_meaning(contract, dir
     lease = ready(contract, direct_vm, direct_accounts)
     candidate = copy.deepcopy(direct_vm._captured_validators[-1][0])
     candidate["classes"] = {f"{ID}:u{k}": value for k, value in enumerate(vector)}
+    # Supply internally consistent components too: rejection must still depend
+    # on independent semantic replay, rather than a mismatched local schema.
+    assessment = model(candidate["classes"])["intervals"]
+    candidate["assessments"] = [{"intervals": copy.deepcopy(assessment)}, {"intervals": copy.deepcopy(assessment)}]
     before = snap(contract, lease)
     assert direct_vm.run_validator(leader_result=candidate) is (vector == ("APPLIES",) * 4)
     assert snap(contract, lease) == before

@@ -1,0 +1,12 @@
+{
+  "productionSHA256": "4d28c51a67234ba32e5913bd11146ca8ee2c0a3dc7cf75ab8e044e40f1755a51",
+  "probeSHA256": "59743db75ee39b4dd7bdb71db2a0453e5dae55d00a21980af60d925ef742064d",
+  "decisionASTSHA256": "5515f73b4a50513339804f28eebdceabd9536322bbe3e314cc37258479615659",
+  "validatorASTSHA256": "90e08f27f1a9a36e2d49267c3ebc4ed3e95de3a02adfd769f7f6aeef9516e62c",
+  "componentASTSHA256": "57a8633e2da811228e26c64517faee868ec861575cd9903fed670968951f921e",
+  "sameProductionSemanticBlock": true,
+  "sameProductionValidator": true,
+  "syntheticInputOnly": true,
+  "valueGEN": "0",
+  "custody": false
+}
