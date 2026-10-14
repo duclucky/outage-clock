@@ -3,18 +3,22 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {EVIDENCE,client,identity,file,safe,view,balance,fail} from './network.mjs';
+import {requireSemanticGate} from './promotion_gate.mjs';
 
 try{
- const d=file('deployment.json'),benchmark=file('semantic-benchmark-v4-20261014.json'),verified=file('semantic-benchmark-verification-v4-20261014.json');
+ const sourceBytes=fs.readFileSync(path.join(EVIDENCE,'../../../contracts/outage_clock.py'));
+ const version=sourceBytes.toString('ascii').match(/^VERSION = "(OC_V[45])"$/m)?.[1];
+ if(!version)throw Error('Recognized replacement version required');
+ const suffix=`v${version.slice(-1)}-20261014.json`;
+ const d=file('deployment.json'),benchmark=file('semantic-benchmark-'+suffix),verified=file('semantic-benchmark-verification-'+suffix);
  if(d?.version!=='OC_V2'||!d.active)throw Error('Only the known active OC_V2 can be archived');
- if(!benchmark?.complete||benchmark.summary?.exactMatches!==36||benchmark.summary?.failedBatches!==0)throw Error('Replacement semantic gate has not passed');
- if(verified?.semanticReadiness!=='FINITE_CORPUS_ONLY'||verified.candidateSourceSHA256!==benchmark.productionSHA256||verified.summary?.exactMatches!==36||verified.batches?.length!==12||verified.batches.some(b=>b.status!=='FINALIZED'||b.executionResult!=='SUCCESS'||b.consensusResult!=='MAJORITY_AGREE'))throw Error('Independent semantic re-verification pending or failed');
+ requireSemanticGate(version,createHash('sha256').update(sourceBytes).digest('hex'),benchmark,verified);
  const r=client();await identity(r);
  const source=await safe(()=>r.getContractCode(d.contractAddress));
  if(createHash('sha256').update(source).digest('hex')!==d.sourceSHA256)throw Error('Historical source mismatch');
  const proof={network:'studionet',chainId:61999,version:d.version,address:d.contractAddress,
   sourceCommit:d.sourceCommit,sourceSHA256:d.sourceSHA256,active:false,status:'SUPERSEDED_RECOVERED_ZERO',
-  reason:'OC_V2 S08 violated the frozen conservative conflict rule; OC_V3 failed revalidation; OC_V4 finite semantic gate passed. Historical outcomes are not rewritten.',
+  reason:`OC_V2 S08 violated the frozen conservative conflict rule; OC_V3/OC_V4 failed revalidation; ${version} finite semantic gate passed. Historical outcomes are not rewritten.`,
   at:new Date().toISOString(),cases:{}};
  for(const name of ['affected','unaffected','pending','unpaid']){
   const c=file(`lifecycle-${name}.json`);

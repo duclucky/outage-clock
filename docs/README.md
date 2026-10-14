@@ -3,9 +3,10 @@
 ## Identity
 
 IDEA-043; OutageClock; outage-clock; Intelligent Contracts; SEMANTIC_REVIEW_REQUIRED, admission spec committed before code.
-The working source is the owner-approved OC_V4 component candidate; OC_V2 remains the
+The working source is the OC_V5 relational-scope candidate; OC_V2 remains the
 deployed historical revision until the new semantic and lifecycle gates pass.
-[Scope remediation](SCOPE-REMEDIATION.md) and [component remediation](COMPONENT-REMEDIATION.md)
+[Scope remediation](SCOPE-REMEDIATION.md), [component remediation](COMPONENT-REMEDIATION.md)
+and [relational remediation](RELATIONAL-REMEDIATION.md)
 lock the revised policy, affected safety row, regression checks and execution
 sequence before implementation. OC_V3 failed real-model revalidation and was
 never promoted or funded.
@@ -62,7 +63,7 @@ The actual diagnostic is separate from product execution.
 | Contract count | PASS_ADMISSION | One clock/right/escrow owner; EVM recipient is not a second IC |
 | Differentiation | PASS_ADMISSION | Temporal union/clock rather than incident-credit pool or causal cap |
 | Claim-to-code | PASS_ADMISSION | Filled method/view/test/live-case matrix below |
-| Full lifecycle | PASS_ADMISSION; OC_V4 PENDING_EXECUTION | OC_V2 historical verification.json:4 CLOSED cases,20 parent/3 native,3GEN withdrawn,zero liability; no OC_V4 execution claim yet |
+| Full lifecycle | PASS_ADMISSION; OC_V5 PENDING_EXECUTION | OC_V2 historical verification.json:4 CLOSED cases,20 parent/3 native,3GEN withdrawn,zero liability; no OC_V5 execution claim yet |
 | Scope honesty | PASS_ADMISSION | Reported interval proxy, internal rights, locked incident list; honest limits |
 
 ## Actors, roles and incentives
@@ -169,17 +170,21 @@ scope from quoted data. No signer-string/image/hash is treated as origin evidenc
 ## Consensus design
 
 Leader fetches/validates source before LLM. Expected segment IDs/endpoints derived
-by code. Model returns {classes:{exact_segment_id:enum},reason:string}; enums are
-APPLIES,NOT_APPLIES,UNVERIFIABLE. Strict complete classes, unique JSON keys, no
-missing/extra/duplicate IDs. OC_V4 uses two independent component assessments of
-title granularity, title/body scope, continuation, explicit current recovery and
-internal body conflict. The second never sees the first. Deterministic code
+by code. OC_V5 models return an exact channel acknowledgment and components for
+every interval: title_scope/body_scope relations, separate title/body status,
+body_quote provenance, continuation, explicit current recovery and body conflict.
+Status enums are APPLIES,NOT_APPLIES,UNVERIFIABLE. Strict complete coverage,
+unique JSON keys, no missing/extra/duplicate IDs. The two passes independently
+compare service/operation/mode meanings; the second seeks a counterexample to
+the relation and never sees the first answer. Exact source-span checks establish
+provenance only. Deterministic code
 derives each verdict vector and requires agreement; dissent is UNVERIFIABLE.
 Only opposing definite EXACT title/body scope creates a precedence conflict;
 explicit current recovery can supersede an old outage title. Broad titles do
 not assert all narrower modes. Malformed first output reverts before mutation;
 malformed second output yields all UNVERIFIABLE. Settlement invariants recompute
-classes from the supplied assessments before any state change. A single
+classes from the supplied assessments and verify channel/actual prompt digests
+against locked state before any state change. A single
 UNVERIFIABLE blocks the whole clock. Ignore rationale wording differences. Validator
 rejects non-Return leader, independently fetches/replays and compares exact source
 digest, interval identities/endpoints and complete semantic classes. Legacy

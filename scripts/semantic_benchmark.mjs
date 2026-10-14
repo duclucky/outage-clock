@@ -3,15 +3,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {keccak256} from 'viem';
-import {ROOT,client,actors,identity,file,save,safe,view,balance,fail} from './network.mjs';
+import {ROOT,RPC,client,actors,identity,file,save,safe,view,balance,fail} from './network.mjs';
 import {receipt} from './receipts.mjs';
+import {rpcRead} from './rpc_read.mjs';
 
 try {
  const reader=client(); await identity(reader);
  const revision=process.argv[2]??'OC_V2';
- if(!['OC_V2','OC_V3','OC_V4'].includes(revision))throw Error('Unknown benchmark revision');
+ if(!['OC_V2','OC_V3','OC_V4','OC_V5'].includes(revision))throw Error('Unknown benchmark revision');
  const suffix=revision==='OC_V2'?'':`-v${revision.slice(-1)}`;
- const corpusSuffix=revision==='OC_V2'?'':'-v3';
+ const corpusSuffix=revision==='OC_V2'?'':revision==='OC_V5'?'-v5':'-v3';
  const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${corpusSuffix}.json`),'utf8'));
  const source=fs.readFileSync(path.join(ROOT,'.codex/semantic_probe.py'));
  const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -42,7 +43,7 @@ try {
   let raw;
   for(let poll=0;poll<100;poll++){
    try{
-    raw=await safe(()=>reader.request({method:'eth_getTransactionByHash',params:[batch.transactionHash]}));
+    raw=await rpcRead(RPC,'eth_getTransactionByHash',[batch.transactionHash]);
     Object.assign(batch,receipt(raw,batch.transactionHash));save(name,record);
     if(batch.status==='FINALIZED')break;
    }catch(error){batch.lastPollErrorCode=Number.isInteger(error?.code)?error.code:null;save(name,record);}

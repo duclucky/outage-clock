@@ -1,5 +1,10 @@
 # Implementation and verification ledger
 
+This ledger records the historical OC_V2 implementation/lifecycle. Current
+OC_V5 local verification is447 Python +28 Node =475 passed; its48-run semantic
+campaign and replacement paid lifecycle are pending. See RELATIONAL-REMEDIATION.md.
+The historical payment results below do not establish OC_V5 execution readiness.
+
 Admission preceded product code: IDEA-043 root record and initial specification
 commit355179e has no contracts. Eight safety rows and full authority/value matrices
 were recorded before method implementation. No prior project implementation used.

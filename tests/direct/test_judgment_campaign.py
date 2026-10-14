@@ -6,7 +6,7 @@ import random
 from datetime import datetime, timezone
 
 import pytest
-from test_outage_clock import NOW, ID, clock, j, mock, model, paid, ready, snap, source
+from test_outage_clock import NOW, ID, SCOPE, clock, j, mock, model, paid, ready, snap, source
 
 ENUMS = ("APPLIES", "NOT_APPLIES", "UNVERIFIABLE")
 VECTORS = list(itertools.product(ENUMS, repeat=4))
@@ -56,7 +56,7 @@ def test_all_81_candidate_vectors_require_same_independent_meaning(contract, dir
     # Supply internally consistent components too: rejection must still depend
     # on independent semantic replay, rather than a mismatched local schema.
     assessment = model(candidate["classes"])["intervals"]
-    candidate["assessments"] = [{"intervals": copy.deepcopy(assessment)}, {"intervals": copy.deepcopy(assessment)}]
+    candidate["assessments"] = [{"channel": SCOPE, "intervals": copy.deepcopy(assessment)}, {"channel": SCOPE, "intervals": copy.deepcopy(assessment)}]
     before = snap(contract, lease)
     assert direct_vm.run_validator(leader_result=candidate) is (vector == ("APPLIES",) * 4)
     assert snap(contract, lease) == before

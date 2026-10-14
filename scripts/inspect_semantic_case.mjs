@@ -10,8 +10,9 @@ const plain=value=>value instanceof Map?Object.fromEntries([...value].map(([k,v]
  Array.isArray(value)?value.map(plain):typeof value==='bigint'?Number(value):value;
 try{
  const [revision='OC_V4',caseId='S02',repeat='2']=process.argv.slice(2);
- if(revision!=='OC_V4'||!/^S\d{2}$/.test(caseId)||!['1','2'].includes(repeat))throw Error('Bounded component inspection required');
- const record=file('semantic-benchmark-v4-20261014.json');
+ if(!['OC_V4','OC_V5'].includes(revision)||!/^S\d{2}(T[0-2])?$/.test(caseId)||!['1','2'].includes(repeat))throw Error('Bounded component inspection required');
+ const suffix=`v${revision.slice(-1)}`;
+ const record=file(`semantic-benchmark-${suffix}-20261014.json`);
  const b=record.batches.find(x=>x.repetition===Number(repeat)&&x.caseIds.includes(caseId)&&x.complete);
  if(!b?.results?.length)throw Error('Completed observed case required');
  const r=client();await identity(r);
@@ -23,7 +24,7 @@ try{
  if(!canonical||JSON.stringify(canonical.classes)!==JSON.stringify(stored.observed))throw Error('Canonical verdict changed');
  const code=await safe(()=>r.getContractCode(b.contractAddress));
  if(createHash('sha256').update(code).digest('hex')!==record.diagnosticSHA256)throw Error('Diagnostic source mismatch');
- const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,'tests/data/semantic-scenarios-v3.json'),'utf8'));
+ const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios-${revision==='OC_V5'?'v5':'v3'}.json`),'utf8'));
  if(createHash('sha256').update(JSON.stringify(corpus)).digest('hex')!==record.corpusSHA256)throw Error('Frozen corpus identity changed');
  const expected=corpus.cases.find(x=>x.id===caseId),index=b.caseIds.indexOf(caseId);
  if(JSON.stringify(expected.expected)!==JSON.stringify(stored.expected))throw Error('Stored expectation changed');
@@ -43,6 +44,7 @@ try{
    const normalize=x=>Array.isArray(x)?x.map(normalize):x&&typeof x==='object'?Object.fromEntries(Object.keys(x).sort().map(k=>[k,normalize(x[k])])):x;
    if(JSON.stringify(normalize(result.intervals))!==JSON.stringify(normalize(expected.rows)))throw Error('Reviewed evidence differs from locked corpus');
   }
+  if(revision==='OC_V5'&&(result.channel!==input.scope||result.assessments.some(a=>a&&a.channel!==input.scope)))throw Error('Returned semantic target binding mismatch');
   selected={input,result};break;
  }
  if(!selected)throw Error('Matching leader components not found');
@@ -50,10 +52,11 @@ try{
   canonicalChannel:selected.input.scope,constructorAndEvidenceMatch:true,sourceMatches:true,
   expected:stored.expected,observed:canonical.classes,intervals:expected.rows,
   assessments:selected.result.assessments.map(a=>a===null?null:Object.fromEntries(expected.rows.map(row=>[row.id,a.intervals[row.id]]))),
+  ...(revision==='OC_V5'?{returnedChannel:selected.result.channel,acknowledgedChannels:selected.result.assessments.map(a=>a?.channel??null),promptSHA256:selected.result.prompt_digests}:{}),
   sourceDigest:selected.result.source_digest,valueGEN:'0',custody:false,productionFundsAffected:false,
   nativeBalanceGEN:await balance(r,b.contractAddress),at:new Date().toISOString()};
  if(proof.nativeBalanceGEN!=='0')throw Error('Diagnostic balance must be zero');
- const name=`semantic-${caseId}-v4-20261014.json`;
+ const name=`semantic-${caseId}-${suffix}-20261014.json`;
  save(name,proof);
  console.log(JSON.stringify(proof));
 }catch(error){fail(error);}

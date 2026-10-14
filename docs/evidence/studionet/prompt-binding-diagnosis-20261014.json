@@ -1,0 +1,209 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "sourceSHA256": "607814a91a5740903dfbc66f8a297a94c5d840eb18a87cdf3b474fcd326f2295",
+  "casesSHA256": "b2edd4245281d2d166d67fe53d6bd20d708bf83737f946d0cabae6f6ab0687c0",
+  "valueGEN": "0",
+  "custody": false,
+  "batches": [
+    {
+      "caseIds": [
+        "S02T0",
+        "S02T1",
+        "S02T2"
+      ],
+      "transactionHash": "0xd2320b92721cfec3b8f8c5bbae12fdc42ad8afd0e2aa8d2128662560377764b4",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xa9bA4bE6Cc6bE0435799C7489E47AF77bb14f816",
+      "lastPollErrorCode": -1,
+      "results": [
+        {
+          "id": "S02T0",
+          "scope": "Fetch current organization Costs data through the Compliance API.",
+          "rows": [
+            {
+              "id": "E02:U00",
+              "start": 0,
+              "end": 100,
+              "status": "identified",
+              "title": "GPT-6.1 Sol Codex performance",
+              "body": "Codex requests to GPT-6.1 Sol are slower. No other product is affected."
+            }
+          ],
+          "expected": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E02:U00": "APPLIES"
+          },
+          "promptArgumentsMatch": true,
+          "promptSHA256": [
+            "6301e783081b959232dc5ae3bda7022a59af30f7d5fc3d68971d941c1e22bafa",
+            "e88d0af20e6ed3002b106e8e3a0d7cbb501ee87dbc2598926f610ea5b64d4ed8"
+          ],
+          "exactMatch": false
+        },
+        {
+          "id": "S02T1",
+          "scope": "Execute GPT-6.1 Sol requests in Codex.",
+          "rows": [
+            {
+              "id": "E02:U00",
+              "start": 0,
+              "end": 100,
+              "status": "identified",
+              "title": "GPT-6.1 Sol Codex performance",
+              "body": "Codex requests to GPT-6.1 Sol are slower. No other product is affected."
+            }
+          ],
+          "expected": {
+            "E02:U00": "APPLIES"
+          },
+          "observed": {
+            "E02:U00": "APPLIES"
+          },
+          "promptArgumentsMatch": true,
+          "promptSHA256": [
+            "31944bb8c032fd1c842961b56abc11f496faff3b2fc4c1610e0a596fcec9fe0e",
+            "72cea4e5b7efe41a94af57c8fdc82178d3e91dd27338c76467b222632499edbb"
+          ],
+          "exactMatch": true
+        },
+        {
+          "id": "S02T2",
+          "scope": "Use realtime audio sessions.",
+          "rows": [
+            {
+              "id": "E02:U00",
+              "start": 0,
+              "end": 100,
+              "status": "identified",
+              "title": "GPT-6.1 Sol Codex performance",
+              "body": "Codex requests to GPT-6.1 Sol are slower. No other product is affected."
+            }
+          ],
+          "expected": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E02:U00": "UNVERIFIABLE"
+          },
+          "promptArgumentsMatch": true,
+          "promptSHA256": [
+            "e2d93530dce6a1dbea38f084c6db8e3197adac03b681a1e6d9c7885edace01b9",
+            "5a9d743747b3b0b5a03cd917b8c1e8ead4f7599de76ccab6b6c0935373ad6971"
+          ],
+          "exactMatch": false
+        }
+      ],
+      "nativeBalanceGEN": "0",
+      "complete": true
+    },
+    {
+      "caseIds": [
+        "S01T0",
+        "S01T1",
+        "S01T2"
+      ],
+      "transactionHash": "0x5d4e5daebdde87340ddc6b67ee10e841e70618c8533010e36130bcf2664ea90a",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xbdc3D57171F95BaE74C3E8Dc0D7fd1c6Cf1FaABC",
+      "lastPollErrorCode": -1,
+      "results": [
+        {
+          "id": "S01T0",
+          "scope": "Fetch current organization Costs data through the Compliance API.",
+          "rows": [
+            {
+              "id": "E01:U00",
+              "start": 0,
+              "end": 100,
+              "status": "identified",
+              "title": "Compliance API Costs delayed",
+              "body": "Fresh organization Costs records are delayed in the Compliance API."
+            }
+          ],
+          "expected": {
+            "E01:U00": "APPLIES"
+          },
+          "observed": {
+            "E01:U00": "APPLIES"
+          },
+          "promptArgumentsMatch": true,
+          "promptSHA256": [
+            "ff7c8fdc64ceb299b1b847baa215d68df9faf1b75338ba5a2849f0b6d047cfa8",
+            "fa030ccdd85120afb240d94fe5c5a0feac133be749115e895e2d93c72dcf4021"
+          ],
+          "exactMatch": true
+        },
+        {
+          "id": "S01T1",
+          "scope": "Execute GPT-6.1 Sol requests in Codex.",
+          "rows": [
+            {
+              "id": "E01:U00",
+              "start": 0,
+              "end": 100,
+              "status": "identified",
+              "title": "Compliance API Costs delayed",
+              "body": "Fresh organization Costs records are delayed in the Compliance API."
+            }
+          ],
+          "expected": {
+            "E01:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E01:U00": "NOT_APPLIES"
+          },
+          "promptArgumentsMatch": true,
+          "promptSHA256": [
+            "750198f3c05e5fef6bbf62bccedf7ab552e3d32acdf32b91b87e032033dffd7d",
+            "390d6de3d90d31cc5c0313daf905741c157e7fb4a3d6fbe6c82cdb9570e41b4a"
+          ],
+          "exactMatch": true
+        },
+        {
+          "id": "S01T2",
+          "scope": "Use realtime audio sessions.",
+          "rows": [
+            {
+              "id": "E01:U00",
+              "start": 0,
+              "end": 100,
+              "status": "identified",
+              "title": "Compliance API Costs delayed",
+              "body": "Fresh organization Costs records are delayed in the Compliance API."
+            }
+          ],
+          "expected": {
+            "E01:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E01:U00": "NOT_APPLIES"
+          },
+          "promptArgumentsMatch": true,
+          "promptSHA256": [
+            "34aed7ba5531345533696c737b801a76aa58b5827d4545b60786705557908ca5",
+            "aa238514b5e3ced96a3345c408fffcd667651b73fcc670f68727aeb1648e7993"
+          ],
+          "exactMatch": true
+        }
+      ],
+      "nativeBalanceGEN": "0",
+      "complete": true
+    }
+  ],
+  "planned": 6,
+  "summary": {
+    "planned": 6,
+    "observed": 6,
+    "exact": 4,
+    "promptArgumentsMatch": true,
+    "absoluteFutureAccuracyProven": false
+  },
+  "at": "2026-10-14T15:20:19.727Z"
+}

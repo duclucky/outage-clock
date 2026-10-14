@@ -1,5 +1,9 @@
 # OC_V4 acceptance audit - HOLD
 
+OC_V5 continuation: the relational correction is locally verified,475 checks.
+Its48-run semantic campaign is pending; the production and submission blockers
+below remain. See RELATIONAL-REMEDIATION.md. This retained OC_V4 audit is historical.
+
 This is the current audit. Earlier DONE/PASS snapshots are historical and do
 not establish OC_V4 submission readiness. Master prompt was re-read in full
 (484lines,SHA25635dbb0cb0b7ea756e9fbc4eee92938f5b024070bc6e494e07a8bd8c331dfc18f).

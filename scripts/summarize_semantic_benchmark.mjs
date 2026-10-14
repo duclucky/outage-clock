@@ -8,9 +8,9 @@ import {receipt} from './receipts.mjs';
 try{
  const r=client();await identity(r);
  const revision=process.argv[2]??'OC_V2';
- if(!['OC_V2','OC_V3','OC_V4'].includes(revision))throw Error('Unknown benchmark revision');
+ if(!['OC_V2','OC_V3','OC_V4','OC_V5'].includes(revision))throw Error('Unknown benchmark revision');
  const suffix=revision==='OC_V2'?'':`-v${revision.slice(-1)}`;
- const corpusSuffix=revision==='OC_V2'?'':'-v3';
+ const corpusSuffix=revision==='OC_V2'?'':revision==='OC_V5'?'-v5':'-v3';
  const record=file(`semantic-benchmark${suffix}-20261014.json`);
  if(!record?.complete)throw Error('Benchmark must finish first');
  const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${corpusSuffix}.json`),'utf8'));

@@ -9,10 +9,16 @@ import copy
 import hashlib
 import json
 import textwrap
+import argparse
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-source = (ROOT / "contracts/outage_clock.py").read_text(encoding="ascii")
+parser = argparse.ArgumentParser()
+parser.add_argument("--source-ref", help="Reproduce a historical diagnostic from this repository's Git ref")
+args = parser.parse_args()
+source = (subprocess.check_output(["git", "show", args.source_ref + ":contracts/outage_clock.py"], cwd=ROOT).decode("ascii") if args.source_ref else
+          (ROOT / "contracts/outage_clock.py").read_text(encoding="ascii"))
 module = ast.parse(source)
 contract = next(n for n in module.body if isinstance(n, ast.ClassDef) and n.name == "OutageClock")
 review = next(n for n in contract.body if isinstance(n, ast.FunctionDef) and n.name == "review_clock")
@@ -39,8 +45,9 @@ probe += '''class OutageSemanticProbe(gl.Contract):
 '''
 probe += textwrap.indent(decision_code, "            ") + "\n"
 probe += textwrap.indent(validator_code, "            ") + "\n"
+critical_call = "_critical(result, scope)" if len(next(n for n in module.body if isinstance(n, ast.FunctionDef) and n.name == "_critical").args.args) == 2 else "_critical(result)"
 probe += '''            result = gl.vm.run_nondet(leader, validator)
-            _critical(result)
+            ''' + critical_call + '''
             reports.append({"id": case["id"], "classes": result["classes"],
                 "reason": result["reason"], "source_digest": result["source_digest"]})
         self.report = json.dumps(reports, sort_keys=True)
