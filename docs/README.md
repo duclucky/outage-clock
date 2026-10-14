@@ -9,6 +9,9 @@ deployed historical revision until the new semantic and lifecycle gates pass.
 lock the revised policy, affected safety row, regression checks and execution
 sequence before implementation. OC_V3 failed real-model revalidation and was
 never promoted or funded.
+OC_V4's completed benchmark matched35/36, including S08 twice, but S02 falsely
+applied unrelated Codex evidence to the Costs channel. SEMANTIC_REVIEW_REQUIRED
+remains; production promotion/new payment lifecycle are blocked by that failure.
 Studionet61999 expressly selected by owner in this chat, also permitted by current
 D1 after verified Studio Dev unavailability. This project does not edit shared D1.
 Public repo https://github.com/duclucky/outage-clock created. No product source from an existing project is reused.

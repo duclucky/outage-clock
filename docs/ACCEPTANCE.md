@@ -3,6 +3,10 @@
 Follow-up: the real-model S08 benchmark disagrees with the locked conservative
 policy despite full consensus. Static0BLOCKER does not establish semantic accuracy
 or override this finding. Submission readiness is suspended; see JUDGMENT-CAMPAIGN.md.
+OC_V4 revalidation ended35/36 exact with one unsafe S02 false positive. Both
+`node scripts/studionet.mjs` and `node scripts/archive_v2.mjs` returned exit1;
+the active OC_V2 deployment file remained unchanged. No new production revision
+or paid lifecycle ran. See evidence/studionet/promotion-block-v4-20261014.json.
 
 The original workspace grader was executed with PowerShell7, the pinned project
 venv first on PATH, PYTHONUTF8=1 and GENVM_VERSION=v0.2.16. No check was skipped.

@@ -1,10 +1,11 @@
 # OutageClock
 
 > SEMANTIC REVIEW REQUIRED (2026-10-14): the expanded real-model synthetic
-> benchmark found a definite answer on a contradictory-scope case S08 where the
-> locked conservative policy requires UNVERIFIABLE. Existing payment/lifecycle
-> evidence remains valid; semantic submission readiness is suspended pending
-> correction and revalidation. See docs/JUDGMENT-CAMPAIGN.md.
+> OC_V4 fixed S08 on the frozen corpus but failed S02 in its second repetition:
+> a Codex-only incident was incorrectly applied to the locked Costs channel.
+> Result:35/36 exact,1 unsafe definite mismatch despite MAJORITY_AGREE.
+> Promotion and new payments are blocked; OC_V2 payment evidence is historical.
+> See docs/COMPONENT-REMEDIATION.md and docs/JUDGMENT-CAMPAIGN.md.
 
 Reusable GenLayer Intelligent Contract for a paid, one-use protocol entitlement
 whose exercise deadline can be extended by agreed official disruption intervals.
@@ -28,7 +29,7 @@ The working tree contains the owner-approved OC_V4 component candidate. Its
 independent title/body assessments and deterministic conflict rules are specified
 in [the remediation plan](docs/COMPONENT-REMEDIATION.md). OC_V3 failed real-model
 revalidation and was never promoted or funded. OC_V2 remains the deployed
-historical revision until new semantic and paid lifecycle verification complete.
+historical revision. OC_V4 failed the semantic gate and was not promoted or funded.
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
 `npm run check`. The OC_V4 local run passed430 Python direct cases,13 receipt cases
@@ -108,6 +109,9 @@ supersedes submission readiness. It is not Portal acceptance or an official scor
 from real-model synthetic GenVM evaluation. The production contract source remains
 unchanged. A dedicated common-mode-error witness confirms that passing consensus
 cannot guarantee semantic truth when all interpreters/critics share a mistake.
-The completed real-model campaign observed24 of24 case runs:22 matched the frozen
-rubric and S08 failed in both repetitions, despite MAJORITY_AGREE. Semantic
-readiness remains HOLD. No universal accuracy claim is made.
+Historical OC_V2 observed24 of24 case runs:22 matched and S08 failed twice.
+OC_V3 matched29/36 planned runs with4 conservative abstentions and3 unobserved
+runs due to one dissenting batch. OC_V4 observed36/36 and matched35, with an
+unsafe definite S02 mismatch in repetition2. S08 matched in both OC_V4 runs.
+Readiness remains HOLD; no universal accuracy claim is made. [Current local CI](https://github.com/duclucky/outage-clock/actions/runs/38579351468)
+passed445 protocol checks and does not override the semantic failure.

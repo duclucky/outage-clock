@@ -1,0 +1,59 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V4",
+  "caseId": "S02",
+  "repetition": 2,
+  "transactionHash": "0x928b0e2eb50deead0ab46d97b467907dbcc6b9fafcb07624292dfd7276abf23d",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "contractAddress": "0xFF3FD25a690059C3034f22Fbb014a9496D869657",
+  "canonicalChannel": "Fetch current organization Costs data through the Compliance API.",
+  "constructorAndEvidenceMatch": true,
+  "sourceMatches": true,
+  "expected": {
+    "E02:U00": "NOT_APPLIES"
+  },
+  "observed": {
+    "E02:U00": "APPLIES"
+  },
+  "intervals": [
+    {
+      "id": "E02:U00",
+      "start": 0,
+      "end": 100,
+      "status": "identified",
+      "title": "GPT-6.1 Sol Codex performance",
+      "body": "Codex requests to GPT-6.1 Sol are slower. No other product is affected."
+    }
+  ],
+  "assessments": [
+    {
+      "E02:U00": {
+        "body": "APPLIES",
+        "body_conflict": false,
+        "generic": false,
+        "recovery": false,
+        "title": "APPLIES",
+        "title_scope": "EXACT"
+      }
+    },
+    {
+      "E02:U00": {
+        "body": "APPLIES",
+        "body_conflict": false,
+        "generic": false,
+        "recovery": false,
+        "title": "APPLIES",
+        "title_scope": "EXACT"
+      }
+    }
+  ],
+  "sourceDigest": "b6b5c95570802be9fafdedde334962e24d5ba76e75fa5f1d12a5340fac346fe1",
+  "valueGEN": "0",
+  "custody": false,
+  "productionFundsAffected": false,
+  "nativeBalanceGEN": "0",
+  "at": "2026-10-14T14:40:13.106Z"
+}

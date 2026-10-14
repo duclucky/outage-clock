@@ -2,6 +2,11 @@
 
 The original PASS table below is historical and superseded for semantic correctness
 by the S08 finding at the end. Structural and payment proofs remain valid.
+OC_V4 subsequently fixed the tested S08 labels but produced an unsafe definite
+S02 false positive (35/36 exact). Both component assessments called unrelated
+Codex evidence EXACT/APPLIES for the locked Compliance API Costs channel.
+Constructor, source and view bindings were independently rechecked. Production
+promotion and paid lifecycle remain blocked; no corrected-deployment claim.
 
 One active OutageClock source, eight writes and six views; contract-only Intelligent
 Contracts. No user-facing app, Vercel, consumer mirror or previously submitted code

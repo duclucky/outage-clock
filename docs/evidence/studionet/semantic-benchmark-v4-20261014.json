@@ -1,0 +1,750 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V4",
+  "valueGEN": "0",
+  "custody": false,
+  "kind": "SYNTHETIC_CORPUS_REAL_GENVM_FULL_CONSENSUS",
+  "corpusSHA256": "0a57f089b41cdc37c281834be7664f6bddabbfe793a5775967c726f8162e3a0e",
+  "diagnosticSHA256": "59743db75ee39b4dd7bdb71db2a0453e5dae55d00a21980af60d925ef742064d",
+  "productionSHA256": "4d28c51a67234ba32e5913bd11146ca8ee2c0a3dc7cf75ab8e044e40f1755a51",
+  "repetitions": 2,
+  "scenarios": 18,
+  "batches": [
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0xbed475ba24b25cc8f63c6fad8941058e21c1bc96baf3420ca53fadae276187d5",
+      "signedAt": "2026-10-14T13:57:51.636Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xB0754031E0b80c70E351E69a86Df85aF85e96351",
+      "results": [
+        {
+          "id": "S01",
+          "expected": {
+            "E01:U00": "APPLIES"
+          },
+          "observed": {
+            "E01:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E01:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S02",
+          "expected": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E02:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S03",
+          "expected": {
+            "E03:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E03:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E03:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:00:05.946Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x26ccb0c6c13abd693fe43bd06ae11200ba8e22465384f9126dc84224331f6fe4",
+      "signedAt": "2026-10-14T14:00:11.137Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xEaa10e4A908138Db7931d86B64D02aEc78a6fFE9",
+      "results": [
+        {
+          "id": "S04",
+          "expected": {
+            "E04:U00": "APPLIES"
+          },
+          "observed": {
+            "E04:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E04:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S05",
+          "expected": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E05:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S06",
+          "expected": {
+            "E06:U00": "APPLIES"
+          },
+          "observed": {
+            "E06:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E06:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:02:05.262Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x920d7f196af3ff07d4cc56f9ebbfacc49ceacaddef7c87c1eb32e41c041f7578",
+      "signedAt": "2026-10-14T14:02:07.541Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x54e47ff268A85ea730606C7B949F4EE9D000df61",
+      "results": [
+        {
+          "id": "S07",
+          "expected": {
+            "E07:U00": "APPLIES"
+          },
+          "observed": {
+            "E07:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E07:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S08",
+          "expected": {
+            "E08:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E08:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E08:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S09",
+          "expected": {
+            "E09:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E09:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E09:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:03:47.278Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0xc083c7ed05133d2b783f1e05552cf3050e2f13a096561788b27a389d2fe81ec5",
+      "signedAt": "2026-10-14T14:04:12.014Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x30C760531051C8f14BCBc2F73C9eF282394eDe13",
+      "results": [
+        {
+          "id": "S10",
+          "expected": {
+            "E10:U00": "APPLIES"
+          },
+          "observed": {
+            "E10:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E10:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S11",
+          "expected": {
+            "E11:U00": "APPLIES"
+          },
+          "observed": {
+            "E11:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E11:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S12",
+          "expected": {
+            "E12:U00": "APPLIES",
+            "E12:U01": "NOT_APPLIES",
+            "E12:U02": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E12:U00": "APPLIES",
+            "E12:U01": "NOT_APPLIES",
+            "E12:U02": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E12:U00\": \"APPLIES\", \"E12:U01\": \"NOT_APPLIES\", \"E12:U02\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:09:42.132Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0xaccdd2ae966af4009e00b9c84ef3f070be066f750c536e65ee85ca6bbe282b94",
+      "signedAt": "2026-10-14T14:09:49.940Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xB50491276E2B4ef9E107D9f5b55715Ce2c610F72",
+      "lastPollErrorCode": -1,
+      "results": [
+        {
+          "id": "S13",
+          "expected": {
+            "E13:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E13:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E13:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S14",
+          "expected": {
+            "E14:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E14:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E14:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S15",
+          "expected": {
+            "E15:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E15:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E15:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:12:58.244Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S16",
+        "S17",
+        "S18"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x458bf668f651e9da593996b631ecc36ed537ca683179482566c96609a55e4295",
+      "signedAt": "2026-10-14T14:13:03.740Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x01393bb327b5331798235163dbDd8DaB6A6Ac979",
+      "results": [
+        {
+          "id": "S16",
+          "expected": {
+            "E16:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E16:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E16:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S17",
+          "expected": {
+            "E17:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E17:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E17:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S18",
+          "expected": {
+            "E18:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E18:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E18:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:16:26.420Z"
+    },
+    {
+      "repetition": 2,
+      "caseIds": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x928b0e2eb50deead0ab46d97b467907dbcc6b9fafcb07624292dfd7276abf23d",
+      "signedAt": "2026-10-14T14:16:27.699Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xFF3FD25a690059C3034f22Fbb014a9496D869657",
+      "lastPollErrorCode": -1,
+      "results": [
+        {
+          "id": "S01",
+          "expected": {
+            "E01:U00": "APPLIES"
+          },
+          "observed": {
+            "E01:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E01:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S02",
+          "expected": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E02:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E02:U00\": \"APPLIES\"}",
+          "exactMatch": false,
+          "unsafeDefinite": true,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S03",
+          "expected": {
+            "E03:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E03:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E03:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:20:22.941Z"
+    },
+    {
+      "repetition": 2,
+      "caseIds": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x79aab4a134a04042f66789c3715c893ab4975b5c58a180f6701fa70d38467036",
+      "signedAt": "2026-10-14T14:20:35.079Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xaC04f250Ef8674cbfE19DbE55cD98D097f72480f",
+      "results": [
+        {
+          "id": "S04",
+          "expected": {
+            "E04:U00": "APPLIES"
+          },
+          "observed": {
+            "E04:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E04:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S05",
+          "expected": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E05:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S06",
+          "expected": {
+            "E06:U00": "APPLIES"
+          },
+          "observed": {
+            "E06:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E06:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:22:21.622Z"
+    },
+    {
+      "repetition": 2,
+      "caseIds": [
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x42623b8b7291fdfa56ba0f14722c6b92b63165a95bb37b074cefc78f2e409b62",
+      "signedAt": "2026-10-14T14:22:31.609Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x479fAC945975e4bc5510e4563FA6bC7CB16E6820",
+      "results": [
+        {
+          "id": "S07",
+          "expected": {
+            "E07:U00": "APPLIES"
+          },
+          "observed": {
+            "E07:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E07:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S08",
+          "expected": {
+            "E08:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E08:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E08:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S09",
+          "expected": {
+            "E09:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E09:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E09:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:24:21.106Z"
+    },
+    {
+      "repetition": 2,
+      "caseIds": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x3fee673e0d9c5e1588f3bca951f4725f7c7668832b9cc6c5b375804e87dde0e0",
+      "signedAt": "2026-10-14T14:24:31.514Z",
+      "reconciliation": {
+        "at": "2026-10-14T14:28:12.436Z",
+        "lookupErrorCode": -32001,
+        "currentNonce": "1198",
+        "reconstructedHashMatches": true,
+        "exactOriginalHashOnly": true
+      },
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xb8d30D8d352370C4E70E4754ac9B306e744510f8",
+      "results": [
+        {
+          "id": "S10",
+          "expected": {
+            "E10:U00": "APPLIES"
+          },
+          "observed": {
+            "E10:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E10:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S11",
+          "expected": {
+            "E11:U00": "APPLIES"
+          },
+          "observed": {
+            "E11:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E11:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S12",
+          "expected": {
+            "E12:U00": "APPLIES",
+            "E12:U01": "NOT_APPLIES",
+            "E12:U02": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E12:U00": "APPLIES",
+            "E12:U01": "NOT_APPLIES",
+            "E12:U02": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E12:U00\": \"APPLIES\", \"E12:U01\": \"NOT_APPLIES\", \"E12:U02\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:29:41.024Z"
+    },
+    {
+      "repetition": 2,
+      "caseIds": [
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0x6178843d95551c5e8fb33936ccbbace63e2cb245a78f3754b12ebb07a6b8ab21",
+      "signedAt": "2026-10-14T14:29:48.565Z",
+      "reconciliation": {
+        "at": "2026-10-14T14:30:52.785Z",
+        "lookupErrorCode": -32001,
+        "currentNonce": "1199",
+        "reconstructedHashMatches": true,
+        "exactOriginalHashOnly": true
+      },
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x0bdA7daa57b4C99f47636cAf149F38e1e37688E5",
+      "lastPollErrorCode": -1,
+      "results": [
+        {
+          "id": "S13",
+          "expected": {
+            "E13:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E13:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E13:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S14",
+          "expected": {
+            "E14:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E14:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E14:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S15",
+          "expected": {
+            "E15:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E15:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E15:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:32:31.816Z"
+    },
+    {
+      "repetition": 2,
+      "caseIds": [
+        "S16",
+        "S17",
+        "S18"
+      ],
+      "valueGEN": "0",
+      "transactionHash": "0xdf37aa087b2a8a66f4da8517339209aa4e283a62202a2ff365b8dae0dbb2e140",
+      "signedAt": "2026-10-14T14:32:36.625Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x5E8B852df07D2a8f74a83f90451e6d29D85aFb49",
+      "lastPollErrorCode": -1,
+      "results": [
+        {
+          "id": "S16",
+          "expected": {
+            "E16:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E16:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E16:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S17",
+          "expected": {
+            "E17:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E17:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E17:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S18",
+          "expected": {
+            "E18:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E18:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E18:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T14:36:30.835Z"
+    }
+  ],
+  "startedAt": "2026-10-14T13:57:49.990Z",
+  "summary": {
+    "plannedCaseRuns": 36,
+    "completedCaseRuns": 36,
+    "unobservedDueToBatchFailure": 0,
+    "exactMatches": 35,
+    "unsafeDefinite": 1,
+    "conservativeAbstentions": 0,
+    "failedBatches": 0,
+    "absoluteFutureAccuracyProven": false
+  },
+  "complete": true,
+  "finishedAt": "2026-10-14T14:36:30.836Z"
+}

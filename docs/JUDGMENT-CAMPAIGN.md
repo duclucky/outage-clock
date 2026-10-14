@@ -1,5 +1,11 @@
 # Judgment verification campaign
 
+This document preserves the OC_V2 baseline. Subsequent owner-approved OC_V3 and
+OC_V4 revalidation is recorded in [component remediation](COMPONENT-REMEDIATION.md):
+OC_V3 matched29/36 planned runs; OC_V4 matched35/36 with one unsafe S02 false
+positive despite majority agreement. S08 was corrected in the tested V4 runs,
+but semantic readiness remains HOLD. Historical counts below are not V4 counts.
+
 This campaign tests the existing OC_V2 without modifying its production source.
 It cannot establish absolute accuracy for every future incident/model/provider.
 The question is finite robustness, measured synthetic semantic behavior and

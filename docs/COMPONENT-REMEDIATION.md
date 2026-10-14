@@ -92,3 +92,56 @@ exact-source production deployment and the new paid lifecycle verification.
 Public OC_V4 candidate CI passed445 cases at commit276efa4:
 https://github.com/duclucky/outage-clock/actions/runs/38576285523.
 CI is structural evidence; the36-run semantic gate remains independently binding.
+
+## Completed OC_V4 result: FAIL / HOLD
+
+`node scripts/semantic_benchmark.mjs OC_V4` completed all12 batches and36 runs:
+35 exact matches,1 unsafe definite mismatch,0 conservative abstentions,
+0 failed batches and0 unobserved cases. All12 batches finalized with SUCCESS /
+MAJORITY_AGREE. The command returned exit1 because the semantic gate failed.
+S08, S15, S16 and S17 matched in both repetitions. S02 differed between runs:
+NOT_APPLIES first, APPLIES second. No label, corpus, source or grader was relaxed.
+
+S02's locked channel is "Fetch current organization Costs data through the
+Compliance API." Its synthetic title is "GPT-6.1 Sol Codex performance" and body
+"Codex requests to GPT-6.1 Sol are slower. No other product is affected."
+Expected NOT_APPLIES, observed APPLIES in repetition2. Both independent semantic
+assessments returned title_scope=EXACT, title=APPLIES and body=APPLIES with all
+flags false. Deterministic derivation faithfully computed the wrong class from
+these wrong semantic premises. This is a common-mode interpretation failure;
+matching enums, component shape and majority agreement cannot detect it alone.
+
+`node scripts/inspect_semantic_case.mjs OC_V4 S02 2` returned exit0 and verified:
+constructor channel/evidence match the frozen corpus, exact deployed diagnostic
+source matches, canonical view equals the stored APPLIES verdict, decoded
+component result matches, and actual diagnostic native balance is0GEN.
+Only explicitly projected semantic fields were saved; no validator configuration
+or execution stdout/stderr was published. [S02 proof](evidence/studionet/semantic-S02-v4-20261014.json)
+and [all results](evidence/studionet/semantic-benchmark-v4-20261014.json).
+
+Two broadcast RPC failures were reconciled against the original persisted hash
+and unchanged nonce. Only a reconstructed signed transaction with the exact
+original hash was rebroadcast; a hash mismatch would have aborted. They were
+not new adjudication attempts or excluded observations. Full receipts/results
+remain in the same36-run denominator.
+
+`node scripts/studionet.mjs`:exit1; `node scripts/archive_v2.mjs`:exit1. The
+active deployment identity remained byte-for-byte unchanged, pointing to OC_V2.
+[Promotion-block proof](evidence/studionet/promotion-block-v4-20261014.json).
+No OC_V3/OC_V4 production contract was promoted, no GEN was deposited into any
+diagnostic, no replacement paid lifecycle was run, and no Portal form was submitted.
+Local445-test passes and historical V2 payments remain valid within their scopes.
+
+The required correction is not proven complete. Production behavior stays on
+HOLD. Further work must address cross-service semantic grounding or an explicitly
+approved bounded scope policy; repeatedly tuning prompts until these same cases
+pass would not prove all future judgments or erase this observed counterexample.
+
+`node scripts/summarize_semantic_benchmark.mjs OC_V4` returned exit1 and
+REVIEW_REQUIRED after fresh read-only verification of all12 receipts, exact
+diagnostic sources, canonical reports and zero diagnostic balances. Interval
+labels matched39/40;17/18cases were stable across two repetitions. Production
+source unchanged;3GEN received,3GEN withdrawn,0GEN credit/escrow/liability/native.
+[Read-only verification](evidence/studionet/semantic-benchmark-verification-v4-20261014.json).
+The master prompt was re-read in full; the [current31-item audit](REMEDIATION-ACCEPTANCE.md)
+marks the blocked steps explicitly. No skipped gate is disguised as DONE.

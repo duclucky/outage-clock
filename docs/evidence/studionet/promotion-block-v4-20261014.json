@@ -1,0 +1,37 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V4",
+  "at": "2026-10-14T14:40:08.451Z",
+  "semanticGate": "FAIL",
+  "planned": 36,
+  "exact": 35,
+  "commands": [
+    {
+      "command": "node scripts/studionet.mjs",
+      "exitCode": 1,
+      "safeOutput": {
+        "failed": true,
+        "errorType": "Error",
+        "rpcErrorCode": null,
+        "detail": "Inspect safe persisted operation state; no automatic replay."
+      }
+    },
+    {
+      "command": "node scripts/archive_v2.mjs",
+      "exitCode": 1,
+      "safeOutput": {
+        "failed": true,
+        "errorType": "Error",
+        "rpcErrorCode": null,
+        "detail": "Inspect safe persisted operation state; no automatic replay."
+      }
+    }
+  ],
+  "activeDeploymentUnchanged": true,
+  "activeVersion": "OC_V2",
+  "activeAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "newCandidateProductionDeployment": false,
+  "candidatePaidLifecycle": "NOT_RUN_GATE_FAILED",
+  "noGenDepositInDiagnostics": true
+}
