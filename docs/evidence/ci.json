@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/duclucky/outage-clock/actions/runs/38510219155",
+  "runId": 38510219155,
+  "headCommit": "0216090184902b5bd6f1902c44b00cf9b3bb0a87",
+  "status": "completed",
+  "conclusion": "success",
+  "productionContracts": 1,
+  "directTests": 105,
+  "receiptTests": 13,
+  "toolTests": 2,
+  "totalTests": 120,
+  "skipped": 0,
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31"
+}

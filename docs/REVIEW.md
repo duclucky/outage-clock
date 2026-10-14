@@ -38,7 +38,12 @@ One static payability warning is expected for private _no_value, which explicitl
 rejects value on nonpayable methods. Only public accept receives value; AST and
 actual deployed schema both prove payable metadata. Do not make the helper payable
 or weaken the grader. Full unchanged acceptance:0BLOCKER,1 reviewed WARN; npmcheck and gltest PASS,
-all four grade gates PASS. Public repo and successful initial CI verified.
+all four grade gates PASS. Public repo and successful CI for all120 cases verified.
 Windows PowerShell5.1 stderr behavior required project output routing plus
 PowerShell7 for the complete local orchestrator, preserving all checks and exit
 codes. See [Microsoft native output behavior](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.5).
+
+Residual risk: validators and the consistency reviewer can share interpretation
+errors. V1 is a concrete observed example; V2 guards and tests reduce that risk
+without proving semantic truth for every future incident. The protocol deliberately
+claims agreed reported-time treatment, not measured service availability.

@@ -11,9 +11,9 @@ hard recovery refunds the actual buyer1GEN. Only own-wallet credits are withdraw
 Category: Intelligent Contracts. Owner-selected Studionet61999. No app/frontend.
 One ASCII `OutageClock`,8writes/6views; pinned matched v0.2.16 runner and SDK1.1.8.
 V2 deployment and all four real lifecycle cases are complete. Local tests and
-actual network receipts are separate evidence. [Public repository](https://github.com/duclucky/outage-clock) and an initial
-[successful CI run](https://github.com/duclucky/outage-clock/actions/runs/38509545893)
-are available; the new output-compatibility regressions are verified locally.
+actual network receipts are separate evidence. [Public repository](https://github.com/duclucky/outage-clock) and a
+[successful CI run](https://github.com/duclucky/outage-clock/actions/runs/38510219155)
+verify all 120 cases.
 
 ## Validate
 
@@ -80,3 +80,9 @@ and 0 GEN actual native balance. [Independent verification](docs/evidence/studio
 boundaries and versioned Studionet compatibility. `node scripts/recover_flagged.mjs`
 is now read-only and re-verifies the recovered historical V1; it cannot operate
 against the active V2 or send another transaction.
+
+
+[Portal fields](docs/SUBMISSION.md) contain the860-character English description,
+repo/explorer/CI links and actual lifecycle summary. [Acceptance](docs/ACCEPTANCE.md):
+original grader0BLOCKER,1 reviewed helper WARN; npmcheck/gltest and all four grade
+gates PASS. This is readiness evidence, not Portal acceptance or an official score.

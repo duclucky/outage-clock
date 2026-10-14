@@ -294,7 +294,7 @@ but no right is claimed to predate acceptance. Exact locked incident set is not
 exhaustive history. Reporting-timestamp proxy is not measured customer downtime.
 Status source controls its published facts; disappearing/changed feed can force
 retry/refund.2..16updates/incident,1..3incidents,3attempts,one1GEN right. No browser
-app, external gateway execution, legal right or adopter. Four real lifecycle cases verified; public repo and successful initial CI verified.
+app, external gateway execution, legal right or adopter. Four real lifecycle cases verified; public repo and successful CI for all120 cases verified.
 
 ## Kill criteria
 
