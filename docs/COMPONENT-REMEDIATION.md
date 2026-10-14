@@ -88,3 +88,7 @@ Next commands: `node scripts/semantic_benchmark.mjs OC_V4`, then read-only
 `node scripts/summarize_semantic_benchmark.mjs OC_V4`. No new model output
 had been observed at this local checkpoint. HOLD remains pending these checks,
 exact-source production deployment and the new paid lifecycle verification.
+
+Public OC_V4 candidate CI passed445 cases at commit276efa4:
+https://github.com/duclucky/outage-clock/actions/runs/38576285523.
+CI is structural evidence; the36-run semantic gate remains independently binding.

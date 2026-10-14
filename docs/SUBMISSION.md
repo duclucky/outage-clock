@@ -1,5 +1,9 @@
 # Portal draft - HOLD / SEMANTIC REVIEW REQUIRED / NOT SUBMITTED
 
+The fields below are the historical OC_V2 draft. They are not ready for the
+OC_V4 candidate, whose445 local tests passed but whose new semantic and paid
+lifecycle gates are pending. Do not submit this address/description as OC_V4.
+
 Title: OutageClock: Semantic Deadline Restoration
 
 Category: Intelligent Contracts (Builders)

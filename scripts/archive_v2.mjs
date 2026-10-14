@@ -33,5 +33,7 @@ try{
  for(const name of names)if(fs.existsSync(path.join(folder,name)))throw Error('Archive target exists; inspect before moving');
  fs.writeFileSync(path.join(folder,'revision.json'),JSON.stringify(proof,null,2)+'\n');
  for(const name of names)fs.renameSync(path.join(EVIDENCE,name),path.join(folder,name));
+ fs.writeFileSync(path.join(folder,'deployment.json'),JSON.stringify({...d,active:false,
+  revisionStatus:proof.status,supersededAt:proof.at,supersededReason:proof.reason},null,2)+'\n');
  console.log(JSON.stringify({archived:true,version:'OC_V2',address:d.contractAddress,cases:4,nativeBalanceGEN:'0',liabilityGEN:'0'}));
 }catch(error){fail(error);}

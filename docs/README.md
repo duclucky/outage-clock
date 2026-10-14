@@ -59,7 +59,7 @@ The actual diagnostic is separate from product execution.
 | Contract count | PASS_ADMISSION | One clock/right/escrow owner; EVM recipient is not a second IC |
 | Differentiation | PASS_ADMISSION | Temporal union/clock rather than incident-credit pool or causal cap |
 | Claim-to-code | PASS_ADMISSION | Filled method/view/test/live-case matrix below |
-| Full lifecycle | PASS_ADMISSION + PASS_EXECUTION | verification.json: 4 CLOSED cases,20 parent/3 native,3 GEN withdrawn,zero liability |
+| Full lifecycle | PASS_ADMISSION; OC_V4 PENDING_EXECUTION | OC_V2 historical verification.json:4 CLOSED cases,20 parent/3 native,3GEN withdrawn,zero liability; no OC_V4 execution claim yet |
 | Scope honesty | PASS_ADMISSION | Reported interval proxy, internal rights, locked incident list; honest limits |
 
 ## Actors, roles and incentives

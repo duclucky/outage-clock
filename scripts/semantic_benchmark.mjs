@@ -3,7 +3,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {keccak256} from 'viem';
-import {TransactionStatus} from 'genlayer-js/types';
 import {ROOT,client,actors,identity,file,save,safe,view,balance,fail} from './network.mjs';
 import {receipt} from './receipts.mjs';
 
@@ -38,9 +37,18 @@ try {
    await safe(()=>signer.deployContract({code:new Uint8Array(source),args:[JSON.stringify(input)],leaderOnly:false}));
    console.log(JSON.stringify({stage:'BENCHMARK_SUBMITTED',batch:index+1,cases:batch.caseIds,repetition:repetition+1,valueGEN:'0',transactionHash:batch.transactionHash}));
   }
-  try{await safe(()=>reader.waitForTransactionReceipt({hash:batch.transactionHash,status:TransactionStatus.FINALIZED,interval:6000,retries:90}));}catch{ /* inspect only safe fields below; never dump SDK error/config */ }
-  const raw=await safe(()=>reader.request({method:'eth_getTransactionByHash',params:[batch.transactionHash]}));
-  Object.assign(batch,receipt(raw,batch.transactionHash));save(name,record);
+  // Read the persisted hash directly. A transient SDK wait/indexing failure
+  // must not trigger resubmission or be mistaken for a completed model result.
+  let raw;
+  for(let poll=0;poll<100;poll++){
+   try{
+    raw=await safe(()=>reader.request({method:'eth_getTransactionByHash',params:[batch.transactionHash]}));
+    Object.assign(batch,receipt(raw,batch.transactionHash));save(name,record);
+    if(batch.status==='FINALIZED')break;
+   }catch(error){batch.lastPollErrorCode=Number.isInteger(error?.code)?error.code:null;save(name,record);}
+   if(poll%10===0)console.log(JSON.stringify({stage:'BENCHMARK_PENDING',batch:index+1,status:batch.status??'NOT_INDEXED',transactionHash:batch.transactionHash}));
+   await new Promise(resolve=>setTimeout(resolve,6000));
+  }
   if(batch.status!=='FINALIZED')throw Error('Benchmark still pending; resume saved hash');
   if(batch.executionResult==='SUCCESS'&&batch.consensusResult==='MAJORITY_AGREE'){
    const deployed=await safe(()=>reader.getContractCode(batch.contractAddress));
