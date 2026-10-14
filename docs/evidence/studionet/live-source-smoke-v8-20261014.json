@@ -16,8 +16,11 @@
   "custody": false,
   "startedAt": "2026-10-14T18:01:51.391Z",
   "transactionHash": "0xa4f8b384c0f98f8ddb43d3436b08af0b977dcc9a3f9f9efe997fe48c0f4b01df",
-  "status": "COMMITTING",
+  "status": "FINALIZED",
   "executionResult": "SUCCESS",
-  "consensusResult": "NO_MAJORITY",
-  "contractAddress": "0x75EA2Fdc41A53680B22D2a2708B8701B5f68efAF"
+  "consensusResult": "MAJORITY_DISAGREE",
+  "contractAddress": "0x75EA2Fdc41A53680B22D2a2708B8701B5f68efAF",
+  "passed": false,
+  "failure": "CONSENSUS_NOT_AGREED",
+  "observedAt": "2026-10-14T18:21:06.711Z"
 }

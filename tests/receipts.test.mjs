@@ -4,6 +4,7 @@ import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {requireSemanticGate} from '../scripts/promotion_gate.mjs';
 import * as promotion from '../scripts/promotion_gate.mjs';
+import * as lifecycleIdentity from '../scripts/lifecycle_identity.mjs';
 import {rpcRead} from '../scripts/rpc_read.mjs';
 import {deadlineFetch} from '../scripts/rpc_deadline.mjs';
 import {identity,balance} from '../scripts/network.mjs';
@@ -54,6 +55,22 @@ test('V8 requires all72 observations and cannot reuse its64-run predecessor',()=
  const {benchmark,verified}=passingGate('OC_V8');assert.equal(requireSemanticGate('OC_V8','source',benchmark,verified).runs,72);
  const old=passingGate('OC_V7');assert.throws(()=>requireSemanticGate('OC_V8','source',old.benchmark,old.verified));
  benchmark.batches.at(-1).results.pop();assert.throws(()=>requireSemanticGate('OC_V8','source',benchmark,verified));
+});
+function currentLifecycleDeployment(){return {active:true,status:'FINALIZED',executionResult:'SUCCESS',consensusResult:'MAJORITY_AGREE',
+ version:'OC_V8',sourceSHA256:'current',canonicalAccounting:{received_gen:'0'},schema:{acceptPayable:true}};}
+test('lifecycle accepts its exact finalized deployment identity',()=>{
+ assert.doesNotThrow(()=>lifecycleIdentity.requireLifecycleIdentity(currentLifecycleDeployment(),'OC_V8','current'));
+});
+for(const defect of ['old_source','old_version','inactive','pending','no_majority','not_payable','no_initial_smoke'])test('lifecycle rejects '+defect+' before signer use',()=>{
+ const d=currentLifecycleDeployment();
+ if(defect==='old_source')d.sourceSHA256='historical';
+ if(defect==='old_version')d.version='OC_V2';
+ if(defect==='inactive')d.active=false;
+ if(defect==='pending')d.status='ACCEPTED';
+ if(defect==='no_majority')d.consensusResult='NO_MAJORITY';
+ if(defect==='not_payable')d.schema.acceptPayable=false;
+ if(defect==='no_initial_smoke')delete d.canonicalAccounting;
+ assert.throws(()=>lifecycleIdentity.requireLifecycleIdentity(d,'OC_V8','current'),{name:'LifecycleIdentityError'});
 });
 function passingSource(){
  return {network:'studionet',chainId:61999,revision:'OC_V7',productionSHA256:'source',diagnosticSHA256:'probe',

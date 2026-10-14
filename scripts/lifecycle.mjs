@@ -1,11 +1,18 @@
-import {client,actors,identity,file,save,view,write,withdrawal,balance,fail}from'./network.mjs';
+import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';
+import {ROOT,client,actors,identity,file,save,safe,view,write,withdrawal,balance,fail}from'./network.mjs';
+import {requireLifecycleIdentity} from './lifecycle_identity.mjs';
 const INCIDENT='01M4T4ZCM54D3ZPTQXRSWFG0XS';
 const scopes={affected:'Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.',
  unaffected:'Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel.'};
 const now=()=>Math.floor(Date.now()/1000);
 async function until(deadline,stage){while(now()<deadline){console.log(JSON.stringify({stage,remainingSeconds:deadline-now()}));await new Promise(resolve=>setTimeout(resolve,Math.min(25000,Math.max(1,deadline-now())*1000)));}}
 try{
- const reader=client();await identity(reader);const d=file('deployment.json');if(!d?.active||d.executionResult!=='SUCCESS'||d.canonicalAccounting.received_gen!=='0')throw Error('Verified exact-source deployment smoke required');
+ const reader=client();await identity(reader);const d=file('deployment.json');
+ const source=fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py'));
+ const sha=x=>createHash('sha256').update(x).digest('hex'),sourceHash=sha(source);
+ const version=source.toString('ascii').match(/^VERSION = "(OC_V\d+)"$/m)?.[1];
+ requireLifecycleIdentity(d,version,sourceHash);
+ if(sha(Buffer.from(await safe(()=>reader.getContractCode(d.contractAddress))))!==sourceHash)throw Error('Live lifecycle source identity mismatch');
  const accounts=actors();if(accounts[0].address.toLowerCase()===accounts[1].address.toLowerCase())throw Error('Role separation required');
  const name=process.argv[2];if(!['affected','unaffected','pending','unpaid'].includes(name))throw Error('Select bounded lifecycle case');
  const filename='lifecycle-'+name+'.json';let r=file(filename);

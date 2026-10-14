@@ -1,0 +1,193 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V8",
+  "transactionHash": "0xa4f8b384c0f98f8ddb43d3436b08af0b977dcc9a3f9f9efe997fe48c0f4b01df",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_DISAGREE",
+  "contractAddress": "0x75EA2Fdc41A53680B22D2a2708B8701B5f68efAF",
+  "kind": "REJECTED_LEADER_DIAGNOSTIC_ONLY",
+  "canonicalVerdict": false,
+  "productionSHA256": "3816cf3caddf990a3241ae9f807e887f0d0c07b36222109737a48ff72e326d0c",
+  "diagnosticSHA256": "473c0385f9ea1b61c53fd35076c778c29a91dec779182fdf9b1973094d0ef580",
+  "valueGEN": "0",
+  "custody": false,
+  "productionFundsAffected": false,
+  "projections": [
+    {
+      "executionResult": "SUCCESS",
+      "constructorMatches": true,
+      "outputs": [
+        {
+          "slot": "0",
+          "returnedChannel": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+          "sourceOK": true,
+          "stage": "OK",
+          "classes": {
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH": "APPLIES",
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10": "APPLIES",
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93": "APPLIES",
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1": "APPLIES"
+          },
+          "sourceDigest": "d3d035a2ae570c5b8fa99682613d81c01b61db583e3b42370347932471a9006b",
+          "promptSHA256": [
+            "e38ede8ebd0eab2b621e5ed1c3349f78c6978e66801f5eb593cd02de09e95597",
+            "c6bb96bdbeca997263fa327a7f1729b757b69eac36563324200fff5e6b5a762d"
+          ],
+          "assessments": [
+            {
+              "acknowledgedChannel": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+              "intervals": {
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "COVERS_TARGET",
+                  "title": "APPLIES",
+                  "body": "APPLIES",
+                  "body_kind": "STATUS_ASSERTION",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                }
+              }
+            },
+            {
+              "acknowledgedChannel": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+              "intervals": {
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "COVERS_TARGET",
+                  "title": "APPLIES",
+                  "body": "APPLIES",
+                  "body_kind": "STATUS_ASSERTION",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1": {
+                  "title_scope": "COVERS_TARGET",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "slot": "1",
+          "returnedChannel": "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel.",
+          "sourceOK": true,
+          "stage": "OK",
+          "classes": {
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH": "UNVERIFIABLE",
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10": "UNVERIFIABLE",
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93": "UNVERIFIABLE",
+            "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1": "UNVERIFIABLE"
+          },
+          "sourceDigest": "d3d035a2ae570c5b8fa99682613d81c01b61db583e3b42370347932471a9006b",
+          "promptSHA256": [
+            "b0ad54c0cf0245551404078ef28621f77cb4768888ae4579fb1fe7f834c952a4",
+            "8bd07c087eee5009ccf24f6440b2e130d17aa4d8449c0fb5b1678a076b990f6f"
+          ],
+          "assessments": [
+            {
+              "acknowledgedChannel": "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel.",
+              "intervals": {
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH": {
+                  "title_scope": "UNRELATED",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10": {
+                  "title_scope": "UNRELATED",
+                  "body_scope": "UNRELATED",
+                  "title": "APPLIES",
+                  "body": "NOT_APPLIES",
+                  "body_kind": "STATUS_ASSERTION",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93": {
+                  "title_scope": "UNRELATED",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                },
+                "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1": {
+                  "title_scope": "UNRELATED",
+                  "body_scope": "UNSPECIFIED",
+                  "title": "APPLIES",
+                  "body": "UNVERIFIABLE",
+                  "body_kind": "CONTEXT_NOTE",
+                  "recovery": false,
+                  "body_conflict": false
+                }
+              }
+            },
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "executionResult": "SUCCESS",
+      "constructorMatches": true,
+      "outputs": []
+    }
+  ],
+  "observedAt": "2026-10-14T18:22:08.004Z"
+}

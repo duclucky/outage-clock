@@ -1,8 +1,8 @@
 # Portal draft - HOLD / SEMANTIC REVIEW REQUIRED / NOT SUBMITTED
 
 The fields below are the historical OC_V2 draft. They are not ready for the
-current OC_V8 candidate. It has511 local checks but its72-run and authentic-source
-gates are pending; no new production deployment or paid lifecycle exists. Earlier
+current OC_V8 candidate. It has519 local checks,12/72model observations and failed
+authentic-source consensus; no new production deployment or paid lifecycle exists. Earlier
 OC_V4 failed35/36 exact with an unsafe S02 answer; OC_V7 failed source consensus
 and S03. Do not submit this historical address/description as a corrected revision.
 

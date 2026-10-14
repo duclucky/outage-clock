@@ -1,0 +1,17 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "command": "node scripts/lifecycle.mjs affected",
+  "exitCode": 1,
+  "deployedVersion": "OC_V2",
+  "currentVersion": "OC_V8",
+  "deployedSourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "currentSourceSHA256": "3816cf3caddf990a3241ae9f807e887f0d0c07b36222109737a48ff72e326d0c",
+  "issuerNonceBefore": "0x4bb",
+  "issuerNonceAfter": "0x4bb",
+  "deploymentFileUnchanged": true,
+  "failedBeforeLifecycle": true,
+  "errorType": "LifecycleIdentityError",
+  "GENSent": "0",
+  "observedAt": "2026-10-14T18:18:07.866Z"
+}

@@ -1,0 +1,60 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V8",
+  "productionSHA256": "3816cf3caddf990a3241ae9f807e887f0d0c07b36222109737a48ff72e326d0c",
+  "reason": "AUTHENTIC_SOURCE_CONSENSUS_FAILED",
+  "source": {
+    "transactionHash": "0xa4f8b384c0f98f8ddb43d3436b08af0b977dcc9a3f9f9efe997fe48c0f4b01df",
+    "status": "FINALIZED",
+    "executionResult": "SUCCESS",
+    "consensusResult": "MAJORITY_DISAGREE",
+    "contractAddress": "0x75EA2Fdc41A53680B22D2a2708B8701B5f68efAF",
+    "valueGEN": "0",
+    "passed": false
+  },
+  "benchmark": {
+    "complete": false,
+    "plannedCaseRuns": 72,
+    "submittedCaseRuns": 15,
+    "observedCaseRuns": 12,
+    "exactMatches": 12,
+    "unsafeDefinite": 0,
+    "conservativeAbstentions": 0,
+    "pendingObservationCaseRuns": 3,
+    "notSubmittedCaseRuns": 57,
+    "terminalFailedCaseRuns": 0,
+    "pendingHashes": [
+      {
+        "transactionHash": "0x69ee2a9fcb40ca4cda543e83022c458de61485c9c14e98bbb744b1f306381f57",
+        "caseIds": [
+          "S04",
+          "S05",
+          "S06"
+        ],
+        "status": "COMMITTING",
+        "valueGEN": "0"
+      }
+    ]
+  },
+  "historicalProduction": {
+    "version": "OC_V2",
+    "address": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+    "sourceUnchanged": true,
+    "accounting": {
+      "credit_gen": "0",
+      "escrow_gen": "0",
+      "liability_gen": "0",
+      "received_gen": "3",
+      "withdrawn_gen": "3"
+    },
+    "nativeBalanceGEN": "0"
+  },
+  "newPaidLifecycle": false,
+  "readyForSubmission": false,
+  "gate13Execution": "PENDING_EXECUTION",
+  "expectedLabelsChanged": false,
+  "observerWorkersStopped": true,
+  "preciseCriticFailureCause": "UNKNOWN: transport/model/JSON/assessment validation not distinguished",
+  "observedAt": "2026-10-14T18:24:52.053Z"
+}

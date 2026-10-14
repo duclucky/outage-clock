@@ -10,8 +10,9 @@
 > UNVERIFIABLE. OC_V7 distinguishes progress notes from explicit health/scope
 > uncertainty. Its authentic-source smoke finalized MAJORITY_DISAGREE (FAIL);
 > its partial64-run campaign also exposed an S03 conservative mismatch.
-> OC_V8 corrects target exclusions/title-only coverage; real-source/72-run gates
-> are pending. No candidate production promotion or new payments.
+> OC_V8 corrects target exclusions/title-only coverage, but its real-source smoke
+> also finalized MAJORITY_DISAGREE. Its partial72-run campaign observed12/12exact;
+> remaining60 are unobserved. No production promotion/new payments.
 > See docs/CONTEXT-REMEDIATION.md and docs/JUDGMENT-CAMPAIGN.md.
 
 Reusable GenLayer Intelligent Contract for a paid, one-use protocol entitlement
@@ -39,8 +40,8 @@ revalidation and was never promoted or funded. OC_V2 remains the deployed
 historical revision. OC_V4 failed the semantic gate and was not promoted or funded.
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. The OC_V8 local run passed458 Python direct cases and53 Node cases
-(511 total), semantic lint and AST metadata,
+`npm run check`. The OC_V8 local run passed458 Python direct cases and61 Node cases
+(519 total), semantic lint and AST metadata,
 zero skipped. Real-model and production lifecycle acceptance remain separate.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,
@@ -122,7 +123,8 @@ runs due to one dissenting batch. OC_V4 observed36/36 and matched35, with an
 unsafe definite S02 mismatch in repetition2. S08 matched in both OC_V4 runs.
 OC_V7 has9observed/8exact of64planned,including the S03 abstention, and failed
 its real-source consensus. OC_V8 corrects title-only coverage/target exclusions;
-the first3 cases matched,including S03. Full72runs and real-source PASS are pending.
+12observations matched,including S03. Its real-source smoke failed consensus;
+the remaining60 of72 planned observations are not claimed complete.
 Readiness remains HOLD; no universal accuracy claim is made. [Published V7 CI](https://github.com/duclucky/outage-clock/actions/runs/38610987350)
-passed510 protocol checks. The working V8 has511 local checks; that is separate
+passed510 protocol checks. The working V8 has519 local checks; that is separate
 from published CI, authentic-source consensus and a new paid lifecycle.

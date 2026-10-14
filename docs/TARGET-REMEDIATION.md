@@ -60,3 +60,35 @@ canonical report and0GEN balance. Both title assessments are now PARENT_ONLY,
 while explicit unaffected-target body assertions yield NOT_APPLIES. Different
 valid body spans lead to the same verdict,not string equality. This is one
 observed correction,not full72-run or future-accuracy proof.
+
+Payment-script safety follow-up: code review found that lifecycle.mjs checked
+an old deployment's initial smoke but did not bind it to current source before
+loading signers. The new guard requires finalized majority success, exact
+version/source, payable metadata and initial0GEN smoke; a fresh code read must
+also match before signer use. Eight focused identity checks pass. A real bounded
+CLI negative exited1 for V8 source versus historical V2 deployment, issuer nonce
+stayed0x4bb and deployment.json was unchanged,0GEN sent. This does not re-run
+the old payment lifecycle or prove a new one. Latest npm check:458Python in
+56.62seconds+61Node=519passed,zero skips. Contract/probe hashes stay unchanged.
+The CLI negative specifically reports LifecycleIdentityError,distinguishing it
+from an RPC failure; the before/after nonce and file identity are recorded.
+
+## Execution stop: authentic-source consensus FAIL
+
+Original source transaction a4f8b384c0f98f8ddb43d3436b08af0b977dcc9a3f9f9efe997fe48c0f4b01df
+finalized SUCCESS/MAJORITY_DISAGREE at the recorded observation,exit1. Do not
+claim a successful source judgment from execution SUCCESS alone. Read-only
+inspection bound the constructor inputs and selected rejected leader outputs.
+The affected scope had four APPLIES; the Costs scope had four UNVERIFIABLE
+because its second assessment was null. The first Costs assessment recognized
+the unrelated scope. The source digest equals the earlier authentic feed's
+selected rows. No precise transport/model/parser/validation failure is proven;
+replacing the failure with a guessed local fix or a favorable retry is forbidden.
+
+Stop further no-value benchmark creation at this failed prerequisite,as requested.
+All signed hashes remain. A bounded observe-only re-read retained12observed/12exact
+of72planned,3pending and57unscheduled. No unsafe definite or abstaining canonical
+case is observed in those12; that does not describe the60unobserved cases. The
+legacy summary's failedBatches includes pending batches; the stop record separates
+pending from terminal failures. Never call this a complete72-run campaign.
+No candidate production/payment/Portal submission. Gate13 execution PENDING.

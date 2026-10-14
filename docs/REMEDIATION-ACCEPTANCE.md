@@ -1,6 +1,96 @@
 # OC_V8 acceptance checkpoint - HOLD
 
-Current source: OC_V8, TARGET-REMEDIATION.md. Local511 checks PASS; real-source
+Current31-item checklist. No item is silently skipped; a pending/blocked exit is
+not DONE. This remains the original reusable OutageClock primitive: no app,
+lesson, renamed PartitionSeal or extracted slice of a submitted project.
+
+1. Phase0 recover state: DONE. Child Git/source identities and saved hashes
+   recovered; historical-verification-v2-20261014.json re-read exact V2 source.
+2. Phase1 authority/API/novelty: retained. Matched v0.2.16 runner/legacy sandbox,
+   SDK1.1.8, D1 Studionet61999 and recorded Studio Dev outage; no API upgrade.
+3. Phase2 all14 admission gates: retained. Complete design, seven-part novelty
+   fingerprint, real-source viability spike and three proposed consumers in spec.
+4. Phase3 registration/layout: DONE. Own child Git, contracts/tests/scripts/docs;
+   ASCII_HEADER_CLASS_METADATA_TEMPORAL_NO_APP_OK rejects app/frontend scaffolds.
+5. Phase4 specification/safety: DONE for correction. TARGET-REMEDIATION.md and
+   frozen36-case corpus precede model calls; all32 predecessor objects unchanged.
+6. Phase5 authoring: LOCAL DONE. genvm-lint check contracts/outage_clock.py:
+   lint3checks/validation PASS, OutageClock14methods(6view/8write).
+7. Phase6 local verification: LOCAL DONE. npm run check:458Python+61Node=519PASS,
+   zero skipped. Both probes lint/validation PASS,one view/zero writes each.
+8. Phase7 selected-network deployment/lifecycle: FAIL/PENDING. Source diagnostic
+   a4f8b384... finalized SUCCESS/MAJORITY_DISAGREE.72-run campaign stopped with
+   12observed/12exact,3pending and57unscheduled; no new paid revision.
+9. Phase8 honest review: HOLD. S03 first V8 observation is corrected. A rejected
+   source leader has no valid second Costs assessment; source consensus failed.
+10. Phase9 public history: development checkpoints/hygiene retained; final exact
+    commit/CI verification is separate. No submission readiness from CI alone.
+11. Phase10 Portal draft: BLOCKED. Historical OC_V2 fields cannot represent V8.
+12. Replacement: admission retained. A backend loses independent neutral interval
+    applicability judgment when issuer/buyer interests conflict.
+13. Judgment: admission retained. Actual requested operation, parent coverage,
+    impairment,progress and withdrawal require interpretation beyond arithmetic.
+14. Evidence availability: retained separately. Official bounded provider timeline
+    remains the production source; synthetic cases are diagnostic only.
+15. Evidence authenticity: retained separately. Official URL/page/incident/update/
+    time checks precede semantics; fabricated valid-digest evidence cannot settle.
+16. Equivalence: implemented. Independent complete verdict vectors and bound facts
+    must agree; explanation/quote strings are not the equivalence criterion.
+17. Consequence: design retained. Clipped union/cap changes exercise legality;
+    issuer exercise credit or actual-buyer due refund is1GEN. New execution pending.
+18. Adversarial: retained. Issuer/buyer incentives, malicious leader/validator,
+    provenance,injection,entity coverage and unchanged-accounting negatives tested.
+19. State model: retained. Isolated immutable leases,append-only attempts,explicit
+    states,role/time guards and one-time allocation/withdrawal; local suite passes.
+20. Reuse: retained. LangGraph brokers,A2A entitlement gateways,DAOhaus mandate
+    adapters consume signed API/canonical views. These are proposed consumers.
+21. Contract count: PASS. One recognized ASCII OutageClock,8writes/6views;
+    EVM recipient interface is not another IC and no consumer mirror was invented.
+22. Differentiation: retained. Narrative interval union/capped entitlement-time
+    restoration has its own registry fingerprint and newly implemented source.
+23. Claim-to-code: maintained. Specification maps methods/views/tests/evidence;
+    519 local checks,synthetic observations and old V2 payments remain distinct.
+24. Full lifecycle: PASS_ADMISSION, OC_V8 PENDING_EXECUTION. V2's4CLOSEDcases,
+    20parents/3native exits do not prove V8 consequence or recovery execution.
+25. Scope honesty: retained. Internal right/reported-time proxy,finite corpus;
+    no adoption,performed external service,measured downtime or absolute accuracy.
+26. NO-APP: DONE. Contract-only source/tree/AST scan; no frontend or Vercel.
+27. MEANING-VALIDATOR: implemented. S03's two different valid body spans now yield
+    the same accepted NOT_APPLIES vector; direct replay rejects divergent meaning.
+28. SAFETY-ROW: DONE in design/local checks. All8write rows cover caller,state,
+    time,idempotency,value,views,negatives. Entire contract-class AST equals V7.
+29. TEMPORAL-GATE: LOCAL DONE. Stale-phase boundary-1/equality/+1 and unchanged
+    state/accounting tests remain; every affected public write checks its own time.
+30. VALUE-DESTINATION: design/local PASS,new live proof PENDING. Historical3GEN
+    in/out and0native/liability rechecked. Lifecycle rejects V8-source/V2-deployment
+    with LifecycleIdentityError before signers; actual nonce unchanged,0GEN sent.
+31. BROKEN-CONTRACT-REPLACEMENT: retained. No new funds reach failed diagnostics
+    or V2; V1 recovered/archived. Promotion requires all72 plus real-source PASS.
+
+Proof commands and real outputs: local-check-v8-20261014.json;
+semantic-S03-v8-20261014.json; lifecycle-identity-block-v8-20261014.json;
+live-source-smoke-v8-20261014.json; semantic-benchmark-v8-20261014.json.
+The original grader is unchanged. Its historical V7 invocation returned0BLOCKER/
+1WARN and dynamic PASS using V2's real explorer; that is not a final V8 acceptance
+command. Exact-source V8 deployment/explorer and full paid execution are missing.
+
+Uncertainty: the second Costs assessment is null in the rejected leader; whether
+transport,model output,JSON parsing or semantic-field validation caused it is not
+established. Source digest and constructor inputs match. No entire-network
+outage or exact validator rejection cause is claimed. No configuration was dumped.
+Saved hashes must be reconciled,never blindly resubmitted or relabeled complete.
+
+Final audit re-read the full484-line master prompt,unchanged SHA256
+35dbb0cb0b7ea756e9fbc4eee92938f5b024070bc6e494e07a8bd8c331dfc18f.
+All11phases,14separate gates and6directives are listed above. Several exit gates
+remain unmet; no all-items-DONE claim. Source/critic failure must be diagnosed
+before another candidate or payment; no expected label,validator or grader was
+weakened. execution-stop-v8-20261014.json separates3pending from57unscheduled
+and confirms historical V2 is unchanged,3GEN in/out,0GEN native/liability.
+
+## Earlier V8 checkpoint and historical audits
+
+Current source: OC_V8, TARGET-REMEDIATION.md. Local519 checks PASS; real-source
 and72-run model campaigns PENDING, no new production/payment or Gate13 execution
 PASS. All31 requirements remain accounted for below as historical OC_V7 audit;
 its failed/missing execution items are not promoted to DONE by the local fix.

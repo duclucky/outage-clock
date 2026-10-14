@@ -11,10 +11,11 @@ promotion and paid lifecycle remain blocked; no corrected-deployment claim.
 OC_V7 source smoke finalized MAJORITY_DISAGREE; its rejected leader misapplied
 Codex evidence to Costs. Canonical S03 also abstained after promoting a parent
 title to operation-specific coverage. OC_V8 preserves all32 old cases and adds
-four prelocked contrasts. Local511checks pass; S03 now returned NOT_APPLIES in
-the first canonical3/3batch,with two different valid source quotes. The full72
-observations,authentic-source PASS,new exact-source deployment and paid lifecycle
-are pending. No historical PASS row below establishes OC_V8 submission readiness.
+four prelocked contrasts. Local519checks pass; S03 now returned NOT_APPLIES in
+the first canonical3/3batch,with two different valid source quotes. The partial
+campaign has12observed/12exact of72planned;60unobserved. Real-source consensus
+finalized MAJORITY_DISAGREE. No new deployment/payment occurred. No historical
+PASS row below establishes OC_V8 submission readiness.
 
 One active OutageClock source, eight writes and six views; contract-only Intelligent
 Contracts. No user-facing app, Vercel, consumer mirror or previously submitted code
