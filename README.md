@@ -91,7 +91,8 @@ against the active V2 or send another transaction.
 [Portal fields](docs/SUBMISSION.md) contain the860-character English description,
 repo/explorer/CI links and actual lifecycle summary. [Acceptance](docs/ACCEPTANCE.md):
 original grader0BLOCKER,1 reviewed helper WARN; npmcheck/gltest and all four grade
-gates PASS. This is readiness evidence, not Portal acceptance or an official score.
+gates PASS. This is historical structural evidence; the current semantic HOLD
+supersedes submission readiness. It is not Portal acceptance or an official score.
 
 
 ## Expanded judgment campaign
@@ -100,4 +101,6 @@ gates PASS. This is readiness evidence, not Portal acceptance or an official sco
 from real-model synthetic GenVM evaluation. The production contract source remains
 unchanged. A dedicated common-mode-error witness confirms that passing consensus
 cannot guarantee semantic truth when all interpreters/critics share a mistake.
-The real-model campaign is in progress; no universal accuracy claim is made.
+The completed real-model campaign observed24 of24 case runs:22 matched the frozen
+rubric and S08 failed in both repetitions, despite MAJORITY_AGREE. Semantic
+readiness remains HOLD. No universal accuracy claim is made.

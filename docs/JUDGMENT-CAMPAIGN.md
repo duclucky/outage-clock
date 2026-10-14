@@ -60,8 +60,57 @@ answer. Observed accuracy is conditional on completed case runs; failed batches
 are separately counted against the full planned24case runs. Two repetitions are
 a stability check on this corpus, not a statistical bound for future workloads.
 
-Status: evaluation in progress; no accuracy percentage or completion claim yet.
+## Completed result: semantic gate FAIL
 
-First confirmed finding: S08 returned NOT_APPLIES instead of the prelocked
-UNVERIFIABLE. See semantic-S08-first.json. Semantic readiness is suspended;
-remaining batches/repetitions continue unchanged.
+All eight batches finalized SUCCESS / MAJORITY_AGREE. All24 planned case runs
+were observed;22 matched their complete expected vectors and2 did not. At the
+interval level26 of28 labels matched. There were no failed batches, no excluded
+cases and no conservative abstentions. Each of the12 cases was stable across
+both repetitions; that includes the repeatably incorrect S08 answer. These are
+finite synthetic-corpus counts, not future accuracy estimates.
+
+S08 returned NOT_APPLIES in BOTH repetitions instead of the frozen UNVERIFIABLE.
+Its title says "Compliance API Costs unavailable", while its body says
+"The Compliance API Costs endpoint is fully unaffected. Only separate API
+Platform billing exports are delayed." The model prioritized the explicit body
+statement over the conflicting title. The conservative rubric requires
+abstention on conflicting scope. This is a policy mismatch, not independent
+proof of actual provider downtime. No expected labels were changed after seeing
+the result. Title/body precedence requires policy review and revalidation.
+
+- Repetition1: transaction
+  [0x8d495bea](https://explorer-studio.genlayer.com/tx/0x8d495beab2c714a257c53cc662fcdf69cfb450c290338a479ea3a65a1542a421).
+- Repetition2: transaction
+  [0xf0ed6a71](https://explorer-studio.genlayer.com/tx/0xf0ed6a711d777feea024f74286e09b5d590a0f33806d0929ea1118048b21658e).
+
+[Complete observations](evidence/studionet/semantic-benchmark-20261014.json),
+[read-only network verification](evidence/studionet/semantic-benchmark-verification-20261014.json)
+and [source/validator fidelity](evidence/studionet/semantic-probe-fidelity-20261014.json)
+retain the safe receipts, frozen expectations, observations and exact hashes.
+All eight diagnostic balances are0GEN. Production source remains unchanged;
+fresh production accounting is3GEN received,3GEN withdrawn,0GEN credit/escrow/
+liability and0GEN actual native balance. No diagnostic payment or settlement ran.
+
+## Reproduction and real command results
+
+`npm run check`:396 direct cases passed,15 Node cases passed,zero skipped;
+production lint, metadata and script syntax checks passed. Local mocked protocol
+tests do not measure real model accuracy.
+
+`python scripts/build_semantic_probe.py` generates the ignored probe;
+`genvm-lint check .codex/semantic_probe.py` with GENVM_VERSION=v0.2.16 passed
+all3 checks. `node scripts/semantic_benchmark.mjs` ran the eight persisted
+diagnostic transactions with full consensus. Its semantic mismatch now produces
+exit1; reruns recover the recorded completed batches instead of deploying again.
+
+`node scripts/summarize_semantic_benchmark.mjs` is read-only and returned exit1:
+
+```json
+{"plannedCaseRuns":24,"completedCaseRuns":24,"exactMatches":22,"unsafeDefinite":2,"failedBatches":0,"correctIntervals":26,"evaluatedIntervals":28,"stableRepeatedCases":12,"absoluteFutureAccuracyProven":false,"semanticReadiness":"REVIEW_REQUIRED"}
+```
+
+Exit1 is the failed semantic gate, not an RPC or execution failure. Passing
+structural CI or the original static grader does not override it. Submission
+readiness remains HOLD. Absolute accuracy for every future judgment is neither
+established nor establishable by this finite test campaign. Production behavior,
+expected labels and the grading bot were not weakened to obtain a pass.

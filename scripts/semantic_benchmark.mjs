@@ -65,4 +65,5 @@ try {
   failedBatches:record.batches.filter(x=>x.executionResult!=='SUCCESS'||!x.results?.length).length,
   absoluteFutureAccuracyProven:false};
  record.complete=true;record.finishedAt=new Date().toISOString();save(name,record);console.log(JSON.stringify(record.summary));
+ if(record.summary.exactMatches!==planned||record.summary.failedBatches)process.exitCode=1;
 }catch(error){fail(error);}
