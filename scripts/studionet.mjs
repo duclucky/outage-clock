@@ -8,7 +8,7 @@ try{
   const accounts=actors();if(accounts[0].address.toLowerCase()===accounts[1].address.toLowerCase())throw Error('Role separation');
   console.log(JSON.stringify({network:'studionet',chainId:61999,rpc:RPC,roles:await Promise.all(accounts.map(async(a,i)=>({role:i?'buyer':'issuer',address:a.address,balanceGEN:await balance(reader,a.address)})))}));
  }else{
-  const version=source.toString('ascii').match(/^VERSION = "(OC_V[24567])"$/m)?.[1];
+  const version=source.toString('ascii').match(/^VERSION = "(OC_V[245678])"$/m)?.[1];
   if(!version)throw Error('Unrecognized source policy version');
   if(version!=='OC_V2'){
    const suffix=`v${version.slice(-1)}-20261014.json`;

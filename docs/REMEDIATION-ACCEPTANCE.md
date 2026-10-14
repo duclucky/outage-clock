@@ -1,4 +1,13 @@
-# OC_V7 acceptance audit - HOLD
+# OC_V8 acceptance checkpoint - HOLD
+
+Current source: OC_V8, TARGET-REMEDIATION.md. Local511 checks PASS; real-source
+and72-run model campaigns PENDING, no new production/payment or Gate13 execution
+PASS. All31 requirements remain accounted for below as historical OC_V7 audit;
+its failed/missing execution items are not promoted to DONE by the local fix.
+OC_V7 source/evidence commit b67df9c7f05141fc5893989f04568ade12db0102 is public;
+CI38610987350 SUCCESS(510checks). That CI does not verify uncommitted OC_V8.
+
+## OC_V7 acceptance audit - HOLD
 
 The list below accounts for every phase, gate and reusable directive. Nothing is
 silently skipped; PENDING/FAIL is not DONE. This is the same reusable, contract-only

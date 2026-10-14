@@ -1,0 +1,13 @@
+{
+  "revision": "OC_V8",
+  "productionSHA256": "3816cf3caddf990a3241ae9f807e887f0d0c07b36222109737a48ff72e326d0c",
+  "probeSHA256": "473c0385f9ea1b61c53fd35076c778c29a91dec779182fdf9b1973094d0ef580",
+  "fullLeaderASTSHA256": "0cc708eaf3cd60fb30cc636272656b546a7e6b9719f7c3322ea31dda89c320d0",
+  "validatorASTSHA256": "b45d532ac28338b4d3caf48ec273ec65939315cd34b84dd2e2c815b58f9fe5fa",
+  "sameFullLeader": true,
+  "sameValidator": true,
+  "sameSourceHelpers": true,
+  "syntheticInput": false,
+  "valueGEN": "0",
+  "custody": false
+}

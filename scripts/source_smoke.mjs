@@ -9,7 +9,7 @@ import {receipt} from './receipts.mjs';
 const sha=x=>createHash('sha256').update(x).digest('hex');
 try{
  const revision=process.argv[2]??'OC_V6',r=client();await identity(r);
- if(!['OC_V6','OC_V7'].includes(revision))throw Error('Known live-source revision required');
+ if(!['OC_V6','OC_V7','OC_V8'].includes(revision))throw Error('Known live-source revision required');
  const source=fs.readFileSync(path.join(ROOT,`.codex/source_probe_${revision}.py`));
  const certificate=JSON.parse(fs.readFileSync(path.join(ROOT,`.codex/source-probe-fidelity-${revision}.json`),'utf8'));
  const productionSHA=sha(fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py')));

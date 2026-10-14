@@ -10,11 +10,13 @@ import {rpcRead} from './rpc_read.mjs';
 try {
  const reader=client(); await identity(reader);
  const revision=process.argv[2]??'OC_V2';
- if(!['OC_V2','OC_V3','OC_V4','OC_V5','OC_V6','OC_V7'].includes(revision))throw Error('Unknown benchmark revision');
+ if(!['OC_V2','OC_V3','OC_V4','OC_V5','OC_V6','OC_V7','OC_V8'].includes(revision))throw Error('Unknown benchmark revision');
  const fromBatch=Number(process.argv[3]??'1'),signerRole=process.argv[4]??'issuer';
+ const observeOnly=process.argv[5]==='observe-only';
+ if(process.argv[5]&&!observeOnly)throw Error('Unknown observation mode');
  if(!Number.isInteger(fromBatch)||fromBatch<1||!['issuer','buyer'].includes(signerRole))throw Error('Bounded resume options required');
  const suffix=revision==='OC_V2'?'':`-v${revision.slice(-1)}`;
- const corpusSuffix=revision==='OC_V2'?'':['OC_V5','OC_V6','OC_V7'].includes(revision)?`-v${revision.slice(-1)}`:'-v3';
+ const corpusSuffix=revision==='OC_V2'?'':['OC_V5','OC_V6','OC_V7','OC_V8'].includes(revision)?`-v${revision.slice(-1)}`:'-v3';
  const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${corpusSuffix}.json`),'utf8'));
  if(fromBatch>Math.ceil(corpus.cases.length/3)*2)throw Error('Resume batch exceeds frozen plan');
  const versionedProbe=path.join(ROOT,`.codex/semantic_probe_${revision}.py`);
@@ -30,12 +32,13 @@ try {
   diagnosticSHA256:sourceHash,productionSHA256:fidelity?.productionSHA256??sha(fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py'))),
   repetitions:2,scenarios:corpus.cases.length,batches:[],startedAt:new Date().toISOString()};
  if(record.corpusSHA256!==corpusHash||record.diagnosticSHA256!==sourceHash)throw Error('Benchmark identity changed');
- const signerAccount=actors()[signerRole==='buyer'?1:0];
+ const signerAccount=observeOnly?null:actors()[signerRole==='buyer'?1:0];
  for(let repetition=0;repetition<2;repetition++) for(let offset=0;offset<corpus.cases.length;offset+=3) {
   const cases=corpus.cases.slice(offset,offset+3),index=repetition*Math.ceil(corpus.cases.length/3)+offset/3;
   // Leave earlier pending batches intact and in the full planned denominator.
   // Only one writer may run; stop the previous observer before a resume.
   if(index<fromBatch-1)continue;
+  if(observeOnly&&!record.batches[index]?.transactionHash)continue;
   let batch=record.batches[index];
   if(!batch){batch={repetition:repetition+1,caseIds:cases.map(x=>x.id),valueGEN:'0'};record.batches[index]=batch;save(name,record);}
   if(batch.complete)continue;
@@ -52,15 +55,16 @@ try {
   // Read the persisted hash directly. A transient SDK wait/indexing failure
   // must not trigger resubmission or be mistaken for a completed model result.
   let raw;
-  for(let poll=0;poll<100;poll++){
+  for(let poll=0;poll<(observeOnly?1:100);poll++){
    try{
     raw=await rpcRead(RPC,'eth_getTransactionByHash',[batch.transactionHash]);
     Object.assign(batch,receipt(raw,batch.transactionHash));save(name,record);
     if(batch.status==='FINALIZED')break;
    }catch(error){batch.lastPollErrorCode=Number.isInteger(error?.code)?error.code:null;save(name,record);}
    if(poll%10===0)console.log(JSON.stringify({stage:'BENCHMARK_PENDING',batch:index+1,status:batch.status??'NOT_INDEXED',transactionHash:batch.transactionHash}));
-   await new Promise(resolve=>setTimeout(resolve,6000));
+   if(!observeOnly)await new Promise(resolve=>setTimeout(resolve,6000));
   }
+  if(observeOnly&&batch.status!=='FINALIZED')continue;
   if(batch.status!=='FINALIZED')throw Error('Benchmark still pending; resume saved hash');
   if(batch.executionResult==='SUCCESS'&&batch.consensusResult==='MAJORITY_AGREE'){
    const deployed=await safe(()=>reader.getContractCode(batch.contractAddress));

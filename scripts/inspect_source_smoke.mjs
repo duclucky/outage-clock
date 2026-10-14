@@ -5,7 +5,7 @@ import {receipt} from './receipts.mjs';
 const plain=x=>x instanceof Map?Object.fromEntries([...x].map(([k,v])=>[k,plain(v)])):
  Array.isArray(x)?x.map(plain):typeof x==='bigint'?Number(x):x;
 try{
- const revision=process.argv[2];if(!['OC_V6','OC_V7'].includes(revision))throw Error('Known source revision required');
+ const revision=process.argv[2];if(!['OC_V6','OC_V7','OC_V8'].includes(revision))throw Error('Known source revision required');
  const suffix=`v${revision.slice(-1)}-20261014.json`,saved=file('live-source-smoke-'+suffix);
  if(!saved?.transactionHash)throw Error('Existing source smoke required');
  const r=client();await identity(r);

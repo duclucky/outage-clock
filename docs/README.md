@@ -3,11 +3,12 @@
 ## Identity
 
 IDEA-043; OutageClock; outage-clock; Intelligent Contracts; SEMANTIC_REVIEW_REQUIRED, admission spec committed before code.
-The working source is the OC_V7 context-kind candidate; OC_V2 remains the
+The working source is the OC_V8 target/title-boundary candidate; OC_V2 remains the
 deployed historical revision until the new semantic and lifecycle gates pass.
 [Scope remediation](SCOPE-REMEDIATION.md), [component remediation](COMPONENT-REMEDIATION.md)
 [relational remediation](RELATIONAL-REMEDIATION.md), [coverage remediation](COVERAGE-REMEDIATION.md)
-and [context remediation](CONTEXT-REMEDIATION.md)
+and [context remediation](CONTEXT-REMEDIATION.md), followed by
+[target remediation](TARGET-REMEDIATION.md),
 lock the revised policy, affected safety row, regression checks and execution
 sequence before implementation. OC_V3 failed real-model revalidation and was
 never promoted or funded.
@@ -67,7 +68,7 @@ The actual diagnostic is separate from product execution.
 | Contract count | PASS_ADMISSION | One clock/right/escrow owner; EVM recipient is not a second IC |
 | Differentiation | PASS_ADMISSION | Temporal union/clock rather than incident-credit pool or causal cap |
 | Claim-to-code | PASS_ADMISSION | Filled method/view/test/live-case matrix below |
-| Full lifecycle | PASS_ADMISSION; OC_V7 PENDING_EXECUTION | OC_V2 historical verification.json:4 CLOSED cases,20 parent/3 native,3GEN withdrawn,zero liability; no OC_V7 execution claim yet |
+| Full lifecycle | PASS_ADMISSION; OC_V8 PENDING_EXECUTION | OC_V2 historical verification.json:4 CLOSED cases,20 parent/3 native,3GEN withdrawn,zero liability; no OC_V8 execution claim yet |
 | Scope honesty | PASS_ADMISSION | Reported interval proxy, internal rights, locked incident list; honest limits |
 
 ## Actors, roles and incentives

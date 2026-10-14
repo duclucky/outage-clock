@@ -30,7 +30,7 @@ for(const exitCode of[0,7])test('local tool combines diagnostic streams and pres
 });
 
 function passingGate(version='OC_V5'){
- const runs=version==='OC_V7'?64:version==='OC_V6'?56:48,batchCount=version==='OC_V7'?22:version==='OC_V6'?20:16;
+ const runs=version==='OC_V8'?72:version==='OC_V7'?64:version==='OC_V6'?56:48,batchCount=version==='OC_V8'?24:version==='OC_V7'?22:version==='OC_V6'?20:16;
  const batches=Array.from({length:batchCount},(_,i)=>({results:Array.from({length:version==='OC_V7'&&i%11===10?2:version==='OC_V6'&&i%10===9?1:3},(_,j)=>({id:`S${i*3+j}`,expected:{interval:'NOT_APPLIES'},observed:{interval:'NOT_APPLIES'},exactMatch:true,unsafeDefinite:false,conservativeAbstention:false}))}));
  const benchmark={complete:true,revision:version,productionSHA256:'source',corpusSHA256:'corpus',diagnosticSHA256:'probe',batches,
   summary:{plannedCaseRuns:runs,completedCaseRuns:runs,exactMatches:runs,unsafeDefinite:0,conservativeAbstentions:0,failedBatches:0,unobservedDueToBatchFailure:0}};
@@ -49,6 +49,11 @@ test('V6 requires all56 observations and cannot reuse the48-run predecessor',()=
 test('V7 requires all64 observations and cannot reuse its56-run predecessor',()=>{
  const {benchmark,verified}=passingGate('OC_V7');assert.equal(requireSemanticGate('OC_V7','source',benchmark,verified).runs,64);
  const old=passingGate('OC_V6');assert.throws(()=>requireSemanticGate('OC_V7','source',old.benchmark,old.verified));
+});
+test('V8 requires all72 observations and cannot reuse its64-run predecessor',()=>{
+ const {benchmark,verified}=passingGate('OC_V8');assert.equal(requireSemanticGate('OC_V8','source',benchmark,verified).runs,72);
+ const old=passingGate('OC_V7');assert.throws(()=>requireSemanticGate('OC_V8','source',old.benchmark,old.verified));
+ benchmark.batches.at(-1).results.pop();assert.throws(()=>requireSemanticGate('OC_V8','source',benchmark,verified));
 });
 function passingSource(){
  return {network:'studionet',chainId:61999,revision:'OC_V7',productionSHA256:'source',diagnosticSHA256:'probe',

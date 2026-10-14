@@ -81,10 +81,53 @@
       "signerRole": "buyer",
       "transactionHash": "0xa700a3b5f0ae038fe11d06b7c08e0b6eeac2c2a86375d735e768b1be24fecf04",
       "signedAt": "2026-10-14T16:54:02.975Z",
-      "status": "COMMITTING",
+      "status": "FINALIZED",
       "executionResult": "SUCCESS",
-      "consensusResult": "NO_MAJORITY",
-      "contractAddress": "0x2AB1335BcC772985C0185714CF7F1C0f5bA92073"
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x2AB1335BcC772985C0185714CF7F1C0f5bA92073",
+      "results": [
+        {
+          "id": "S04",
+          "expected": {
+            "E04:U00": "APPLIES"
+          },
+          "observed": {
+            "E04:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E04:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S05",
+          "expected": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E05:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S06",
+          "expected": {
+            "E06:U00": "APPLIES"
+          },
+          "observed": {
+            "E06:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E06:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T18:01:07.075Z"
     },
     {
       "repetition": 1,
@@ -412,11 +455,155 @@
       "signerRole": "buyer",
       "transactionHash": "0xf70ecfce93869003bd5f579b844771f5c6071d32ae8adf2cbf1324fe8d87e2ab",
       "signedAt": "2026-10-14T17:51:41.098Z",
-      "status": "COMMITTING",
+      "status": "FINALIZED",
       "executionResult": "SUCCESS",
-      "consensusResult": "NO_MAJORITY",
-      "contractAddress": "0x573DffAE396DB4417C45435Ffdb9C4021E50255b"
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x573DffAE396DB4417C45435Ffdb9C4021E50255b",
+      "results": [
+        {
+          "id": "C01",
+          "expected": {
+            "EC01:U00": "APPLIES"
+          },
+          "observed": {
+            "EC01:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"EC01:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "C02",
+          "expected": {
+            "EC02:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "EC02:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"EC02:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "C03",
+          "expected": {
+            "EC03:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "EC03:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"EC03:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": false,
+          "unsafeDefinite": false,
+          "conservativeAbstention": true
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T17:55:30.360Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "C04"
+      ],
+      "valueGEN": "0",
+      "signerRole": "buyer",
+      "transactionHash": "0xa637d0bae2c5a4f8078e7f19f9047cd9eab826857f32f10904371effc6fb32e1",
+      "signedAt": "2026-10-14T17:55:31.392Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xD4a2cFe92Adf323Cd9B5B5C3ed75e6Ef89794786",
+      "results": [
+        {
+          "id": "C04",
+          "expected": {
+            "EC04:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "EC04:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"EC04:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T17:58:03.635Z"
+    },
+    {
+      "repetition": 2,
+      "caseIds": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "valueGEN": "0",
+      "signerRole": "buyer",
+      "transactionHash": "0xe7f283b84ee414325fafcefa5a852f32ca73def2631a800f4d5bf9b512244f81",
+      "signedAt": "2026-10-14T17:58:04.600Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x2Bc5fee4f3425B127f06416D59E86F5Cbe89a190",
+      "results": [
+        {
+          "id": "S01",
+          "expected": {
+            "E01:U00": "APPLIES"
+          },
+          "observed": {
+            "E01:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E01:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S02",
+          "expected": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E02:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S03",
+          "expected": {
+            "E03:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E03:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E03:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T18:01:09.946Z"
     }
   ],
-  "startedAt": "2026-10-14T16:52:37.463Z"
+  "startedAt": "2026-10-14T16:52:37.463Z",
+  "summary": {
+    "plannedCaseRuns": 56,
+    "completedCaseRuns": 28,
+    "unobservedDueToBatchFailure": 28,
+    "exactMatches": 27,
+    "unsafeDefinite": 0,
+    "conservativeAbstentions": 1,
+    "failedBatches": 1,
+    "absoluteFutureAccuracyProven": false
+  },
+  "complete": false
 }

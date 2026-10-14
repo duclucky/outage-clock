@@ -7,7 +7,7 @@ import hashlib
 import json
 
 GEN = 10**18
-VERSION = "OC_V7"
+VERSION = "OC_V8"
 SOURCE_URL = "https://status.openai.com/api/v2/incidents.json"
 PAGE_ID = "01JMDK9XYNY6RXSED6SDWW50WY"
 STATES = ("OFFERED", "REVIEWABLE", "RETRYABLE", "READY", "EXERCISED", "REFUNDED", "CANCELLED", "CLOSED")
@@ -245,7 +245,12 @@ def _scope_prompt(scope, rows, second):
     approach = ("Independently check for a different operation or an actually excluded required qualifier. Missing verbatim target words alone is not an exclusion. " if second else
         "Identify the requested operation and the reported operation, then determine whether the report covers the request by meaning. ")
     return (role + "LOCKED_INPUT=" + json.dumps({"channel": scope, "intervals": rows}, sort_keys=True) + "\n" + approach +
+        "FIRST identify the actual affirmative requested operation in channel, respecting every exclusion. "
+        "A named operation in an outside/excluded/negated clause is NOT thereby the requested target. "
         "Judge reported operation COVERAGE, then STATUS; never match phrases or assume all services of one provider are affected. "
+        "Assess title_scope and title status from the TITLE ONLY; do not borrow body detail to promote title coverage. "
+        "A platform-family title remains PARENT_ONLY for a particular operation, even if its body names that operation. "
+        "An explicit unaffected target assertion may refine a parent title without contradicting that parent title. "
         "Echo channel exactly. For every exact interval ID return title_scope and body_scope as "
         "COVERS_TARGET/PARENT_ONLY/UNRELATED/UNSPECIFIED, title and body statuses as APPLIES/NOT_APPLIES/UNVERIFIABLE, "
         "body_quote, body_kind and strict boolean recovery/body_conflict. "

@@ -81,11 +81,140 @@
       "signerRole": "issuer",
       "transactionHash": "0x3feb401370ae767519d296ce5615a7a5fc770f2a31d654ce49e289654fba0c2c",
       "signedAt": "2026-10-14T17:51:11.165Z",
-      "status": "ACCEPTED",
+      "status": "FINALIZED",
       "executionResult": "SUCCESS",
       "consensusResult": "MAJORITY_AGREE",
-      "contractAddress": "0xB45637c1AA4806cbd9f2a2Fa485D8987aEAbF818"
+      "contractAddress": "0xB45637c1AA4806cbd9f2a2Fa485D8987aEAbF818",
+      "results": [
+        {
+          "id": "S04",
+          "expected": {
+            "E04:U00": "APPLIES"
+          },
+          "observed": {
+            "E04:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E04:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S05",
+          "expected": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E05:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E05:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S06",
+          "expected": {
+            "E06:U00": "APPLIES"
+          },
+          "observed": {
+            "E06:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E06:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T17:54:34.684Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "valueGEN": "0",
+      "signerRole": "issuer",
+      "transactionHash": "0x2fc12d620fdac5a51e0461dc0572be3fa7568e090644e70550c0cf74c72a94a5",
+      "signedAt": "2026-10-14T17:54:35.666Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x9A2AEcBdab803CE3F6FbC6C2AFCC726da736171C",
+      "results": [
+        {
+          "id": "S07",
+          "expected": {
+            "E07:U00": "APPLIES"
+          },
+          "observed": {
+            "E07:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E07:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S08",
+          "expected": {
+            "E08:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E08:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E08:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S09",
+          "expected": {
+            "E09:U00": "UNVERIFIABLE"
+          },
+          "observed": {
+            "E09:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E09:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T17:57:09.279Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "valueGEN": "0",
+      "signerRole": "issuer",
+      "transactionHash": "0x36474721aff38609a1b182d0e60a782ea7ab29af368553795af3ce021a5acc82",
+      "signedAt": "2026-10-14T17:57:10.312Z",
+      "status": "COMMITTING",
+      "executionResult": "SUCCESS",
+      "consensusResult": "NO_MAJORITY",
+      "contractAddress": "0x26aE725d2F24f6809597f392C0d82a81a577f2D3"
     }
   ],
-  "startedAt": "2026-10-14T17:46:21.164Z"
+  "startedAt": "2026-10-14T17:46:21.164Z",
+  "summary": {
+    "plannedCaseRuns": 64,
+    "completedCaseRuns": 9,
+    "unobservedDueToBatchFailure": 55,
+    "exactMatches": 8,
+    "unsafeDefinite": 0,
+    "conservativeAbstentions": 1,
+    "failedBatches": 1,
+    "absoluteFutureAccuracyProven": false
+  },
+  "complete": false
 }

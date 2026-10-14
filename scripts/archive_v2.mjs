@@ -7,7 +7,7 @@ import {requireSemanticGate,requireSourceGate} from './promotion_gate.mjs';
 
 try{
  const sourceBytes=fs.readFileSync(path.join(EVIDENCE,'../../../contracts/outage_clock.py'));
- const version=sourceBytes.toString('ascii').match(/^VERSION = "(OC_V[4567])"$/m)?.[1];
+ const version=sourceBytes.toString('ascii').match(/^VERSION = "(OC_V[45678])"$/m)?.[1];
  if(!version)throw Error('Recognized replacement version required');
  const suffix=`v${version.slice(-1)}-20261014.json`;
  const d=file('deployment.json'),benchmark=file('semantic-benchmark-'+suffix),verified=file('semantic-benchmark-verification-'+suffix);

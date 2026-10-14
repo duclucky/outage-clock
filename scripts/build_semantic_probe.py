@@ -21,7 +21,7 @@ source = (subprocess.check_output(["git", "show", args.source_ref + ":contracts/
           (ROOT / "contracts/outage_clock.py").read_text(encoding="ascii"))
 module = ast.parse(source)
 version = next(ast.literal_eval(n.value) for n in module.body if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "VERSION" for t in n.targets))
-assert version in {"OC_V2", "OC_V3", "OC_V4", "OC_V5", "OC_V6", "OC_V7"}
+assert version in {"OC_V2", "OC_V3", "OC_V4", "OC_V5", "OC_V6", "OC_V7", "OC_V8"}
 contract = next(n for n in module.body if isinstance(n, ast.ClassDef) and n.name == "OutageClock")
 review = next(n for n in contract.body if isinstance(n, ast.FunctionDef) and n.name == "review_clock")
 leader = next(n for n in review.body if isinstance(n, ast.FunctionDef) and n.name == "leader")

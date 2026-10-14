@@ -1,0 +1,72 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V8",
+  "caseId": "S03",
+  "repetition": 1,
+  "transactionHash": "0x152fcbee09c970cc46a4315ac753fcd4f37370aba10c4103b7deeb5280ea6235",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "contractAddress": "0xCbCBf0bD3a3F35C719063A817e40666f75755e5B",
+  "canonicalChannel": "Execute ordinary text model inference requests through the API Platform.",
+  "constructorAndEvidenceMatch": true,
+  "sourceMatches": true,
+  "expected": {
+    "E03:U00": "NOT_APPLIES"
+  },
+  "observed": {
+    "E03:U00": "NOT_APPLIES"
+  },
+  "intervals": [
+    {
+      "id": "E03:U00",
+      "start": 0,
+      "end": 100,
+      "status": "identified",
+      "title": "API Platform incident",
+      "body": "Only image generation is degraded. Text model inference requests through the API Platform are unaffected."
+    }
+  ],
+  "assessments": [
+    {
+      "E03:U00": {
+        "body": "NOT_APPLIES",
+        "body_conflict": false,
+        "body_kind": "STATUS_ASSERTION",
+        "body_quote": "Text model inference requests through the API Platform are unaffected.",
+        "body_scope": "COVERS_TARGET",
+        "recovery": false,
+        "title": "UNVERIFIABLE",
+        "title_scope": "PARENT_ONLY"
+      }
+    },
+    {
+      "E03:U00": {
+        "body": "NOT_APPLIES",
+        "body_conflict": false,
+        "body_kind": "STATUS_ASSERTION",
+        "body_quote": "Only image generation is degraded. Text model inference requests through the API Platform are unaffected.",
+        "body_scope": "COVERS_TARGET",
+        "recovery": false,
+        "title": "UNVERIFIABLE",
+        "title_scope": "PARENT_ONLY"
+      }
+    }
+  ],
+  "returnedChannel": "Execute ordinary text model inference requests through the API Platform.",
+  "acknowledgedChannels": [
+    "Execute ordinary text model inference requests through the API Platform.",
+    "Execute ordinary text model inference requests through the API Platform."
+  ],
+  "promptSHA256": [
+    "c70376833d368f81a51cc8a5dfa7120cee8b7211bb6f557e25137d54fe5a339b",
+    "dfc13f11171194598370c0abccf985f96b85c8c7b8687507b707bc5cdc6d2796"
+  ],
+  "sourceDigest": "fb731862359d1e6f5f4430e39e9381596db2f64fc9b8c71dc1d2b0f37f40e8da",
+  "valueGEN": "0",
+  "custody": false,
+  "productionFundsAffected": false,
+  "nativeBalanceGEN": "0",
+  "at": "2026-10-14T18:07:57.163Z"
+}

@@ -9,7 +9,9 @@
 > OC_V6 failed the authentic-source smoke: its final monitoring interval was
 > UNVERIFIABLE. OC_V7 distinguishes progress notes from explicit health/scope
 > uncertainty. Its authentic-source smoke finalized MAJORITY_DISAGREE (FAIL);
-> the64-run synthetic network gate is pending. No production promotion.
+> its partial64-run campaign also exposed an S03 conservative mismatch.
+> OC_V8 corrects target exclusions/title-only coverage; real-source/72-run gates
+> are pending. No candidate production promotion or new payments.
 > See docs/CONTEXT-REMEDIATION.md and docs/JUDGMENT-CAMPAIGN.md.
 
 Reusable GenLayer Intelligent Contract for a paid, one-use protocol entitlement
@@ -30,15 +32,15 @@ verified the earlier120-case baseline. Expanded411-case
 
 ## Validate
 
-The working tree contains the OC_V7 context-kind candidate. Its separate
+The working tree contains the OC_V8 target/title-boundary candidate. Its separate
 service relations/statuses, source-span checks and deterministic input bindings are
-specified in [the remediation plan](docs/CONTEXT-REMEDIATION.md). OC_V3 failed real-model
+specified in [the remediation plan](docs/TARGET-REMEDIATION.md). OC_V3 failed real-model
 revalidation and was never promoted or funded. OC_V2 remains the deployed
 historical revision. OC_V4 failed the semantic gate and was not promoted or funded.
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. The OC_V7 local run passed458 Python direct cases and52 Node cases
-(510 total), semantic lint and AST metadata,
+`npm run check`. The OC_V8 local run passed458 Python direct cases and53 Node cases
+(511 total), semantic lint and AST metadata,
 zero skipped. Real-model and production lifecycle acceptance remain separate.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,
@@ -111,12 +113,16 @@ supersedes submission readiness. It is not Portal acceptance or an official scor
 ## Expanded judgment campaign
 
 [Campaign protocol](docs/JUDGMENT-CAMPAIGN.md) separates411 local protocol cases
-from real-model synthetic GenVM evaluation. The production contract source remains
+from real-model synthetic GenVM evaluation. The deployed OC_V2 source remains
 unchanged. A dedicated common-mode-error witness confirms that passing consensus
 cannot guarantee semantic truth when all interpreters/critics share a mistake.
 Historical OC_V2 observed24 of24 case runs:22 matched and S08 failed twice.
 OC_V3 matched29/36 planned runs with4 conservative abstentions and3 unobserved
 runs due to one dissenting batch. OC_V4 observed36/36 and matched35, with an
 unsafe definite S02 mismatch in repetition2. S08 matched in both OC_V4 runs.
-Readiness remains HOLD; no universal accuracy claim is made. [Current local CI](https://github.com/duclucky/outage-clock/actions/runs/38579351468)
-passed445 protocol checks and does not override the semantic failure.
+OC_V7 has9observed/8exact of64planned,including the S03 abstention, and failed
+its real-source consensus. OC_V8 corrects title-only coverage/target exclusions;
+the first3 cases matched,including S03. Full72runs and real-source PASS are pending.
+Readiness remains HOLD; no universal accuracy claim is made. [Published V7 CI](https://github.com/duclucky/outage-clock/actions/runs/38610987350)
+passed510 protocol checks. The working V8 has511 local checks; that is separate
+from published CI, authentic-source consensus and a new paid lifecycle.

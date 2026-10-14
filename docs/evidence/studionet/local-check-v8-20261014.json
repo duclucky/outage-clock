@@ -1,0 +1,51 @@
+{
+  "revision": "OC_V8",
+  "network": "studionet",
+  "chainId": 61999,
+  "productionSHA256": "3816cf3caddf990a3241ae9f807e887f0d0c07b36222109737a48ff72e326d0c",
+  "observedAt": "2026-10-14T18:07:33.761646+00:00",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "output": [
+        "ASCII_HEADER_CLASS_METADATA_TEMPORAL_NO_APP_OK: OutageClock,14methods,accept payable1GEN",
+        "Lint passed (3 checks); Validation passed; OutageClock14methods(6view,8write)",
+        "458 passed in 57.98s",
+        "tests53,pass53,fail0,skipped0"
+      ]
+    },
+    {
+      "command": "genvm-lint check .codex/semantic_probe_OC_V8.py",
+      "exitCode": 0,
+      "output": [
+        "Lint passed (3 checks); Validation passed; OutageSemanticProbe1view/0write"
+      ]
+    },
+    {
+      "command": "genvm-lint check .codex/source_probe_OC_V8.py",
+      "exitCode": 0,
+      "output": [
+        "Lint passed (3 checks); Validation passed; OutageSourceProbe1view/0write"
+      ]
+    }
+  ],
+  "totalLocalPassed": 511,
+  "skipped": 0,
+  "unchangedContractClassAST": true,
+  "baselineSourceCommit": "b67df9c7f05141fc5893989f04568ade12db0102",
+  "frozenPredecessorCasesUnchanged": 32,
+  "semanticExpectedLabelsChanged": false,
+  "graderUnchanged": true,
+  "graderSHA256": {
+    "genlayer-precheck.ps1": "0E90AE93C72C9464B4B995DB6896CF08EA8F8D14B66A847156012F830E896746",
+    "genlayer_grade.py": "B80FD0A80F5040865EC8F7801BCA1ADBE44CA1A617E314CF4385FE0E24A7DB59",
+    "precheck_static.py": "E67AE6076CE48D5CC4D3179138F7DACB514792EA21D0A48AB5B4D93222263F44"
+  },
+  "readyForSubmission": false,
+  "limitations": [
+    "Local checks do not measure model accuracy",
+    "All72 semantic observations and authentic-source PASS remain required",
+    "No new production deployment or paid lifecycle"
+  ]
+}
