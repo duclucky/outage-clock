@@ -49,7 +49,9 @@ def model(classes=None,ids=None):
 def mock(vm,decision=None,body=None,status=200,consistency=None):
     vm.mock_web(r'.*status\.openai\.com.*',{'status':status,'body':json.dumps(source() if body is None else body)})
     vm.mock_llm(r'.*OutageClock independent reported-time reviewer.*',json.dumps(model() if decision is None else decision))
-    vm.mock_llm(r'.*OutageClock consistency verifier.*',json.dumps({'consistent':True} if consistency is None else consistency))
+    decision = model() if decision is None else decision
+    default_audit={'consistent':True,'intervals':{key:{'title':value,'body':value,'generic':False,'recovery':False,'conflict':False} for key,value in decision.get('classes',{}).items()}}
+    vm.mock_llm(r'.*OutageClock consistency verifier.*',json.dumps(default_audit if consistency is None else consistency))
 def ready(c,vm,a,**kw):
     lease=paid(c,vm,a);mock(vm,**kw);vm.sender=a[1];c.review_clock(lease);return lease
 def snap(c,lease):return (c.get_lease(lease),c.get_clock(lease),c.get_accounting())

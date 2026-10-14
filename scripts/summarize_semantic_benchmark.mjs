@@ -7,12 +7,15 @@ import {receipt} from './receipts.mjs';
 
 try{
  const r=client();await identity(r);
- const record=file('semantic-benchmark-20261014.json');
+ const revision=process.argv[2]??'OC_V2';
+ if(!['OC_V2','OC_V3'].includes(revision))throw Error('Unknown benchmark revision');
+ const suffix=revision==='OC_V3'?'-v3':'';
+ const record=file(`semantic-benchmark${suffix}-20261014.json`);
  if(!record?.complete)throw Error('Benchmark must finish first');
- const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,'tests/data/semantic-scenarios.json'),'utf8'));
+ const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${suffix}.json`),'utf8'));
  const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
  if(sha(JSON.stringify(corpus))!==record.corpusSHA256)throw Error('Locked corpus changed');
- const verification={network:'studionet',chainId:61999,at:new Date().toISOString(),batches:[],caseRuns:[],
+ const verification={network:'studionet',chainId:61999,revision,at:new Date().toISOString(),batches:[],caseRuns:[],
   rubric:'Frozen synthetic conservative-policy expectations, not universal provider truth',absoluteFutureAccuracyProven:false};
  for(const b of record.batches){
   const raw=await safe(()=>r.request({method:'eth_getTransactionByHash',params:[b.transactionHash]}));
@@ -24,6 +27,11 @@ try{
    item.sourceMatches=sha(Buffer.from(code))===record.diagnosticSHA256;
    item.nativeBalanceGEN=await balance(r,b.contractAddress);
    if(!item.sourceMatches||item.nativeBalanceGEN!=='0')throw Error('Diagnostic identity/custody proof failed');
+   const reports=await view(r,b.contractAddress,'get_report');
+   for(const saved of b.results){
+    const found=reports.filter(x=>x.id===saved.id);
+    if(found.length!==1||JSON.stringify(found[0].classes)!==JSON.stringify(saved.observed))throw Error('Canonical diagnostic report changed');
+   }
   }
   verification.batches.push(item);
   for(const result of b.results){
@@ -44,11 +52,14 @@ try{
   }).length};
  const d=file('deployment.json');
  const deployedSHA256=sha(Buffer.from(await safe(()=>r.getContractCode(d.contractAddress))));
- verification.production={address:d.contractAddress,sourceUnchanged:sha(fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py')))===record.productionSHA256&&deployedSHA256===record.productionSHA256,
+ const candidateSHA256=sha(fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py')));
+ if(candidateSHA256!==record.productionSHA256)throw Error('Candidate source changed after benchmark');
+ verification.production={address:d.contractAddress,version:d.version,sourceUnchanged:deployedSHA256===d.sourceSHA256,
+  candidateMatchesDeployment:candidateSHA256===deployedSHA256,
   accounting:await view(r,d.contractAddress,'get_accounting'),nativeBalanceGEN:await balance(r,d.contractAddress)};
  if(!verification.production.sourceUnchanged||verification.production.nativeBalanceGEN!=='0'||verification.production.accounting.liability_gen!=='0')throw Error('Production boundary changed');
  verification.semanticReadiness=verification.summary.exactMatches!==verification.summary.plannedCaseRuns||verification.summary.failedBatches?'REVIEW_REQUIRED':'FINITE_CORPUS_ONLY';
- save('semantic-benchmark-verification-20261014.json',verification);
+ save(`semantic-benchmark-verification${suffix}-20261014.json`,verification);
  console.log(JSON.stringify({summary:verification.summary,semanticReadiness:verification.semanticReadiness,production:verification.production}));
  // Execution/finality/CI success must never conceal a semantic rubric failure.
  if(verification.semanticReadiness==='REVIEW_REQUIRED')process.exitCode=1;

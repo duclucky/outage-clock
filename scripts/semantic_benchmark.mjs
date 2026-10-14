@@ -9,12 +9,15 @@ import {receipt} from './receipts.mjs';
 
 try {
  const reader=client(); await identity(reader);
- const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,'tests/data/semantic-scenarios.json'),'utf8'));
+ const revision=process.argv[2]??'OC_V2';
+ if(!['OC_V2','OC_V3'].includes(revision))throw Error('Unknown benchmark revision');
+ const suffix=revision==='OC_V3'?'-v3':'';
+ const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${suffix}.json`),'utf8'));
  const source=fs.readFileSync(path.join(ROOT,'.codex/semantic_probe.py'));
  const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
  const corpusHash=sha(JSON.stringify(corpus)),sourceHash=sha(source);
- const name='semantic-benchmark-20261014.json';
- let record=file(name)??{network:'studionet',chainId:61999,valueGEN:'0',custody:false,
+ const name=`semantic-benchmark${suffix}-20261014.json`;
+ let record=file(name)??{network:'studionet',chainId:61999,revision,valueGEN:'0',custody:false,
   kind:'SYNTHETIC_CORPUS_REAL_GENVM_FULL_CONSENSUS',corpusSHA256:corpusHash,
   diagnosticSHA256:sourceHash,productionSHA256:sha(fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py'))),
   repetitions:2,scenarios:corpus.cases.length,batches:[],startedAt:new Date().toISOString()};

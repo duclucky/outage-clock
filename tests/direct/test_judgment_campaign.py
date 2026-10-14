@@ -84,7 +84,7 @@ def test_common_mode_model_error_is_a_witness_against_absolute_accuracy(contract
     """
     lease = paid(contract, direct_vm, direct_accounts)
     wrong = {f"{ID}:u{k}": "NOT_APPLIES" for k in range(4)}
-    mock(direct_vm, decision=model(wrong), consistency={"consistent": True})
+    mock(direct_vm, decision=model(wrong))
     contract.review_clock(lease)
     assert direct_vm.run_validator() is True
     assert j(contract.get_clock(lease))["verified"] is True
