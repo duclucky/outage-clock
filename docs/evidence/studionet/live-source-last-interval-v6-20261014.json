@@ -1,0 +1,41 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V6",
+  "transactionHash": "0x099c6b5ebb1aa8e988a3dc0f589ad0da17d08db810c7f32459cf532768fb26d5",
+  "sourceDigest": "d3d035a2ae570c5b8fa99682613d81c01b61db583e3b42370347932471a9006b",
+  "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+  "interval": {
+    "body": "We have applied the mitigation and are monitoring the recovery.",
+    "end": 1791909402,
+    "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1",
+    "start": 1791883800,
+    "status": "monitoring",
+    "title": "Degraded performance in GPT-6.1 Sol Codex and Work mode"
+  },
+  "observed": "UNVERIFIABLE",
+  "assessments": [
+    {
+      "body": "UNVERIFIABLE",
+      "body_conflict": false,
+      "body_quote": "We have applied the mitigation and are monitoring the recovery.",
+      "body_scope": "UNSPECIFIED",
+      "generic": false,
+      "recovery": false,
+      "title": "APPLIES",
+      "title_scope": "COVERS_TARGET"
+    },
+    {
+      "body": "UNVERIFIABLE",
+      "body_conflict": false,
+      "body_quote": "We have applied the mitigation and are monitoring the recovery.",
+      "body_scope": "UNSPECIFIED",
+      "generic": false,
+      "recovery": false,
+      "title": "APPLIES",
+      "title_scope": "COVERS_TARGET"
+    }
+  ],
+  "valueGEN": "0",
+  "at": "2026-10-14T17:21:44.091Z"
+}

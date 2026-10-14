@@ -3,6 +3,7 @@ import{successful,nativeChild}from'../scripts/receipts.mjs';
 import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {requireSemanticGate} from '../scripts/promotion_gate.mjs';
+import * as promotion from '../scripts/promotion_gate.mjs';
 import {rpcRead} from '../scripts/rpc_read.mjs';
 import {deadlineFetch} from '../scripts/rpc_deadline.mjs';
 import {identity,balance} from '../scripts/network.mjs';
@@ -12,7 +13,8 @@ test('raw successful receipt projects only safe fields',()=>{
  assert.equal(p.executionResult,'SUCCESS');assert.equal(JSON.stringify(p).includes('synthetic'),false);
 });
 test('normalized SDK success and numeric finality',()=>assert.equal(successful({status:7,resultName:'AGREE',txExecutionResultName:'SUCCESS',contractAddress:sender},'hash').status,'FINALIZED'));
-for(const bad of[{status:'FINALIZED'},{status:'ACCEPTED',execution_result:'SUCCESS'},{status:'FINALIZED',execution_result:'ERROR'},{status:'FINALIZED',execution_result:'SUCCESS',result_name:'UNDETERMINED'}])test('invalid or pending execution cannot succeed '+JSON.stringify(bad),()=>assert.throws(()=>successful(bad,'hash')));
+for(const bad of[{status:'FINALIZED'},{status:'ACCEPTED',execution_result:'SUCCESS'},{status:'FINALIZED',execution_result:'ERROR'},{status:'FINALIZED',execution_result:'SUCCESS',result_name:'UNDETERMINED'},
+ {status:'FINALIZED',execution_result:'SUCCESS',result_name:'NO_MAJORITY'},{status:'FINALIZED',execution_result:'SUCCESS'}])test('invalid or pending execution cannot succeed '+JSON.stringify(bad),()=>assert.throws(()=>successful(bad,'hash')));
 const raw={status:'FINALIZED',from_address:sender,to_address:recipient,value:(10n**18n).toString(),triggered_by:'parent'};
 const expected={sender,recipient,valueGEN:'1',parentHash:'parent'};
 test('native child without VM result still binds exact1GEN origin and parent',()=>assert.equal(nativeChild(raw,'child',expected).valueGEN,'1'));
@@ -28,8 +30,8 @@ for(const exitCode of[0,7])test('local tool combines diagnostic streams and pres
 });
 
 function passingGate(version='OC_V5'){
- const runs=version==='OC_V6'?56:48,batchCount=version==='OC_V6'?20:16;
- const batches=Array.from({length:batchCount},(_,i)=>({results:Array.from({length:version==='OC_V6'&&i%10===9?1:3},(_,j)=>({id:`S${i*3+j}`,expected:{interval:'NOT_APPLIES'},observed:{interval:'NOT_APPLIES'},exactMatch:true,unsafeDefinite:false,conservativeAbstention:false}))}));
+ const runs=version==='OC_V7'?64:version==='OC_V6'?56:48,batchCount=version==='OC_V7'?22:version==='OC_V6'?20:16;
+ const batches=Array.from({length:batchCount},(_,i)=>({results:Array.from({length:version==='OC_V7'&&i%11===10?2:version==='OC_V6'&&i%10===9?1:3},(_,j)=>({id:`S${i*3+j}`,expected:{interval:'NOT_APPLIES'},observed:{interval:'NOT_APPLIES'},exactMatch:true,unsafeDefinite:false,conservativeAbstention:false}))}));
  const benchmark={complete:true,revision:version,productionSHA256:'source',corpusSHA256:'corpus',diagnosticSHA256:'probe',batches,
   summary:{plannedCaseRuns:runs,completedCaseRuns:runs,exactMatches:runs,unsafeDefinite:0,conservativeAbstentions:0,failedBatches:0,unobservedDueToBatchFailure:0}};
  const verified={semanticReadiness:'FINITE_CORPUS_ONLY',revision:version,candidateSourceSHA256:'source',corpusSHA256:'corpus',diagnosticSHA256:'probe',summary:{exactMatches:runs},
@@ -43,6 +45,38 @@ test('V6 requires all56 observations and cannot reuse the48-run predecessor',()=
  const {benchmark,verified}=passingGate('OC_V6');assert.equal(requireSemanticGate('OC_V6','source',benchmark,verified).runs,56);
  const old=passingGate();assert.throws(()=>requireSemanticGate('OC_V6','source',old.benchmark,old.verified));
  benchmark.batches.at(-1).results.pop();assert.throws(()=>requireSemanticGate('OC_V6','source',benchmark,verified));
+});
+test('V7 requires all64 observations and cannot reuse its56-run predecessor',()=>{
+ const {benchmark,verified}=passingGate('OC_V7');assert.equal(requireSemanticGate('OC_V7','source',benchmark,verified).runs,64);
+ const old=passingGate('OC_V6');assert.throws(()=>requireSemanticGate('OC_V7','source',old.benchmark,old.verified));
+});
+function passingSource(){
+ return {network:'studionet',chainId:61999,revision:'OC_V7',productionSHA256:'source',diagnosticSHA256:'probe',
+  status:'FINALIZED',executionResult:'SUCCESS',consensusResult:'MAJORITY_AGREE',sourceMatches:true,nativeBalanceGEN:'0',valueGEN:'0',custody:false,passed:true,
+  reports:{affected:{source_ok:true,verified:true,applicable_seconds:30402,classes:{i:'APPLIES'}},
+   unaffected:{source_ok:true,verified:true,applicable_seconds:0,classes:{i:'NOT_APPLIES'}}}};
+}
+test('source promotion requires bound real-feed affected and unrelated outcomes',()=>{
+ assert.doesNotThrow(()=>promotion.requireSourceGate('OC_V7','source','probe',passingSource()));
+});
+for(const defect of ['missing','wrong_network','wrong_revision','wrong_source','wrong_probe','pending','dissent','nonzero_balance','custody','unavailable','unverified','no_affected_time','unrelated_applies','empty_classes','failed'])test('source promotion rejects '+defect,()=>{
+ const s=passingSource();
+ if(defect==='missing')return assert.throws(()=>promotion.requireSourceGate('OC_V7','source','probe',null));
+ if(defect==='wrong_network')s.chainId=61997;
+ if(defect==='wrong_revision')s.revision='OC_V6';
+ if(defect==='wrong_source')s.productionSHA256='old';
+ if(defect==='wrong_probe')s.diagnosticSHA256='old';
+ if(defect==='pending')s.status='COMMITTING';
+ if(defect==='dissent')s.consensusResult='MAJORITY_DISAGREE';
+ if(defect==='nonzero_balance')s.nativeBalanceGEN='1';
+ if(defect==='custody')s.custody=true;
+ if(defect==='unavailable')s.reports.affected.source_ok=false;
+ if(defect==='unverified')s.reports.affected.verified=false;
+ if(defect==='no_affected_time')s.reports.affected.applicable_seconds=0;
+ if(defect==='unrelated_applies')s.reports.unaffected.classes.i='APPLIES';
+ if(defect==='empty_classes')s.reports.unaffected.classes={};
+ if(defect==='failed')s.passed=false;
+ assert.throws(()=>promotion.requireSourceGate('OC_V7','source','probe',s));
 });
 for(const defect of ['pending','unsafe','abstention','missing_case','wrong_meaning_hidden_by_summary','wrong_source','no_majority','nonzero_balance','stale_corpus'])test('semantic promotion rejects '+defect,()=>{
  const {benchmark:b,verified:v}=passingGate();

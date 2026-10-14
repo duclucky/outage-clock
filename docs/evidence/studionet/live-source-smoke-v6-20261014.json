@@ -1,0 +1,107 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V6",
+  "productionSHA256": "eb3a72dad40f885ca5d6fc9de8b5d33b3451f7f796078f392d33415175b07be4",
+  "diagnosticSHA256": "0ee3b0f0b83e02ef5ae58fe12d68a856ca92dd994d2d1fd635380d381d20dbc1",
+  "kind": "AUTHORITATIVE_FEED_REAL_GENVM_FULL_CONSENSUS_NO_CUSTODY",
+  "scopes": {
+    "affected": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+    "unaffected": "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel."
+  },
+  "incidentIds": [
+    "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+  ],
+  "valueGEN": "0",
+  "custody": false,
+  "startedAt": "2026-10-14T17:11:28.046Z",
+  "transactionHash": "0x099c6b5ebb1aa8e988a3dc0f589ad0da17d08db810c7f32459cf532768fb26d5",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "contractAddress": "0xa5C2Dd8963F6EdBbD270e2C89D627975f3465360",
+  "sourceMatches": true,
+  "nativeBalanceGEN": "0",
+  "reports": {
+    "affected": {
+      "applicable_seconds": 0,
+      "classes": {
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH": "APPLIES",
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10": "APPLIES",
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93": "APPLIES",
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1": "UNVERIFIABLE"
+      },
+      "intervals": [
+        {
+          "class": "APPLIES",
+          "end": 1791879513,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH",
+          "start": 1791879000
+        },
+        {
+          "class": "APPLIES",
+          "end": 1791879736,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10",
+          "start": 1791879513
+        },
+        {
+          "class": "APPLIES",
+          "end": 1791883800,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93",
+          "start": 1791879736
+        },
+        {
+          "class": "UNVERIFIABLE",
+          "end": 1791909402,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1",
+          "start": 1791883800
+        }
+      ],
+      "source_digest": "d3d035a2ae570c5b8fa99682613d81c01b61db583e3b42370347932471a9006b",
+      "source_ok": true,
+      "stage": "OK",
+      "verified": false
+    },
+    "unaffected": {
+      "applicable_seconds": 0,
+      "classes": {
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH": "NOT_APPLIES",
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10": "NOT_APPLIES",
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93": "NOT_APPLIES",
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1": "NOT_APPLIES"
+      },
+      "intervals": [
+        {
+          "class": "NOT_APPLIES",
+          "end": 1791879513,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH",
+          "start": 1791879000
+        },
+        {
+          "class": "NOT_APPLIES",
+          "end": 1791879736,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10",
+          "start": 1791879513
+        },
+        {
+          "class": "NOT_APPLIES",
+          "end": 1791883800,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93",
+          "start": 1791879736
+        },
+        {
+          "class": "NOT_APPLIES",
+          "end": 1791909402,
+          "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1",
+          "start": 1791883800
+        }
+      ],
+      "source_digest": "d3d035a2ae570c5b8fa99682613d81c01b61db583e3b42370347932471a9006b",
+      "source_ok": true,
+      "stage": "OK",
+      "verified": true
+    }
+  },
+  "passed": false,
+  "observedAt": "2026-10-14T17:13:32.959Z"
+}

@@ -1,0 +1,60 @@
+{
+  "revision": "OC_V7",
+  "productionSHA256": "89eb5de91b8a49c2d04363ef833ccba404f0bb0555ac71f4d01c8e19ec938fe5",
+  "network": "studionet",
+  "chainId": 61999,
+  "observedAt": "2026-10-14T17:53:56.973788+00:00",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "output": [
+        "ASCII_HEADER_CLASS_METADATA_TEMPORAL_NO_APP_OK: OutageClock,14methods,accept payable1GEN",
+        "Lint passed (3 checks); Validation passed; OutageClock14methods(6view,8write)",
+        "458 passed in 56.53s",
+        "tests52,pass52,fail0,skipped0"
+      ]
+    },
+    {
+      "command": "genvm-lint check .codex/semantic_probe_OC_V7.py",
+      "exitCode": 0,
+      "output": [
+        "Lint passed (3 checks); Validation passed; OutageSemanticProbe1view/0write"
+      ]
+    },
+    {
+      "command": "genvm-lint check .codex/source_probe_OC_V7.py",
+      "exitCode": 0,
+      "output": [
+        "Lint passed (3 checks); Validation passed; OutageSourceProbe1view/0write"
+      ]
+    },
+    {
+      "command": "genlayer-precheck.ps1 -Project D:\\Genlayer Project\\outage-clock -Category intelligent-contracts -RepoUrl https://github.com/duclucky/outage-clock -ExplorerUrl https://explorer-studio.genlayer.com/address/0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "exitCode": 1,
+      "output": [
+        "Summary: 0 BLOCKER, 1 WARN, 7 auto-verified OK",
+        "npm run check: PASS",
+        "gltest: PASS"
+      ],
+      "scope": "Original structural grader with historical OC_V2 explorer; does not satisfy candidate semantic or lifecycle gates"
+    }
+  ],
+  "totalLocalPassed": 510,
+  "skipped": 0,
+  "masterReread": {
+    "lines": 484,
+    "sha256": "35dbb0cb0b7ea756e9fbc4eee92938f5b024070bc6e494e07a8bd8c331dfc18f",
+    "all31ItemsAccountedFor": true,
+    "allItemsDone": false
+  },
+  "graderUnchanged": true,
+  "graderSHA256": {
+    "genlayer-precheck.ps1": "0E90AE93C72C9464B4B995DB6896CF08EA8F8D14B66A847156012F830E896746",
+    "genlayer_grade.py": "B80FD0A80F5040865EC8F7801BCA1ADBE44CA1A617E314CF4385FE0E24A7DB59",
+    "precheck_static.py": "E67AE6076CE48D5CC4D3179138F7DACB514792EA21D0A48AB5B4D93222263F44"
+  },
+  "frozenPredecessorCasesUnchanged": 28,
+  "semanticExpectedLabelsChanged": false,
+  "readyForSubmission": false
+}

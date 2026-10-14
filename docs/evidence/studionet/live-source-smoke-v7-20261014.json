@@ -1,0 +1,26 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V7",
+  "productionSHA256": "89eb5de91b8a49c2d04363ef833ccba404f0bb0555ac71f4d01c8e19ec938fe5",
+  "diagnosticSHA256": "fc5fec0a689177cddaa4df30c2d69e8e587a2d6bc5985b608d7d8602c558fe3b",
+  "kind": "AUTHORITATIVE_FEED_REAL_GENVM_FULL_CONSENSUS_NO_CUSTODY",
+  "scopes": {
+    "affected": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+    "unaffected": "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel."
+  },
+  "incidentIds": [
+    "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+  ],
+  "valueGEN": "0",
+  "custody": false,
+  "startedAt": "2026-10-14T17:39:46.837Z",
+  "transactionHash": "0x31c54a3e7a6939f203e4cf0366173c83559999fe3fda65d34a9d42e9e260e91f",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_DISAGREE",
+  "contractAddress": "0xeE6Adf6b0F3DDa7F27385B27367dECC47494bF24",
+  "passed": false,
+  "failure": "CONSENSUS_NOT_AGREED",
+  "observedAt": "2026-10-14T17:47:09.517Z"
+}

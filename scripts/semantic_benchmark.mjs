@@ -10,11 +10,11 @@ import {rpcRead} from './rpc_read.mjs';
 try {
  const reader=client(); await identity(reader);
  const revision=process.argv[2]??'OC_V2';
- if(!['OC_V2','OC_V3','OC_V4','OC_V5','OC_V6'].includes(revision))throw Error('Unknown benchmark revision');
+ if(!['OC_V2','OC_V3','OC_V4','OC_V5','OC_V6','OC_V7'].includes(revision))throw Error('Unknown benchmark revision');
  const fromBatch=Number(process.argv[3]??'1'),signerRole=process.argv[4]??'issuer';
  if(!Number.isInteger(fromBatch)||fromBatch<1||!['issuer','buyer'].includes(signerRole))throw Error('Bounded resume options required');
  const suffix=revision==='OC_V2'?'':`-v${revision.slice(-1)}`;
- const corpusSuffix=revision==='OC_V2'?'':['OC_V5','OC_V6'].includes(revision)?`-v${revision.slice(-1)}`:'-v3';
+ const corpusSuffix=revision==='OC_V2'?'':['OC_V5','OC_V6','OC_V7'].includes(revision)?`-v${revision.slice(-1)}`:'-v3';
  const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${corpusSuffix}.json`),'utf8'));
  if(fromBatch>Math.ceil(corpus.cases.length/3)*2)throw Error('Resume batch exceeds frozen plan');
  const versionedProbe=path.join(ROOT,`.codex/semantic_probe_${revision}.py`);

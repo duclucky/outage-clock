@@ -1,0 +1,91 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V7",
+  "valueGEN": "0",
+  "custody": false,
+  "kind": "SYNTHETIC_CORPUS_REAL_GENVM_FULL_CONSENSUS",
+  "corpusSHA256": "14b2a6bd6d9b5845f43a3f8bc95acbcf8273ca5cd95b156f2fd51837218e7396",
+  "diagnosticSHA256": "539f2b376d084762fe7238bca3d9d52b838a5ee32bf8d52aa3ea1e22549d0994",
+  "productionSHA256": "89eb5de91b8a49c2d04363ef833ccba404f0bb0555ac71f4d01c8e19ec938fe5",
+  "repetitions": 2,
+  "scenarios": 32,
+  "batches": [
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "valueGEN": "0",
+      "signerRole": "issuer",
+      "transactionHash": "0x954795845bca24977ef50c5fba64d99b4c938472f307e539566002bca508edfc",
+      "signedAt": "2026-10-14T17:46:22.257Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x1243858FC0431933B491af4Ed53086965a70f420",
+      "results": [
+        {
+          "id": "S01",
+          "expected": {
+            "E01:U00": "APPLIES"
+          },
+          "observed": {
+            "E01:U00": "APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E01:U00\": \"APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S02",
+          "expected": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E02:U00": "NOT_APPLIES"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E02:U00\": \"NOT_APPLIES\"}",
+          "exactMatch": true,
+          "unsafeDefinite": false,
+          "conservativeAbstention": false
+        },
+        {
+          "id": "S03",
+          "expected": {
+            "E03:U00": "NOT_APPLIES"
+          },
+          "observed": {
+            "E03:U00": "UNVERIFIABLE"
+          },
+          "reason": "COMPONENT_SCOPE_DERIVED: {\"E03:U00\": \"UNVERIFIABLE\"}",
+          "exactMatch": false,
+          "unsafeDefinite": false,
+          "conservativeAbstention": true
+        }
+      ],
+      "complete": true,
+      "observedAt": "2026-10-14T17:51:10.170Z"
+    },
+    {
+      "repetition": 1,
+      "caseIds": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "valueGEN": "0",
+      "signerRole": "issuer",
+      "transactionHash": "0x3feb401370ae767519d296ce5615a7a5fc770f2a31d654ce49e289654fba0c2c",
+      "signedAt": "2026-10-14T17:51:11.165Z",
+      "status": "ACCEPTED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0xB45637c1AA4806cbd9f2a2Fa485D8987aEAbF818"
+    }
+  ],
+  "startedAt": "2026-10-14T17:46:21.164Z"
+}

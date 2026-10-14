@@ -10,7 +10,7 @@ const plain=value=>value instanceof Map?Object.fromEntries([...value].map(([k,v]
  Array.isArray(value)?value.map(plain):typeof value==='bigint'?Number(value):value;
 try{
  const [revision='OC_V4',caseId='S02',repeat='2']=process.argv.slice(2);
- if(!['OC_V4','OC_V5','OC_V6'].includes(revision)||!/^(S\d{2}(T[0-2])?|C0[1-4])$/.test(caseId)||!['1','2'].includes(repeat))throw Error('Bounded component inspection required');
+ if(!['OC_V4','OC_V5','OC_V6','OC_V7'].includes(revision)||!/^(S\d{2}(T[0-2])?|C0[1-8])$/.test(caseId)||!['1','2'].includes(repeat))throw Error('Bounded component inspection required');
  const suffix=`v${revision.slice(-1)}`;
  const record=file(`semantic-benchmark-${suffix}-20261014.json`);
  const b=record.batches.find(x=>x.repetition===Number(repeat)&&x.caseIds.includes(caseId)&&x.complete);

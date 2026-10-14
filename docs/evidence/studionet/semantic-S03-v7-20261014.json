@@ -1,0 +1,72 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V7",
+  "caseId": "S03",
+  "repetition": 1,
+  "transactionHash": "0x954795845bca24977ef50c5fba64d99b4c938472f307e539566002bca508edfc",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "contractAddress": "0x1243858FC0431933B491af4Ed53086965a70f420",
+  "canonicalChannel": "Execute ordinary text model inference requests through the API Platform.",
+  "constructorAndEvidenceMatch": true,
+  "sourceMatches": true,
+  "expected": {
+    "E03:U00": "NOT_APPLIES"
+  },
+  "observed": {
+    "E03:U00": "UNVERIFIABLE"
+  },
+  "intervals": [
+    {
+      "id": "E03:U00",
+      "start": 0,
+      "end": 100,
+      "status": "identified",
+      "title": "API Platform incident",
+      "body": "Only image generation is degraded. Text model inference requests through the API Platform are unaffected."
+    }
+  ],
+  "assessments": [
+    {
+      "E03:U00": {
+        "body": "NOT_APPLIES",
+        "body_conflict": false,
+        "body_kind": "STATUS_ASSERTION",
+        "body_quote": "Only image generation is degraded. Text model inference requests through the API Platform are unaffected.",
+        "body_scope": "UNRELATED",
+        "recovery": false,
+        "title": "APPLIES",
+        "title_scope": "COVERS_TARGET"
+      }
+    },
+    {
+      "E03:U00": {
+        "body": "NOT_APPLIES",
+        "body_conflict": false,
+        "body_kind": "STATUS_ASSERTION",
+        "body_quote": "Only image generation is degraded. Text model inference requests through the API Platform are unaffected.",
+        "body_scope": "COVERS_TARGET",
+        "recovery": false,
+        "title": "APPLIES",
+        "title_scope": "COVERS_TARGET"
+      }
+    }
+  ],
+  "returnedChannel": "Execute ordinary text model inference requests through the API Platform.",
+  "acknowledgedChannels": [
+    "Execute ordinary text model inference requests through the API Platform.",
+    "Execute ordinary text model inference requests through the API Platform."
+  ],
+  "promptSHA256": [
+    "b9c869f50dd2f91de7aa340483aa2a79a8beccc7176ed643c2466e1e5f5b4edd",
+    "681a7ab59fb4a05b9a07e2b890689de2d781d030e6efdeba2854297433fc12d8"
+  ],
+  "sourceDigest": "fb731862359d1e6f5f4430e39e9381596db2f64fc9b8c71dc1d2b0f37f40e8da",
+  "valueGEN": "0",
+  "custody": false,
+  "productionFundsAffected": false,
+  "nativeBalanceGEN": "0",
+  "at": "2026-10-14T17:51:58.340Z"
+}

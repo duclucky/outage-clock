@@ -5,7 +5,8 @@ from test_outage_clock import ID, SCOPE, j, mock, model, paid, snap
 
 
 def audit(title="APPLIES", body="NOT_APPLIES", **flags):
-    row = dict(title_scope="COVERS_TARGET", body_scope="UNSPECIFIED" if flags.get("generic") else "COVERS_TARGET", body_quote="" if flags.get("generic") else "Costs delayed, ordinary API inference unaffected.", title=title, body=body, generic=False, recovery=False, body_conflict=False)
+    context_note = flags.pop("generic", False)
+    row = dict(title_scope="COVERS_TARGET", body_scope="UNSPECIFIED" if context_note else "COVERS_TARGET", body_quote="Costs delayed, ordinary API inference unaffected.", title=title, body=body, body_kind="CONTEXT_NOTE" if context_note else "STATUS_ASSERTION", recovery=False, body_conflict=False)
     row.update(flags)
     return {"channel": SCOPE, "consistent": True, "intervals": {f"{ID}:u{k}": dict(row) for k in range(4)}}
 
@@ -42,9 +43,9 @@ def test_malformed_audit_never_sets_ready_or_changes_gen_ledger(contract, direct
     elif kind == "missing_granularity": del item["title_scope"]
     elif kind == "string_flag": item["body_conflict"] = "false"
     elif kind == "int_flag": item["recovery"] = 1
-    elif kind == "null_flag": item["generic"] = None
-    elif kind == "generic_scope": item["generic"] = True
-    elif kind == "generic_recovery": item.update(body="UNVERIFIABLE", generic=True, recovery=True)
+    elif kind == "null_flag": item["body_conflict"] = None
+    elif kind == "generic_scope": item["body_kind"] = "CONTEXT_NOTE"
+    elif kind == "generic_recovery": item.update(body="UNVERIFIABLE", body_scope="UNSPECIFIED", body_kind="CONTEXT_NOTE", recovery=True)
     elif kind == "invalid_recovery": item["recovery"] = True
     elif kind == "missing_flag": del item["body_conflict"]
     elif kind == "extra_flag": item["payout"] = "100 GEN"
@@ -109,7 +110,7 @@ def test_one_conflict_preserves_other_interval_labels_but_blocks_entire_clock(co
 @pytest.mark.parametrize("title_scope,recovery", [("PARENT_ONLY", False), ("COVERS_TARGET", True)])
 def test_code_derives_refinement_or_recovery_from_components_not_flat_model_enum(contract, direct_vm, direct_accounts, title_scope, recovery):
     lease = paid(contract, direct_vm, direct_accounts)
-    parts = {f"{ID}:u{k}": {"title_scope": title_scope, "body_scope": "COVERS_TARGET", "body_quote": "Costs delayed, ordinary API inference unaffected.", "title": "APPLIES", "body": "NOT_APPLIES", "generic": False, "recovery": recovery, "body_conflict": False} for k in range(4)}
+    parts = {f"{ID}:u{k}": {"title_scope": title_scope, "body_scope": "COVERS_TARGET", "body_quote": "Costs delayed, ordinary API inference unaffected.", "title": "APPLIES", "body": "NOT_APPLIES", "body_kind": "STATUS_ASSERTION", "recovery": recovery, "body_conflict": False} for k in range(4)}
     # A flat model enum is untrusted metadata under the component protocol.
     # The actual semantic claims in BOTH assessments support NOT_APPLIES.
     first = {**model({f"{ID}:u{k}": "UNVERIFIABLE" for k in range(4)}), "intervals": parts}

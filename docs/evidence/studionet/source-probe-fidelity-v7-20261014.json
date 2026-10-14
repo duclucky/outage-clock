@@ -1,0 +1,13 @@
+{
+  "revision": "OC_V7",
+  "productionSHA256": "89eb5de91b8a49c2d04363ef833ccba404f0bb0555ac71f4d01c8e19ec938fe5",
+  "probeSHA256": "fc5fec0a689177cddaa4df30c2d69e8e587a2d6bc5985b608d7d8602c558fe3b",
+  "fullLeaderASTSHA256": "0cc708eaf3cd60fb30cc636272656b546a7e6b9719f7c3322ea31dda89c320d0",
+  "validatorASTSHA256": "b45d532ac28338b4d3caf48ec273ec65939315cd34b84dd2e2c815b58f9fe5fa",
+  "sameFullLeader": true,
+  "sameValidator": true,
+  "sameSourceHelpers": true,
+  "syntheticInput": false,
+  "valueGEN": "0",
+  "custody": false
+}

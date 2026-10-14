@@ -3,22 +3,25 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {EVIDENCE,client,identity,file,safe,view,balance,fail} from './network.mjs';
-import {requireSemanticGate} from './promotion_gate.mjs';
+import {requireSemanticGate,requireSourceGate} from './promotion_gate.mjs';
 
 try{
  const sourceBytes=fs.readFileSync(path.join(EVIDENCE,'../../../contracts/outage_clock.py'));
- const version=sourceBytes.toString('ascii').match(/^VERSION = "(OC_V[456])"$/m)?.[1];
+ const version=sourceBytes.toString('ascii').match(/^VERSION = "(OC_V[4567])"$/m)?.[1];
  if(!version)throw Error('Recognized replacement version required');
  const suffix=`v${version.slice(-1)}-20261014.json`;
  const d=file('deployment.json'),benchmark=file('semantic-benchmark-'+suffix),verified=file('semantic-benchmark-verification-'+suffix);
  if(d?.version!=='OC_V2'||!d.active)throw Error('Only the known active OC_V2 can be archived');
  requireSemanticGate(version,createHash('sha256').update(sourceBytes).digest('hex'),benchmark,verified);
+ const probe=fs.readFileSync(path.join(EVIDENCE,`../../../.codex/source_probe_${version}.py`));
+ requireSourceGate(version,createHash('sha256').update(sourceBytes).digest('hex'),
+  createHash('sha256').update(probe).digest('hex'),file('live-source-smoke-'+suffix));
  const r=client();await identity(r);
  const source=await safe(()=>r.getContractCode(d.contractAddress));
  if(createHash('sha256').update(source).digest('hex')!==d.sourceSHA256)throw Error('Historical source mismatch');
  const proof={network:'studionet',chainId:61999,version:d.version,address:d.contractAddress,
   sourceCommit:d.sourceCommit,sourceSHA256:d.sourceSHA256,active:false,status:'SUPERSEDED_RECOVERED_ZERO',
-  reason:`OC_V2 S08 violated the frozen conservative conflict rule; OC_V3/OC_V4/OC_V5 failed revalidation; ${version} finite semantic gate passed. Historical outcomes are not rewritten.`,
+  reason:`OC_V2 S08 violated the frozen conservative conflict rule; OC_V3/OC_V4/OC_V5 failed revalidation; OC_V6 failed real-source smoke. ${version} finite semantic and authentic-source gates passed. Historical outcomes are not rewritten.`,
   at:new Date().toISOString(),cases:{}};
  for(const name of ['affected','unaffected','pending','unpaid']){
   const c=file(`lifecycle-${name}.json`);

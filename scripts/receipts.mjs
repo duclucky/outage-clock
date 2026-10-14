@@ -11,7 +11,7 @@ export function receipt(raw,hash){
 }
 export function successful(raw,hash){
  const proof=receipt(raw,hash);
- if(proof.status!=='FINALIZED'||proof.executionResult!=='SUCCESS'||['MAJORITY_DISAGREE','DISAGREE','UNDETERMINED','ERROR','CANCELED','TIMEOUT'].includes(proof.consensusResult))throw Error('No successful finality');
+ if(proof.status!=='FINALIZED'||proof.executionResult!=='SUCCESS'||!['MAJORITY_AGREE','AGREE'].includes(proof.consensusResult))throw Error('No successful finality');
  return proof;
 }
 export function nativeChild(raw,hash,{sender,recipient,valueGEN,parentHash}){

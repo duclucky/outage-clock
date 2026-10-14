@@ -6,8 +6,11 @@
 > Result:35/36 exact,1 unsafe definite mismatch despite MAJORITY_AGREE.
 > Promotion and new payments are blocked; OC_V2 payment evidence is historical.
 > OC_V5 subsequently produced conservative mismatches and dissenting batches.
-> OC_V6 clarifies operational coverage; its56-run network gate is pending.
-> See docs/COVERAGE-REMEDIATION.md and docs/JUDGMENT-CAMPAIGN.md.
+> OC_V6 failed the authentic-source smoke: its final monitoring interval was
+> UNVERIFIABLE. OC_V7 distinguishes progress notes from explicit health/scope
+> uncertainty. Its authentic-source smoke finalized MAJORITY_DISAGREE (FAIL);
+> the64-run synthetic network gate is pending. No production promotion.
+> See docs/CONTEXT-REMEDIATION.md and docs/JUDGMENT-CAMPAIGN.md.
 
 Reusable GenLayer Intelligent Contract for a paid, one-use protocol entitlement
 whose exercise deadline can be extended by agreed official disruption intervals.
@@ -27,15 +30,15 @@ verified the earlier120-case baseline. Expanded411-case
 
 ## Validate
 
-The working tree contains the OC_V6 operational-coverage candidate. Its separate
+The working tree contains the OC_V7 context-kind candidate. Its separate
 service relations/statuses, source-span checks and deterministic input bindings are
-specified in [the remediation plan](docs/COVERAGE-REMEDIATION.md). OC_V3 failed real-model
+specified in [the remediation plan](docs/CONTEXT-REMEDIATION.md). OC_V3 failed real-model
 revalidation and was never promoted or funded. OC_V2 remains the deployed
 historical revision. OC_V4 failed the semantic gate and was not promoted or funded.
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. The OC_V6 local run passed447 Python direct cases and33 Node cases
-(480 total), semantic lint and AST metadata,
+`npm run check`. The OC_V7 local run passed458 Python direct cases and52 Node cases
+(510 total), semantic lint and AST metadata,
 zero skipped. Real-model and production lifecycle acceptance remain separate.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,

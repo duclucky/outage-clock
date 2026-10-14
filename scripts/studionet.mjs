@@ -1,6 +1,6 @@
 import fs from 'node:fs';import path from 'node:path';import{createHash}from'node:crypto';import{execFileSync}from'node:child_process';import{keccak256}from'viem';
 import{ROOT,RPC,EXPLORER,client,actors,identity,file,save,safe,wait,view,balance,fail}from'./network.mjs';
-import {requireSemanticGate} from './promotion_gate.mjs';
+import {requireSemanticGate,requireSourceGate} from './promotion_gate.mjs';
 try{
  const reader=client();await identity(reader);const source=fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py'));
  const sha=bytes=>createHash('sha256').update(bytes).digest('hex'),sourceHash=sha(source);
@@ -8,11 +8,13 @@ try{
   const accounts=actors();if(accounts[0].address.toLowerCase()===accounts[1].address.toLowerCase())throw Error('Role separation');
   console.log(JSON.stringify({network:'studionet',chainId:61999,rpc:RPC,roles:await Promise.all(accounts.map(async(a,i)=>({role:i?'buyer':'issuer',address:a.address,balanceGEN:await balance(reader,a.address)})))}));
  }else{
-  const version=source.toString('ascii').match(/^VERSION = "(OC_V[2456])"$/m)?.[1];
+  const version=source.toString('ascii').match(/^VERSION = "(OC_V[24567])"$/m)?.[1];
   if(!version)throw Error('Unrecognized source policy version');
   if(version!=='OC_V2'){
    const suffix=`v${version.slice(-1)}-20261014.json`;
    requireSemanticGate(version,sourceHash,file('semantic-benchmark-'+suffix),file('semantic-benchmark-verification-'+suffix));
+   const probe=fs.readFileSync(path.join(ROOT,`.codex/source_probe_${version}.py`));
+   requireSourceGate(version,sourceHash,sha(probe),file('live-source-smoke-'+suffix));
   }
   let d=file('deployment.json');
   if(d&&d.sourceSHA256!==sourceHash)throw Error('Existing source identity differs; explicit archive required');

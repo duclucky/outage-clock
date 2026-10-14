@@ -72,3 +72,16 @@ hash must be read before any retry. Neither SDK nor runner version was upgraded.
 
 No V6 model result, production deployment, GEN payment or submission exists at
 this checkpoint. The56-run gate and fresh paid lifecycle remain mandatory.
+
+## Live-source smoke before any new GEN deposit
+
+Run a separate0GEN/no-custody diagnostic using the exact full production leader,
+validator and source/authentication helpers, without synthetic interval injection.
+Use the same authoritative resolved incident and affected/unaffected scopes as
+the existing lifecycle specification. The affected path must yield a definite
+clock with more than300 applicable reported seconds; the unrelated Costs path
+must yield only NOT_APPLIES/zero applicable seconds. Independent full consensus,
+exact deployed source and zero native balance are required. Save only selected
+report/receipt fields. This proves the real feed path, not adoption, external
+execution, all future accuracy or the new paid lifecycle. It cannot replace any
+of the56 synthetic semantic observations or their acceptance threshold.

@@ -11,7 +11,7 @@ def test_other_service_impairment_is_not_target_impairment(contract, direct_vm, 
     for update in body["incidents"][0]["incident_updates"]:
         update["body"] = "Codex requests are slower. No other product is affected."
     body["incidents"][0]["name"] = "Codex performance"
-    parts = {f"{ID}:u{k}": dict(title_scope=relation, body_scope=relation, title="APPLIES", body="APPLIES", body_quote="Codex requests are slower.", generic=False, recovery=False, body_conflict=False) for k in range(4)}
+    parts = {f"{ID}:u{k}": dict(title_scope=relation, body_scope=relation, title="APPLIES", body="APPLIES", body_quote="Codex requests are slower.", body_kind="STATUS_ASSERTION", recovery=False, body_conflict=False) for k in range(4)}
     assessment = {"channel": SCOPE, "intervals": parts}
     mock(direct_vm, body=body, decision=assessment, consistency=assessment)
     ledger = contract.get_accounting()
@@ -33,7 +33,7 @@ def test_invalid_relational_premise_cannot_mutate_state_or_gen(contract, direct_
     elif mutation == "forged_quote": first["body_quote"] = "Invented official assertion"
     elif mutation == "missing_quote": first.pop("body_quote", None)
     elif mutation == "invalid_relation": first["body_scope"] = "ALL"
-    elif mutation == "generic_named_scope": first.update(generic=True, body="UNVERIFIABLE", body_scope="COVERS_TARGET", body_quote="")
+    elif mutation == "generic_named_scope": first.update(body_kind="CONTEXT_NOTE", body="UNVERIFIABLE", body_scope="COVERS_TARGET", body_quote="")
     elif mutation == "recovery_other_scope": first.update(recovery=True, body="NOT_APPLIES", body_scope="UNRELATED")
     mock(direct_vm, decision=answer)
     before = snap(contract, lease)

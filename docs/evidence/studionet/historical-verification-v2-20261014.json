@@ -1,0 +1,262 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "kind": "HISTORICAL_OC_V2_STRICT_RECEIPT_REVERIFICATION",
+  "address": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "sourceCommit": "fc611f0343b46bd5aac7eb755b61342db2735046",
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "sourceMatches": true,
+  "provesCurrentCandidate": false,
+  "parents": [
+    {
+      "transactionHash": "0x36563c491120d7fb83e61389a17c1b028846809336fdf183e8ec0dafc531b5ae",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xa28028cfb800c2bfa13da1c22b7cb4fe5aedf351d9cea9b364aae05a0af741a0",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1"
+    },
+    {
+      "transactionHash": "0xc6e69f759d72c4f0c2ad64c422cbbdad4ed3084a98a13a42fa04744b22920bea",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x9977eb853afa4c4a03cbce69dfd73cb1bdd143b1cf5e54653095f9de78f7f793",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xf23f1653dbec91d76e79bb34cdf28d468b59e1e248af4d95b4c01be058176c61",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xd04e5d9a98b320e49608d766a6761e1cc9459be73e48f102b43c24b29d5cd57c",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xa30d1803d4cdd3abed925e8e127d84f582c9e0ca5d1625709a0713d59fefa988",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xa6703040665b1f245646e91ac7bba2fcfd505743bedfed30c2a186a3cd3cb4e0",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1"
+    },
+    {
+      "transactionHash": "0x11482fe9304268d1082dc10400501ef60966c011050ac4c7c8bea6419ed5625e",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x37ad6528a19defaf7c2fb23febd3ce51c9a571e5881b0bff31986a556d7439ef",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x1bb2af85e1d12adb79b43a59648fe2f874b3f8edfc4096961904a0b9e2dcbf5d",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x64328a16fc5a393bbdd4ecd045df798a209a23d0323a1440a48cb88f727e254b",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xb131c33299e5ccf182f21fb1af8f8ba4910740c8e2456b7abb1bae17fec1274c",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x40f0fdbad02ab526edaa721233ff55b54daf93bdf5fabcf1864122d38aa6fdcd",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1"
+    },
+    {
+      "transactionHash": "0xdad585539486a2a95aa5d25a8f9b092602dac12f30e3c5e9f219375ec4aa1c6e",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x6c565f15320e53c9e9db2835c3f4574209f7a29e14ede1cb4062d719b6fee4e7",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x27301c8ea92aa72d65cf5b7432fa9dbd1e90f8e490ee777a07921546d1985169",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0x9602da3f19300933678f20f97d59a0e1181697d2d48634b164e1cf34f1b98f93",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xf3fba2a9a98dc0f0484cc0d755a312bd199f6b834ed2e129dccea37297760378",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    },
+    {
+      "transactionHash": "0xbab0b3a2bda7e517130700452a524bdb9e7e4be6d14d3a526ccb5fa6d3ff4a39",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0"
+    }
+  ],
+  "children": [
+    {
+      "transactionHash": "0x0f064d9d37a7ae4d6e203d2af97d60cd5d84eb97bd34f66997f85b8e22734744",
+      "status": "FINALIZED",
+      "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "recipient": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "1",
+      "parentHash": "0xf23f1653dbec91d76e79bb34cdf28d468b59e1e248af4d95b4c01be058176c61",
+      "executionResult": null,
+      "contractDecreaseGEN": "1",
+      "recipientIncreaseGEN": "1"
+    },
+    {
+      "transactionHash": "0x92fd20cdb9e5c9a5692dad40d6602c9efec13d026043fab6b9e0a3730e7a0715",
+      "status": "FINALIZED",
+      "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "recipient": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1",
+      "parentHash": "0x1bb2af85e1d12adb79b43a59648fe2f874b3f8edfc4096961904a0b9e2dcbf5d",
+      "executionResult": null,
+      "contractDecreaseGEN": "1",
+      "recipientIncreaseGEN": "1"
+    },
+    {
+      "transactionHash": "0x12267d3e156f5391066f92fe85de7372185dc531276c64cea3380ecfe94cda92",
+      "status": "FINALIZED",
+      "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "recipient": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1",
+      "parentHash": "0x6c565f15320e53c9e9db2835c3f4574209f7a29e14ede1cb4062d719b6fee4e7",
+      "executionResult": null,
+      "contractDecreaseGEN": "1",
+      "recipientIncreaseGEN": "1"
+    }
+  ],
+  "cases": {
+    "affected": {
+      "leaseId": "oc-affected-d3a5d349",
+      "state": "CLOSED",
+      "escrowGEN": "0",
+      "creditGEN": "0"
+    },
+    "unaffected": {
+      "leaseId": "oc-unaffected-d3a5d349",
+      "state": "CLOSED",
+      "escrowGEN": "0",
+      "creditGEN": "0"
+    },
+    "pending": {
+      "leaseId": "oc-pending-d3a5d349",
+      "state": "CLOSED",
+      "escrowGEN": "0",
+      "creditGEN": "0"
+    },
+    "unpaid": {
+      "leaseId": "oc-unpaid-d3a5d349",
+      "state": "CLOSED",
+      "escrowGEN": "0",
+      "creditGEN": "0"
+    }
+  },
+  "accounting": {
+    "credit_gen": "0",
+    "escrow_gen": "0",
+    "liability_gen": "0",
+    "received_gen": "3",
+    "withdrawn_gen": "3"
+  },
+  "nativeBalanceGEN": "0",
+  "observedAt": "2026-10-14T17:49:35.125Z"
+}

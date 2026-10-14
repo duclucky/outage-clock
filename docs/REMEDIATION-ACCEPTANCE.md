@@ -1,4 +1,89 @@
-# OC_V4 acceptance audit - HOLD
+# OC_V7 acceptance audit - HOLD
+
+The list below accounts for every phase, gate and reusable directive. Nothing is
+silently skipped; PENDING/FAIL is not DONE. This is the same reusable, contract-only
+OutageClock primitive, not an app, lesson, renamed PartitionSeal or a slice of a
+submitted project. Historical admission and execution are version-specific.
+
+1. Phase0 recovery: DONE. Child Git root and existing hashes recovered; historical
+   strict receipt re-read proves V2 source unchanged,4 CLOSED cases and0GEN liability.
+2. Phase1 API/rules/novelty: retained. Verified matched v0.2.16 runner/legacy sandbox
+   and SDK1.1.8; network-selection.json records Studionet61999 and Studio Dev outage.
+3. Phase2 discovery/admission: retained. All14 admission rows, fingerprint, viability
+   probe and proposed consumers remain in the specification. Execution is separate.
+4. Phase3 registration/layout: DONE. Own child Git root, contracts/tests/scripts/docs;
+   source_check.py rejects app/frontend scaffolding.
+5. Phase4 specification: DONE for this correction. CONTEXT-REMEDIATION.md precedes
+   code;8 write safety rows, source authority and value destinations remain locked.
+6. Phase5 authoring: LOCAL DONE. genvm-lint recognized OutageClock14methods,
+   6view/8write; exact header/ASCII/one class/payable accept1GEN verified.
+7. Phase6 verification: LOCAL DONE. npm run check:458 Python+52 Node=510passed,
+   zero skipped. Probe lint: one view/zero writes each. Original dynamic checks PASS.
+8. Phase7 candidate deployment/lifecycle: FAIL/PENDING. Authentic-source diagnostic
+   finalized SUCCESS/MAJORITY_DISAGREE,0GEN. New production/payments remain blocked.
+9. Phase8 review: HOLD. S03 also returned UNVERIFIABLE instead of the frozen
+   NOT_APPLIES despite majority agreement. No all-future accuracy claim.
+10. Phase9 publication: source/evidence checkpoint follows pre-push audit; exact
+    commit and CI must be verified independently. No final-readiness claim.
+11. Phase10 submission: BLOCKED. Historical OC_V2 Portal fields are not OC_V7 proof.
+12. Replacement: admission retained. A backend removes independent interpretation
+    of usable-time entitlement; canonical contract ownership remains essential.
+13. Judgment: admission retained. Operation/mode coverage and reported impairment
+    are semantic. S03 is a documented incorrect interpretation, not a format defect.
+14. Evidence availability: admission retained separately. Official feed was fetched
+    by the full production leader in the source diagnostic; IDs/times are bounded.
+15. Evidence authenticity: admission retained separately. Official HTTPS/page/IDs/
+    times verified before LLM; invalid provenance cannot credit or exercise.
+16. Equivalence: structural meaning comparison retained. Independent complete
+    interval vectors and bound facts must agree; reason/quote wording may differ.
+17. Consequence: design retained. Clipped/capped union extends the actual exercise
+    deadline; correct exercise/expiry allocates the fixed issuer/buyer1GEN.
+18. Adversarial: retained. Issuer/buyer conflicting incentives; malicious outputs,
+    authority forgery, injection and unchanged-accounting negatives in direct tests.
+19. State model: retained. Stable keyed leases, immutable terms, append-only attempts,
+    caller/time guards and one-time allocation/withdrawal. Local checks pass.
+20. Reuse: retained. LangGraph brokers, A2A entitlement gateways and DAOhaus adapters
+    use the same signed methods/canonical views. Proposed uses, no adoption claim.
+21. Contract count: PASS. One recognized OutageClock; recipient interface owns no
+    second IC state. No invented consumer/pass-through contract.
+22. Differentiation: retained. Narrative interval union and capped right-time
+    restoration; no submitted project source or renamed contract extraction.
+23. Claim-to-code: maintained. Specification matrix maps methods/views/tests/evidence;
+    510 local checks, synthetic results and old payment evidence are distinguished.
+24. Full lifecycle: PASS_ADMISSION, OC_V7 PENDING_EXECUTION. V2 historical20parents/
+    3native exits/4closed cases do not satisfy new revision execution.
+25. Scope honesty: HOLD accurately reported. Reported-time proxy, internal rights,
+    finite corpus, no performed external service, adoption or future certainty.
+26. NO-APP: DONE. Source scan and public tree show contract-only, no Vercel/app.
+27. MEANING-VALIDATOR: implemented. Independent _critical comparisons require the
+    same semantic vector/bound facts. Consensus success is not proof of truth.
+28. SAFETY-ROW: DONE. All8writes have caller/state/time/idempotency/value/views/
+    negatives before implementation; recovery and withdrawal retain strict guards.
+29. TEMPORAL-GATE: DONE locally. Boundary-1/equality/+1 with stale phase and
+    unchanged state/accounting negatives cover each time-bounded write.
+30. VALUE-DESTINATION: DONE in design/local tests; new execution PENDING. Exercise
+    issuer payout, due buyer refund, own withdrawal and zero closure are explicit.
+31. BROKEN-CONTRACT-REPLACEMENT: retained. No new value goes to a failed diagnostic;
+    V1 was recovered, V2 has0GEN native/liability. Candidate promotion is guarded.
+
+Commands and real outputs: local-check-v7-20261014.json; original full grader
+reported0BLOCKER/1WARN, npm check PASS and gltest PASS,exit1 for the warning. The
+known warning concerns the private nonpayable _no_value guard; AST/metadata prove
+only accept is payable. Grader files are unchanged. This structural result does
+not override failed semantic/source execution.
+
+Evidence: live-source-smoke-v7-20261014.json (FAIL),
+live-source-rejected-v7-20261014.json (rejected leader, not canonical verdict),
+semantic-S03-v7-20261014.json (bound observed mismatch),
+semantic-benchmark-v7-20261014.json (unfinished full64 denominator),
+historical-verification-v2-20261014.json (historical strict receipts only).
+
+Unresolved: precise validator rejection cause is not established from the safe
+projection; S03 parent-title coverage was overbroad; no completed64/64 campaign,
+new deployed/payment lifecycle or submission readiness. Failed/pending samples
+are retained. The master was re-read without weakening any rule or grading code.
+
+## Historical OC_V4 audit
 
 OC_V5 continuation: the relational correction is locally verified,475 checks.
 Its48-run semantic campaign is pending; the production and submission blockers
