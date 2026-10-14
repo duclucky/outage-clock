@@ -4,6 +4,8 @@ import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {requireSemanticGate} from '../scripts/promotion_gate.mjs';
 import {rpcRead} from '../scripts/rpc_read.mjs';
+import {deadlineFetch} from '../scripts/rpc_deadline.mjs';
+import {identity,balance} from '../scripts/network.mjs';
 const sender='0x'+'1'.repeat(40),recipient='0x'+'2'.repeat(40);
 test('raw successful receipt projects only safe fields',()=>{
  const p=successful({status:'FINALIZED',result_name:'MAJORITY_AGREE',to_address:sender,consensus_data:{leader_receipt:[{execution_result:'SUCCESS',node_config:{secret:'synthetic'}}]}},'hash');
@@ -25,16 +27,22 @@ for(const exitCode of[0,7])test('local tool combines diagnostic streams and pres
  assert.ok(r.stdout.includes('synthetic INFO'));assert.ok(r.stdout.includes('synthetic stdout'));
 });
 
-function passingGate(){
- const batches=Array.from({length:16},(_,i)=>({results:Array.from({length:3},(_,j)=>({id:`S${i*3+j}`,expected:{interval:'NOT_APPLIES'},observed:{interval:'NOT_APPLIES'},exactMatch:true,unsafeDefinite:false,conservativeAbstention:false}))}));
- const benchmark={complete:true,revision:'OC_V5',productionSHA256:'source',corpusSHA256:'corpus',diagnosticSHA256:'probe',batches,
-  summary:{plannedCaseRuns:48,completedCaseRuns:48,exactMatches:48,unsafeDefinite:0,conservativeAbstentions:0,failedBatches:0,unobservedDueToBatchFailure:0}};
- const verified={semanticReadiness:'FINITE_CORPUS_ONLY',revision:'OC_V5',candidateSourceSHA256:'source',corpusSHA256:'corpus',diagnosticSHA256:'probe',summary:{exactMatches:48},
-  batches:Array.from({length:16},()=>({status:'FINALIZED',executionResult:'SUCCESS',consensusResult:'MAJORITY_AGREE',sourceMatches:true,nativeBalanceGEN:'0'}))};
+function passingGate(version='OC_V5'){
+ const runs=version==='OC_V6'?56:48,batchCount=version==='OC_V6'?20:16;
+ const batches=Array.from({length:batchCount},(_,i)=>({results:Array.from({length:version==='OC_V6'&&i%10===9?1:3},(_,j)=>({id:`S${i*3+j}`,expected:{interval:'NOT_APPLIES'},observed:{interval:'NOT_APPLIES'},exactMatch:true,unsafeDefinite:false,conservativeAbstention:false}))}));
+ const benchmark={complete:true,revision:version,productionSHA256:'source',corpusSHA256:'corpus',diagnosticSHA256:'probe',batches,
+  summary:{plannedCaseRuns:runs,completedCaseRuns:runs,exactMatches:runs,unsafeDefinite:0,conservativeAbstentions:0,failedBatches:0,unobservedDueToBatchFailure:0}};
+ const verified={semanticReadiness:'FINITE_CORPUS_ONLY',revision:version,candidateSourceSHA256:'source',corpusSHA256:'corpus',diagnosticSHA256:'probe',summary:{exactMatches:runs},
+  batches:Array.from({length:batchCount},()=>({status:'FINALIZED',executionResult:'SUCCESS',consensusResult:'MAJORITY_AGREE',sourceMatches:true,nativeBalanceGEN:'0'}))};
  return {benchmark,verified};
 }
 test('complete bound48-run semantic evidence permits promotion',()=>{
  const {benchmark,verified}=passingGate();assert.equal(requireSemanticGate('OC_V5','source',benchmark,verified).runs,48);
+});
+test('V6 requires all56 observations and cannot reuse the48-run predecessor',()=>{
+ const {benchmark,verified}=passingGate('OC_V6');assert.equal(requireSemanticGate('OC_V6','source',benchmark,verified).runs,56);
+ const old=passingGate();assert.throws(()=>requireSemanticGate('OC_V6','source',old.benchmark,old.verified));
+ benchmark.batches.at(-1).results.pop();assert.throws(()=>requireSemanticGate('OC_V6','source',benchmark,verified));
 });
 for(const defect of ['pending','unsafe','abstention','missing_case','wrong_meaning_hidden_by_summary','wrong_source','no_majority','nonzero_balance','stale_corpus'])test('semantic promotion rejects '+defect,()=>{
  const {benchmark:b,verified:v}=passingGate();
@@ -69,4 +77,25 @@ test('RPC reader rejects mutations before any request',async()=>{
 test('RPC errors retain only a safe code',async()=>{
  const fetcher=async()=>({ok:true,json:async()=>({error:{code:-32001,message:'synthetic private diagnostic',data:{secret:'synthetic'}}})});
  await assert.rejects(rpcRead('https://example.invalid','eth_chainId',[],{fetcher}),e=>e.code===-32001&&!e.message.includes('synthetic')&&!Object.hasOwn(e,'data'));
+});
+
+test('SDK RPC deadline also bounds response body consumption',async()=>{
+ const fetcher=async(_input,options)=>({json:()=>new Promise((_resolve,reject)=>{if(options.signal.aborted)reject(options.signal.reason);else options.signal.addEventListener('abort',()=>reject(options.signal.reason),{once:true});})});
+ const bound=deadlineFetch(fetcher,'https://rpc.invalid',20),keeper=setTimeout(()=>{},1000);
+ try{const response=await bound('https://rpc.invalid',{method:'POST'});await assert.rejects(response.json(),{name:'TimeoutError'});}
+ finally{clearTimeout(keeper);}
+});
+test('SDK deadline preserves caller cancellation and leaves other URLs alone',async()=>{
+ const controller=new AbortController();let seen;
+ const bound=deadlineFetch(async(_input,options)=>{seen=options;return null;},'https://rpc.invalid');
+ await bound('https://rpc.invalid',{signal:controller.signal,method:'POST',body:'synthetic'});
+ controller.abort();assert.equal(seen.signal.aborted,true);assert.equal(seen.body,'synthetic');
+ const other={method:'GET'};await bound('https://source.invalid',other);assert.equal(seen,other);assert.equal(seen.signal,undefined);
+});
+for(const operation of ['identity','balance'])test('SDK '+operation+' errors do not log RPC payloads',async()=>{
+ const originalError=console.error,originalWarn=console.warn,logged=[];
+ console.error=console.warn=(...args)=>logged.push(args);
+ const reader={request:async()=>{console.error({node_config:{secret:'synthetic'}});throw Error('synthetic RPC failure');}};
+ try{await assert.rejects(operation==='identity'?identity(reader):balance(reader,recipient));assert.deepEqual(logged,[]);}
+ finally{console.error=originalError;console.warn=originalWarn;}
 });

@@ -5,8 +5,9 @@
 > a Codex-only incident was incorrectly applied to the locked Costs channel.
 > Result:35/36 exact,1 unsafe definite mismatch despite MAJORITY_AGREE.
 > Promotion and new payments are blocked; OC_V2 payment evidence is historical.
-> OC_V5 is a local relational-scope correction; its48-run network gate is pending.
-> See docs/RELATIONAL-REMEDIATION.md and docs/JUDGMENT-CAMPAIGN.md.
+> OC_V5 subsequently produced conservative mismatches and dissenting batches.
+> OC_V6 clarifies operational coverage; its56-run network gate is pending.
+> See docs/COVERAGE-REMEDIATION.md and docs/JUDGMENT-CAMPAIGN.md.
 
 Reusable GenLayer Intelligent Contract for a paid, one-use protocol entitlement
 whose exercise deadline can be extended by agreed official disruption intervals.
@@ -26,15 +27,15 @@ verified the earlier120-case baseline. Expanded411-case
 
 ## Validate
 
-The working tree contains the OC_V5 relational-scope candidate. Its separate
+The working tree contains the OC_V6 operational-coverage candidate. Its separate
 service relations/statuses, source-span checks and deterministic input bindings are
-specified in [the remediation plan](docs/RELATIONAL-REMEDIATION.md). OC_V3 failed real-model
+specified in [the remediation plan](docs/COVERAGE-REMEDIATION.md). OC_V3 failed real-model
 revalidation and was never promoted or funded. OC_V2 remains the deployed
 historical revision. OC_V4 failed the semantic gate and was not promoted or funded.
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. The OC_V5 local run passed447 Python direct cases and28 Node cases
-(475 total), semantic lint and AST metadata,
+`npm run check`. The OC_V6 local run passed447 Python direct cases and33 Node cases
+(480 total), semantic lint and AST metadata,
 zero skipped. Real-model and production lifecycle acceptance remain separate.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,

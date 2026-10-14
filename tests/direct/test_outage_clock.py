@@ -46,7 +46,7 @@ def source(ids=None):
 def model(classes=None,ids=None):
     ids=ids or [ID]
     values=classes or {f'{i}:u{k}':'APPLIES' for i in ids for k in range(4)}
-    return {'channel':SCOPE,'classes':values,'intervals':{key:{'title_scope':'EXACT','body_scope':'EXACT','title':value,'body':value,'body_quote':'Costs delayed, ordinary API inference unaffected.','generic':False,'recovery':False,'body_conflict':False} for key,value in values.items()},'reason':'Meaning independently checked.'}
+    return {'channel':SCOPE,'classes':values,'intervals':{key:{'title_scope':'COVERS_TARGET','body_scope':'COVERS_TARGET','title':value,'body':value,'body_quote':'Costs delayed, ordinary API inference unaffected.','generic':False,'recovery':False,'body_conflict':False} for key,value in values.items()},'reason':'Meaning independently checked.'}
 def mock(vm,decision=None,body=None,status=200,consistency=None):
     vm.mock_web(r'.*status\.openai\.com.*',{'status':status,'body':json.dumps(source() if body is None else body)})
     vm.mock_llm(r'.*OutageClock independent reported-time reviewer.*',json.dumps(model() if decision is None else decision))

@@ -3,10 +3,10 @@
 ## Identity
 
 IDEA-043; OutageClock; outage-clock; Intelligent Contracts; SEMANTIC_REVIEW_REQUIRED, admission spec committed before code.
-The working source is the OC_V5 relational-scope candidate; OC_V2 remains the
+The working source is the OC_V6 operational-coverage candidate; OC_V2 remains the
 deployed historical revision until the new semantic and lifecycle gates pass.
 [Scope remediation](SCOPE-REMEDIATION.md), [component remediation](COMPONENT-REMEDIATION.md)
-and [relational remediation](RELATIONAL-REMEDIATION.md)
+[relational remediation](RELATIONAL-REMEDIATION.md) and [coverage remediation](COVERAGE-REMEDIATION.md)
 lock the revised policy, affected safety row, regression checks and execution
 sequence before implementation. OC_V3 failed real-model revalidation and was
 never promoted or funded.
@@ -63,7 +63,7 @@ The actual diagnostic is separate from product execution.
 | Contract count | PASS_ADMISSION | One clock/right/escrow owner; EVM recipient is not a second IC |
 | Differentiation | PASS_ADMISSION | Temporal union/clock rather than incident-credit pool or causal cap |
 | Claim-to-code | PASS_ADMISSION | Filled method/view/test/live-case matrix below |
-| Full lifecycle | PASS_ADMISSION; OC_V5 PENDING_EXECUTION | OC_V2 historical verification.json:4 CLOSED cases,20 parent/3 native,3GEN withdrawn,zero liability; no OC_V5 execution claim yet |
+| Full lifecycle | PASS_ADMISSION; OC_V6 PENDING_EXECUTION | OC_V2 historical verification.json:4 CLOSED cases,20 parent/3 native,3GEN withdrawn,zero liability; no OC_V6 execution claim yet |
 | Scope honesty | PASS_ADMISSION | Reported interval proxy, internal rights, locked incident list; honest limits |
 
 ## Actors, roles and incentives
@@ -170,7 +170,7 @@ scope from quoted data. No signer-string/image/hash is treated as origin evidenc
 ## Consensus design
 
 Leader fetches/validates source before LLM. Expected segment IDs/endpoints derived
-by code. OC_V5 models return an exact channel acknowledgment and components for
+by code. OC_V6 models return an exact channel acknowledgment and components for
 every interval: title_scope/body_scope relations, separate title/body status,
 body_quote provenance, continuation, explicit current recovery and body conflict.
 Status enums are APPLIES,NOT_APPLIES,UNVERIFIABLE. Strict complete coverage,

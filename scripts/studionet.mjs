@@ -8,7 +8,7 @@ try{
   const accounts=actors();if(accounts[0].address.toLowerCase()===accounts[1].address.toLowerCase())throw Error('Role separation');
   console.log(JSON.stringify({network:'studionet',chainId:61999,rpc:RPC,roles:await Promise.all(accounts.map(async(a,i)=>({role:i?'buyer':'issuer',address:a.address,balanceGEN:await balance(reader,a.address)})))}));
  }else{
-  const version=source.toString('ascii').match(/^VERSION = "(OC_V[245])"$/m)?.[1];
+  const version=source.toString('ascii').match(/^VERSION = "(OC_V[2456])"$/m)?.[1];
   if(!version)throw Error('Unrecognized source policy version');
   if(version!=='OC_V2'){
    const suffix=`v${version.slice(-1)}-20261014.json`;
@@ -24,7 +24,7 @@ try{
    d={network:'studionet',chainId:61999,rpc:RPC,sourceCommit:commit,sourceSHA256:sourceHash,version,runner:'py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6',valueGEN:'0',status:'PREPARED'};save('deployment.json',d);
   }
   if(!d.transactionHash){
-   const account=actors()[0];d.preSubmitNonce=String(await reader.getCurrentNonce({address:account.address}));save('deployment.json',d);
+   const account=actors()[0];d.preSubmitNonce=String(await safe(()=>reader.getCurrentNonce({address:account.address})));save('deployment.json',d);
    const signer=client({...account,signTransaction:async(...args)=>{const serialized=await account.signTransaction(...args);d.transactionHash=keccak256(serialized);d.signedAt=new Date().toISOString();save('deployment.json',d);return serialized;}});
    await safe(()=>signer.deployContract({code:new Uint8Array(source),args:[]}));console.log(JSON.stringify({stage:'DEPLOY_SUBMITTED',transactionHash:d.transactionHash,valueGEN:'0'}));
   }

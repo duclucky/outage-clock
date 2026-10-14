@@ -4,7 +4,7 @@ import pytest
 from test_outage_clock import ID, SCOPE, j, mock, paid, snap, source
 
 
-@pytest.mark.parametrize("relation,expected", [("UNRELATED", "NOT_APPLIES"), ("BROAD", "UNVERIFIABLE"), ("EXACT", "APPLIES")])
+@pytest.mark.parametrize("relation,expected", [("UNRELATED", "NOT_APPLIES"), ("PARENT_ONLY", "UNVERIFIABLE"), ("COVERS_TARGET", "APPLIES")])
 def test_other_service_impairment_is_not_target_impairment(contract, direct_vm, direct_accounts, relation, expected):
     lease = paid(contract, direct_vm, direct_accounts)
     body = source()
@@ -33,7 +33,7 @@ def test_invalid_relational_premise_cannot_mutate_state_or_gen(contract, direct_
     elif mutation == "forged_quote": first["body_quote"] = "Invented official assertion"
     elif mutation == "missing_quote": first.pop("body_quote", None)
     elif mutation == "invalid_relation": first["body_scope"] = "ALL"
-    elif mutation == "generic_named_scope": first.update(generic=True, body="UNVERIFIABLE", body_scope="EXACT", body_quote="")
+    elif mutation == "generic_named_scope": first.update(generic=True, body="UNVERIFIABLE", body_scope="COVERS_TARGET", body_quote="")
     elif mutation == "recovery_other_scope": first.update(recovery=True, body="NOT_APPLIES", body_scope="UNRELATED")
     mock(direct_vm, decision=answer)
     before = snap(contract, lease)

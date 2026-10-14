@@ -1,6 +1,6 @@
 // Project acceptance guard. This does not modify the workspace grading bot.
 export function requireSemanticGate(version,sourceHash,benchmark,verified){
- const plan={OC_V4:{runs:36,batches:12},OC_V5:{runs:48,batches:16}}[version];
+ const plan={OC_V4:{runs:36,batches:12},OC_V5:{runs:48,batches:16},OC_V6:{runs:56,batches:20}}[version];
  if(!plan)throw Error('Unsupported replacement semantic version');
  const s=benchmark?.summary;
  if(!benchmark?.complete||benchmark.revision!==version||benchmark.productionSHA256!==sourceHash||

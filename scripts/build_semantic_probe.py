@@ -20,6 +20,8 @@ args = parser.parse_args()
 source = (subprocess.check_output(["git", "show", args.source_ref + ":contracts/outage_clock.py"], cwd=ROOT).decode("ascii") if args.source_ref else
           (ROOT / "contracts/outage_clock.py").read_text(encoding="ascii"))
 module = ast.parse(source)
+version = next(ast.literal_eval(n.value) for n in module.body if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "VERSION" for t in n.targets))
+assert version in {"OC_V2", "OC_V3", "OC_V4", "OC_V5", "OC_V6"}
 contract = next(n for n in module.body if isinstance(n, ast.ClassDef) and n.name == "OutageClock")
 review = next(n for n in contract.body if isinstance(n, ast.FunctionDef) and n.name == "review_clock")
 leader = next(n for n in review.body if isinstance(n, ast.FunctionDef) and n.name == "leader")
@@ -60,6 +62,7 @@ probe.encode("ascii")
 path = ROOT / ".codex/semantic_probe.py"
 path.parent.mkdir(exist_ok=True)
 path.write_text(probe, encoding="ascii", newline="\n")
+(ROOT / (".codex/semantic_probe_" + version + ".py")).write_text(probe, encoding="ascii", newline="\n")
 fidelity = {"productionSHA256": hashlib.sha256(source.encode()).hexdigest(),
             "probeSHA256": hashlib.sha256(probe.encode()).hexdigest(),
             "decisionASTSHA256": hashlib.sha256(ast.dump(semantic).encode()).hexdigest(),
@@ -68,4 +71,5 @@ fidelity = {"productionSHA256": hashlib.sha256(source.encode()).hexdigest(),
             "sameProductionSemanticBlock": True, "sameProductionValidator": True,
             "syntheticInputOnly": True, "valueGEN": "0", "custody": False}
 (ROOT / ".codex/semantic-probe-fidelity.json").write_text(json.dumps(fidelity, indent=2) + "\n")
+(ROOT / (".codex/semantic-probe-fidelity-" + version + ".json")).write_text(json.dumps(fidelity, indent=2) + "\n")
 print(json.dumps(fidelity))

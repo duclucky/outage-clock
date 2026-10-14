@@ -1,0 +1,28 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V5",
+  "diagnosticSHA256": "43844136e7ee753729788acc532d483b86ae7809a94ebc849d6a59953177b890",
+  "productionSHA256": "28d6bf16c50687b796cea8b735097b4efa45d8474d40cfe1cfe203db8d5e9f4f",
+  "purpose": "SEPARATE_SINGLE_CASE_DIAGNOSTIC_NOT_CAMPAIGN_REPLACEMENT",
+  "caseId": "S02",
+  "expected": {
+    "E02:U00": "NOT_APPLIES"
+  },
+  "valueGEN": "0",
+  "custody": false,
+  "plannedBeforeSubmission": true,
+  "startedAt": "2026-10-14T15:40:35.304Z",
+  "transactionHash": "0xccfa063e2806680e6dc363a7e2026b88da752d14915f9990a313eba5475d6c03",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "contractAddress": "0x8488CeFd18ca6D6Fe362591b1ecFedFE79310aD8",
+  "sourceMatches": true,
+  "nativeBalanceGEN": "0",
+  "observed": {
+    "E02:U00": "NOT_APPLIES"
+  },
+  "exactMatch": true,
+  "observedAt": "2026-10-14T15:41:39.008Z"
+}

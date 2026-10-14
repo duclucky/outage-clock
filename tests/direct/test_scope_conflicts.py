@@ -5,7 +5,7 @@ from test_outage_clock import ID, SCOPE, j, mock, model, paid, snap
 
 
 def audit(title="APPLIES", body="NOT_APPLIES", **flags):
-    row = dict(title_scope="EXACT", body_scope="UNSPECIFIED" if flags.get("generic") else "EXACT", body_quote="" if flags.get("generic") else "Costs delayed, ordinary API inference unaffected.", title=title, body=body, generic=False, recovery=False, body_conflict=False)
+    row = dict(title_scope="COVERS_TARGET", body_scope="UNSPECIFIED" if flags.get("generic") else "COVERS_TARGET", body_quote="" if flags.get("generic") else "Costs delayed, ordinary API inference unaffected.", title=title, body=body, generic=False, recovery=False, body_conflict=False)
     row.update(flags)
     return {"channel": SCOPE, "consistent": True, "intervals": {f"{ID}:u{k}": dict(row) for k in range(4)}}
 
@@ -106,10 +106,10 @@ def test_one_conflict_preserves_other_interval_labels_but_blocks_entire_clock(co
     assert snap(contract, lease) == before
 
 
-@pytest.mark.parametrize("title_scope,recovery", [("BROAD", False), ("EXACT", True)])
+@pytest.mark.parametrize("title_scope,recovery", [("PARENT_ONLY", False), ("COVERS_TARGET", True)])
 def test_code_derives_refinement_or_recovery_from_components_not_flat_model_enum(contract, direct_vm, direct_accounts, title_scope, recovery):
     lease = paid(contract, direct_vm, direct_accounts)
-    parts = {f"{ID}:u{k}": {"title_scope": title_scope, "body_scope": "EXACT", "body_quote": "Costs delayed, ordinary API inference unaffected.", "title": "APPLIES", "body": "NOT_APPLIES", "generic": False, "recovery": recovery, "body_conflict": False} for k in range(4)}
+    parts = {f"{ID}:u{k}": {"title_scope": title_scope, "body_scope": "COVERS_TARGET", "body_quote": "Costs delayed, ordinary API inference unaffected.", "title": "APPLIES", "body": "NOT_APPLIES", "generic": False, "recovery": recovery, "body_conflict": False} for k in range(4)}
     # A flat model enum is untrusted metadata under the component protocol.
     # The actual semantic claims in BOTH assessments support NOT_APPLIES.
     first = {**model({f"{ID}:u{k}": "UNVERIFIABLE" for k in range(4)}), "intervals": parts}

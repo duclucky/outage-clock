@@ -2,15 +2,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
 import {ROOT,client,identity,file,save,safe,view,balance,fail} from './network.mjs';
 import {receipt} from './receipts.mjs';
 
 try{
  const r=client();await identity(r);
  const revision=process.argv[2]??'OC_V2';
- if(!['OC_V2','OC_V3','OC_V4','OC_V5'].includes(revision))throw Error('Unknown benchmark revision');
+ if(!['OC_V2','OC_V3','OC_V4','OC_V5','OC_V6'].includes(revision))throw Error('Unknown benchmark revision');
  const suffix=revision==='OC_V2'?'':`-v${revision.slice(-1)}`;
- const corpusSuffix=revision==='OC_V2'?'':revision==='OC_V5'?'-v5':'-v3';
+ const corpusSuffix=revision==='OC_V2'?'':['OC_V5','OC_V6'].includes(revision)?`-v${revision.slice(-1)}`:'-v3';
  const record=file(`semantic-benchmark${suffix}-20261014.json`);
  if(!record?.complete)throw Error('Benchmark must finish first');
  const corpus=JSON.parse(fs.readFileSync(path.join(ROOT,`tests/data/semantic-scenarios${corpusSuffix}.json`),'utf8'));
@@ -56,7 +57,10 @@ try{
   }).length};
  const d=file('deployment.json');
  const deployedSHA256=sha(Buffer.from(await safe(()=>r.getContractCode(d.contractAddress))));
- const candidateSHA256=sha(fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py')));
+ const sourceRef=process.argv[3];
+ const candidateSource=sourceRef?execFileSync('git',['show',sourceRef+':contracts/outage_clock.py'],{cwd:ROOT,stdio:['ignore','pipe','pipe']}):fs.readFileSync(path.join(ROOT,'contracts/outage_clock.py'));
+ const candidateSHA256=sha(candidateSource);
+ verification.candidateSourceReference=sourceRef??'WORKTREE';
  if(candidateSHA256!==record.productionSHA256)throw Error('Candidate source changed after benchmark');
  verification.production={address:d.contractAddress,version:d.version,sourceUnchanged:deployedSHA256===d.sourceSHA256,
   candidateMatchesDeployment:candidateSHA256===deployedSHA256,

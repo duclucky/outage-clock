@@ -1,0 +1,137 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "revision": "OC_V5",
+  "kind": "FAILED_BATCH_PROVISIONAL_OUTPUTS_NOT_CANONICAL_VERDICTS",
+  "transactionHash": "0x4c4d20bc06fa9b9955e0e05f5de9708d06036aba45711759e243d9e9db0feb15",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_DISAGREE",
+  "contractAddress": "0x65A9ce2F26C1C3bFAB163Dc2550340a0c7ce8D5C",
+  "caseIds": [
+    "S07",
+    "S08",
+    "S09"
+  ],
+  "valueGEN": "0",
+  "observations": [
+    {
+      "index": "0",
+      "classes": {
+        "E07:U00": "UNVERIFIABLE"
+      },
+      "assessments": [
+        {
+          "channel": "Fetch current organization Costs data through the Compliance API.",
+          "intervals": {
+            "E07:U00": {
+              "body": "APPLIES",
+              "body_conflict": false,
+              "body_quote": "The Compliance API still has a backlog of Costs records; fresh data remains delayed.",
+              "body_scope": "EXACT",
+              "generic": false,
+              "recovery": false,
+              "title": "APPLIES",
+              "title_scope": "EXACT"
+            }
+          }
+        },
+        {
+          "channel": "Fetch current organization Costs data through the Compliance API.",
+          "intervals": {
+            "E07:U00": {
+              "body": "APPLIES",
+              "body_conflict": false,
+              "body_quote": "The Compliance API still has a backlog of Costs records; fresh data remains delayed.",
+              "body_scope": "BROAD",
+              "generic": false,
+              "recovery": false,
+              "title": "APPLIES",
+              "title_scope": "BROAD"
+            }
+          }
+        }
+      ],
+      "channel": "Fetch current organization Costs data through the Compliance API."
+    },
+    {
+      "index": "1",
+      "classes": {
+        "E08:U00": "UNVERIFIABLE"
+      },
+      "assessments": [
+        {
+          "channel": "Fetch current organization Costs data through the Compliance API.",
+          "intervals": {
+            "E08:U00": {
+              "body": "NOT_APPLIES",
+              "body_conflict": false,
+              "body_quote": "The Compliance API Costs endpoint is fully unaffected.",
+              "body_scope": "EXACT",
+              "generic": false,
+              "recovery": false,
+              "title": "APPLIES",
+              "title_scope": "EXACT"
+            }
+          }
+        },
+        {
+          "channel": "Fetch current organization Costs data through the Compliance API.",
+          "intervals": {
+            "E08:U00": {
+              "body": "NOT_APPLIES",
+              "body_conflict": false,
+              "body_quote": "The Compliance API Costs endpoint is fully unaffected.",
+              "body_scope": "EXACT",
+              "generic": false,
+              "recovery": false,
+              "title": "APPLIES",
+              "title_scope": "EXACT"
+            }
+          }
+        }
+      ],
+      "channel": "Fetch current organization Costs data through the Compliance API."
+    },
+    {
+      "index": "2",
+      "classes": {
+        "E09:U00": "UNVERIFIABLE"
+      },
+      "assessments": [
+        {
+          "channel": "Fetch current organization Costs data through the Compliance API.",
+          "intervals": {
+            "E09:U00": {
+              "body": "UNVERIFIABLE",
+              "body_conflict": false,
+              "body_quote": "Some users report problems. We cannot identify which product, endpoint or mode is affected.",
+              "body_scope": "UNSPECIFIED",
+              "generic": false,
+              "recovery": false,
+              "title": "APPLIES",
+              "title_scope": "UNSPECIFIED"
+            }
+          }
+        },
+        {
+          "channel": "Fetch current organization Costs data through the Compliance API.",
+          "intervals": {
+            "E09:U00": {
+              "body": "UNVERIFIABLE",
+              "body_conflict": false,
+              "body_quote": "Some users report problems. We cannot identify which product, endpoint or mode is affected.",
+              "body_scope": "UNSPECIFIED",
+              "generic": false,
+              "recovery": false,
+              "title": "APPLIES",
+              "title_scope": "UNSPECIFIED"
+            }
+          }
+        }
+      ],
+      "channel": "Fetch current organization Costs data through the Compliance API."
+    }
+  ],
+  "at": "2026-10-14T16:07:01.571Z"
+}

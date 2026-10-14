@@ -80,3 +80,35 @@ stalled process was stopped after its original hash was persisted; the campaign
 resumed that exact hash, without signing/broadcasting a replacement. No semantic
 outcome was discarded or retried. This transport mitigation does not diagnose
 the external connection stall or assert a hosted service outage.
+
+## Separately prelocked single-case runtime diagnostic
+
+After more than15minutes the first V5 batch remained COMMITTING. Run the exact
+same diagnostic source once with S02 only (expected NOT_APPLIES, unchanged) from
+the other already-authorized role account,0GEN/no custody/full consensus. Save
+the original signed hash before broadcast and resume it if needed. This checks
+a single-case path separately from the three-case path; it is not a retry that
+can replace any of the48 campaign observations. All original observations and
+pending hashes remain in the campaign denominator. No production GEN is sent.
+
+The single S02 control finalized SUCCESS / MAJORITY_AGREE with NOT_APPLIES,
+exact deployed source and0GEN balance (about one minute); the original three-case
+transaction remained COMMITTING after more than20minutes. This proves the
+single-case path works, not the cause of the stalled transaction. Public475-case
+CI passed at846cc3d: https://github.com/duclucky/outage-clock/actions/runs/38590625369.
+
+Continue other independent planned batches from batch2 using the authorized
+buyer role, after stopping the old observer so there is only one evidence writer.
+This is scheduling only: original batch1/hash remains intact and incomplete, no
+case/label is removed, all48 remain planned, and the campaign cannot be marked
+complete or promoted until batch1 also finishes. No provider configuration,
+validator count, leader-only switch, grader or acceptance threshold is changed.
+
+The first observer completed its100 bounded polls and exited1 while batch1 was
+still COMMITTING. It was no longer running when continuation began, so only one
+writer remained. `node scripts/semantic_benchmark.mjs OC_V5 2 buyer` preserved
+batch1/hash and completed S04-S06:3/3 exact,FINALIZED/SUCCESS/MAJORITY_AGREE,
+0 unsafe. The full48-case gate is still pending; these3 results do not clear it.
+`npm run check` after the scheduling/diagnostic scripts:447 Python +28 Node =475
+passed,zero skips. CI38590625369 independently reports447 passed,28 Node pass,
+0fail/0skip. No production deployment or GEN payment has occurred for V5.

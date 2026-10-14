@@ -2,9 +2,13 @@ import fs from 'node:fs';import path from 'node:path';import{fileURLToPath}from'
 import{createClient,createAccount}from'genlayer-js';import{studionet}from'genlayer-js/chains';
 import{TransactionStatus}from'genlayer-js/types';import{formatUnits,keccak256}from'viem';
 import{successful,nativeChild}from'./receipts.mjs';
+import{deadlineFetch}from'./rpc_deadline.mjs';
 export const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const EVIDENCE=path.join(ROOT,'docs/evidence/studionet');
 export const RPC='https://studio.genlayer.com/api',EXPLORER='https://explorer-studio.genlayer.com';
+// Bound only the selected SDK RPC transport, keeping SDK/API versions intact.
+// A broadcast timeout is ambiguous: saved signed hashes MUST be read, not replayed.
+globalThis.fetch=deadlineFetch(globalThis.fetch,RPC);
 export const client=account=>createClient({chain:studionet,endpoint:RPC,...(account?{account}:{})});
 export function file(name){const p=path.join(EVIDENCE,name);return fs.existsSync(p)?JSON.parse(fs.readFileSync(p,'utf8')):null;}
 export function save(name,value){fs.mkdirSync(EVIDENCE,{recursive:true});const p=path.join(EVIDENCE,name);fs.writeFileSync(p+'.tmp',JSON.stringify(value,null,2)+'\n');fs.renameSync(p+'.tmp',p);}
@@ -13,9 +17,9 @@ export function actors(){const values={};for(const p of[path.join(ROOT,'.env'),p
  if(!fs.existsSync(p))continue;for(const line of fs.readFileSync(p,'utf8').split(/\r?\n/)){
   const m=line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*?)\s*$/);if(m&&!values[m[1]])values[m[1]]=m[2].replace(/^['"]|['"]$/g,'');
  }}return ['STUDIONET_PRIVATE_KEY','STUDIONET_INTEGRATOR_PRIVATE_KEY'].map(name=>{let key=values[name];if(!/^(0x)?[0-9a-f]{64}$/i.test(key??''))throw Error('Authorized configuration unavailable');return createAccount(key.startsWith('0x')?key:'0x'+key);});}
-export async function identity(reader){if(studionet.id!==61999||Number(BigInt(await reader.request({method:'eth_chainId',params:[]})))!==61999)throw Error('Wrong network');}
+export async function identity(reader){if(studionet.id!==61999||Number(BigInt(await safe(()=>reader.request({method:'eth_chainId',params:[]}))))!==61999)throw Error('Wrong network');}
 export async function view(reader,address,name,args=[]){const x=await safe(()=>reader.readContract({address,functionName:name,args,stateStatus:'finalized'}));return typeof x==='string'?JSON.parse(x):x;}
-export async function balance(reader,address){return formatUnits(BigInt(await reader.request({method:'eth_getBalance',params:[address,'latest']})),18);}
+export async function balance(reader,address){return formatUnits(BigInt(await safe(()=>reader.request({method:'eth_getBalance',params:[address,'latest']}))),18);}
 export async function wait(reader,hash){await safe(()=>reader.waitForTransactionReceipt({hash,status:TransactionStatus.FINALIZED,interval:4000,retries:100}));const raw=await safe(()=>reader.request({method:'eth_getTransactionByHash',params:[hash]}));return{proof:successful(raw,hash),raw};}
 export async function write(reader,d,record,key,account,name,args=[],valueGEN='0'){
  let step=record.steps[key];if(!step){step={method:name,args,sender:account.address,valueGEN,beforeContractGEN:await balance(reader,d.contractAddress)};record.steps[key]=step;save(record.file,record);}
