@@ -1,0 +1,230 @@
+{
+  "file": "lifecycle-unaffected.json",
+  "network": "studionet",
+  "chainId": 61999,
+  "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "case": "unaffected",
+  "leaseId": "oc-unaffected-d3a5d349",
+  "issuer": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "buyer": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+  "scope": "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel.",
+  "incidentIds": [
+    "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+  ],
+  "referenceStart": 1791879000,
+  "referenceEnd": 1791909402,
+  "acceptDeadline": 1791949594,
+  "baseDeadline": 1791949744,
+  "cap": 60,
+  "steps": {
+    "create": {
+      "method": "create_lease",
+      "args": [
+        "oc-unaffected-d3a5d349",
+        "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel.",
+        "[\"01M4T4ZCM54D3ZPTQXRSWFG0XS\"]",
+        1791879000,
+        1791909402,
+        1791949594,
+        1791949744,
+        60
+      ],
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xa30d1803d4cdd3abed925e8e127d84f582c9e0ca5d1625709a0713d59fefa988",
+      "signedAt": "2026-10-14T03:44:05.541Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "accept": {
+      "method": "accept",
+      "args": [
+        "oc-unaffected-d3a5d349",
+        "97258b5521020f70d4f6f2c4a6b60e86ccb87b1bf494beb4aeb4e4fb2ac52467"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xa6703040665b1f245646e91ac7bba2fcfd505743bedfed30c2a186a3cd3cb4e0",
+      "signedAt": "2026-10-14T03:44:51.001Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "afterContractGEN": "1",
+      "depositVerified": true
+    },
+    "review": {
+      "method": "review_clock",
+      "args": [
+        "oc-unaffected-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "1",
+      "transactionHash": "0x11482fe9304268d1082dc10400501ef60966c011050ac4c7c8bea6419ed5625e",
+      "signedAt": "2026-10-14T03:45:32.805Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "recover": {
+      "method": "recover",
+      "args": [
+        "oc-unaffected-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "1",
+      "transactionHash": "0x37ad6528a19defaf7c2fb23febd3ce51c9a571e5881b0bff31986a556d7439ef",
+      "signedAt": "2026-10-14T03:49:07.632Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "withdraw": {
+      "beforeContractGEN": "1",
+      "beforeRecipientGEN": "3.521000000000001975",
+      "method": "withdraw",
+      "args": [
+        "oc-unaffected-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "transactionHash": "0x1bb2af85e1d12adb79b43a59648fe2f874b3f8edfc4096961904a0b9e2dcbf5d",
+      "signedAt": "2026-10-14T03:49:46.230Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "nativeProof": {
+        "transactionHash": "0x92fd20cdb9e5c9a5692dad40d6602c9efec13d026043fab6b9e0a3730e7a0715",
+        "status": "FINALIZED",
+        "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+        "recipient": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "valueGEN": "1",
+        "parentHash": "0x1bb2af85e1d12adb79b43a59648fe2f874b3f8edfc4096961904a0b9e2dcbf5d",
+        "executionResult": null
+      },
+      "afterContractGEN": "0",
+      "afterRecipientGEN": "4.521000000000001975"
+    },
+    "close": {
+      "method": "close_lease",
+      "args": [
+        "oc-unaffected-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0x64328a16fc5a393bbdd4ecd045df798a209a23d0323a1440a48cb88f727e254b",
+      "signedAt": "2026-10-14T03:50:23.104Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    }
+  },
+  "preparedAt": "2026-10-14T03:44:04.105Z",
+  "clock": {
+    "base_deadline": 1791949744,
+    "effective_deadline": 1791949744,
+    "extension_seconds": 0,
+    "hard_cutoff": 1791949804,
+    "last_attempt": "oc-unaffected-d3a5d349:T1",
+    "lease_id": "oc-unaffected-d3a5d349",
+    "reported_seconds": 0,
+    "verified": true
+  },
+  "attempt": {
+    "attempt_id": "oc-unaffected-d3a5d349:T1",
+    "intervals": [
+      {
+        "class": "NOT_APPLIES",
+        "end": 1791879513,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH",
+        "start": 1791879000
+      },
+      {
+        "class": "NOT_APPLIES",
+        "end": 1791879736,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10",
+        "start": 1791879513
+      },
+      {
+        "class": "NOT_APPLIES",
+        "end": 1791883800,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93",
+        "start": 1791879736
+      },
+      {
+        "class": "NOT_APPLIES",
+        "end": 1791909402,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1",
+        "start": 1791883800
+      }
+    ],
+    "lease_id": "oc-unaffected-d3a5d349",
+    "outcome": "READY",
+    "reason": "All four intervals describe degraded performance in GPT-6.1 Sol Codex and Work mode. The CANONICAL_CHANNEL is defined as fetching current organization Costs data through the Compliance API. Per the agreed protocol, GPT-6.1 Sol performance in Codex or ChatGPT Work mode is explicitly outside this agreed channel. Because every interval's stated service scope (GPT-6.1 Sol Codex and Work mode) is an explicitly unaffected mode relative to the Compliance API Costs channel, NOT_APPLIES is the correct classification for all intervals regardless of status (investigating or monitoring).",
+    "source_digest": "d3d035a2ae570c5b8fa99682613d81c01b61db583e3b42370347932471a9006b",
+    "stage": "OK",
+    "timestamp": 1791949533
+  },
+  "canonical": {
+    "lease": {
+      "accept_deadline": 1791949594,
+      "attempts": 1,
+      "base_deadline": 1791949744,
+      "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+      "digest": "97258b5521020f70d4f6f2c4a6b60e86ccb87b1bf494beb4aeb4e4fb2ac52467",
+      "escrow_gen": "0",
+      "exercised": false,
+      "extension_cap": 60,
+      "hard_cutoff": 1791949804,
+      "incident_ids": [
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+      ],
+      "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "last_attempt": "oc-unaffected-d3a5d349:T1",
+      "lease_id": "oc-unaffected-d3a5d349",
+      "reference_end": 1791909402,
+      "reference_start": 1791879000,
+      "scope": "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel.",
+      "state": "CLOSED"
+    },
+    "clock": {
+      "base_deadline": 1791949744,
+      "effective_deadline": 1791949744,
+      "extension_seconds": 0,
+      "hard_cutoff": 1791949804,
+      "last_attempt": "oc-unaffected-d3a5d349:T1",
+      "lease_id": "oc-unaffected-d3a5d349",
+      "reported_seconds": 0,
+      "verified": true
+    },
+    "credit": {
+      "credit_gen": "0",
+      "lease_id": "oc-unaffected-d3a5d349",
+      "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+      "withdrawn_gen": "1"
+    },
+    "accounting": {
+      "credit_gen": "0",
+      "escrow_gen": "0",
+      "liability_gen": "0",
+      "received_gen": "2",
+      "withdrawn_gen": "2"
+    },
+    "nativeBalanceGEN": "0"
+  },
+  "complete": true,
+  "verifiedAt": "2026-10-14T03:51:06.152Z"
+}

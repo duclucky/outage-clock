@@ -1,0 +1,61 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "sourceCommit": "fc611f0343b46bd5aac7eb755b61342db2735046",
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "version": "OC_V2",
+  "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+  "valueGEN": "0",
+  "status": "FINALIZED",
+  "preSubmitNonce": "0x48b",
+  "transactionHash": "0xf383a5df4f7c2791e6dad4e0110dfc5e3a515f8c31ef2e3e61d3417e0e66c05f",
+  "signedAt": "2026-10-14T03:35:37.894Z",
+  "executionResult": "SUCCESS",
+  "consensusResult": "MAJORITY_AGREE",
+  "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "schema": {
+    "methods": [
+      "accept",
+      "cancel_unpaid",
+      "close_lease",
+      "create_lease",
+      "exercise",
+      "get_accounting",
+      "get_attempt",
+      "get_clock",
+      "get_credit",
+      "get_lease",
+      "get_policy",
+      "recover",
+      "review_clock",
+      "withdraw"
+    ],
+    "acceptPayable": true
+  },
+  "canonicalPolicy": {
+    "chain_id": 61999,
+    "internal_right_only": true,
+    "max_attempts": 3,
+    "max_incidents": 3,
+    "max_updates": 16,
+    "network": "studionet",
+    "page_id": "01JMDK9XYNY6RXSED6SDWW50WY",
+    "price_gen": "1",
+    "source": "https://status.openai.com/api/v2/incidents.json",
+    "time_proxy": "official display interval, not measured downtime",
+    "version": "OC_V2"
+  },
+  "canonicalAccounting": {
+    "credit_gen": "0",
+    "escrow_gen": "0",
+    "liability_gen": "0",
+    "received_gen": "0",
+    "withdrawn_gen": "0"
+  },
+  "nativeBalanceGEN": "0",
+  "explorerAddressURL": "https://explorer-studio.genlayer.com/address/0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "explorerDeployTxURL": "https://explorer-studio.genlayer.com/tx/0xf383a5df4f7c2791e6dad4e0110dfc5e3a515f8c31ef2e3e61d3417e0e66c05f",
+  "active": true,
+  "verifiedAt": "2026-10-14T03:36:21.616Z"
+}

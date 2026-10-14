@@ -1,0 +1,410 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "sourceCommit": "fc611f0343b46bd5aac7eb755b61342db2735046",
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "sourceMatches": true,
+  "parentCount": 20,
+  "childCount": 3,
+  "cases": {
+    "affected": {
+      "lease": {
+        "accept_deadline": 1791949147,
+        "attempts": 1,
+        "base_deadline": 1791949297,
+        "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "digest": "b74ab3f618b3d58b7b6d88249a08f340fb0068da66ae60925029395727d7877e",
+        "escrow_gen": "0",
+        "exercised": true,
+        "extension_cap": 300,
+        "hard_cutoff": 1791949597,
+        "incident_ids": [
+          "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+        ],
+        "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "last_attempt": "oc-affected-d3a5d349:T1",
+        "lease_id": "oc-affected-d3a5d349",
+        "reference_end": 1791909402,
+        "reference_start": 1791879000,
+        "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+        "state": "CLOSED"
+      },
+      "clock": {
+        "base_deadline": 1791949297,
+        "effective_deadline": 1791949597,
+        "extension_seconds": 300,
+        "hard_cutoff": 1791949597,
+        "last_attempt": "oc-affected-d3a5d349:T1",
+        "lease_id": "oc-affected-d3a5d349",
+        "reported_seconds": 30402,
+        "verified": true
+      },
+      "credit": {
+        "credit_gen": "0",
+        "lease_id": "oc-affected-d3a5d349",
+        "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "withdrawn_gen": "1"
+      },
+      "steps": {
+        "create": {
+          "transactionHash": "0x36563c491120d7fb83e61389a17c1b028846809336fdf183e8ec0dafc531b5ae",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+          "valueGEN": "0"
+        },
+        "accept": {
+          "transactionHash": "0xa28028cfb800c2bfa13da1c22b7cb4fe5aedf351d9cea9b364aae05a0af741a0",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "1"
+        },
+        "review": {
+          "transactionHash": "0xc6e69f759d72c4f0c2ad64c422cbbdad4ed3084a98a13a42fa04744b22920bea",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0"
+        },
+        "exercise": {
+          "transactionHash": "0x9977eb853afa4c4a03cbce69dfd73cb1bdd143b1cf5e54653095f9de78f7f793",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0",
+          "transactionTimeUTC": "2026-10-14T03:41:42.081197+00:00",
+          "afterNominalBeforeEffective": true
+        },
+        "withdraw": {
+          "transactionHash": "0xf23f1653dbec91d76e79bb34cdf28d468b59e1e248af4d95b4c01be058176c61",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+          "valueGEN": "0",
+          "nativeChild": {
+            "transactionHash": "0x0f064d9d37a7ae4d6e203d2af97d60cd5d84eb97bd34f66997f85b8e22734744",
+            "status": "FINALIZED",
+            "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+            "recipient": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+            "valueGEN": "1",
+            "parentHash": "0xf23f1653dbec91d76e79bb34cdf28d468b59e1e248af4d95b4c01be058176c61",
+            "executionResult": null
+          },
+          "exactContractDecreaseGEN": "1",
+          "exactRecipientIncreaseGEN": "1"
+        },
+        "close": {
+          "transactionHash": "0xd04e5d9a98b320e49608d766a6761e1cc9459be73e48f102b43c24b29d5cd57c",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0"
+        }
+      }
+    },
+    "unaffected": {
+      "lease": {
+        "accept_deadline": 1791949594,
+        "attempts": 1,
+        "base_deadline": 1791949744,
+        "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "digest": "97258b5521020f70d4f6f2c4a6b60e86ccb87b1bf494beb4aeb4e4fb2ac52467",
+        "escrow_gen": "0",
+        "exercised": false,
+        "extension_cap": 60,
+        "hard_cutoff": 1791949804,
+        "incident_ids": [
+          "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+        ],
+        "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "last_attempt": "oc-unaffected-d3a5d349:T1",
+        "lease_id": "oc-unaffected-d3a5d349",
+        "reference_end": 1791909402,
+        "reference_start": 1791879000,
+        "scope": "Fetch current organization Costs data through the Compliance API. GPT-6.1 Sol performance in Codex or ChatGPT Work mode is outside this agreed channel.",
+        "state": "CLOSED"
+      },
+      "clock": {
+        "base_deadline": 1791949744,
+        "effective_deadline": 1791949744,
+        "extension_seconds": 0,
+        "hard_cutoff": 1791949804,
+        "last_attempt": "oc-unaffected-d3a5d349:T1",
+        "lease_id": "oc-unaffected-d3a5d349",
+        "reported_seconds": 0,
+        "verified": true
+      },
+      "credit": {
+        "credit_gen": "0",
+        "lease_id": "oc-unaffected-d3a5d349",
+        "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "withdrawn_gen": "1"
+      },
+      "steps": {
+        "create": {
+          "transactionHash": "0xa30d1803d4cdd3abed925e8e127d84f582c9e0ca5d1625709a0713d59fefa988",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+          "valueGEN": "0"
+        },
+        "accept": {
+          "transactionHash": "0xa6703040665b1f245646e91ac7bba2fcfd505743bedfed30c2a186a3cd3cb4e0",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "1"
+        },
+        "review": {
+          "transactionHash": "0x11482fe9304268d1082dc10400501ef60966c011050ac4c7c8bea6419ed5625e",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0"
+        },
+        "recover": {
+          "transactionHash": "0x37ad6528a19defaf7c2fb23febd3ce51c9a571e5881b0bff31986a556d7439ef",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0",
+          "transactionTimeUTC": "2026-10-14T03:49:07.852161+00:00",
+          "entrypointExpiryProven": true,
+          "dueUTC": "2026-10-14T03:49:04.000Z"
+        },
+        "withdraw": {
+          "transactionHash": "0x1bb2af85e1d12adb79b43a59648fe2f874b3f8edfc4096961904a0b9e2dcbf5d",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0",
+          "nativeChild": {
+            "transactionHash": "0x92fd20cdb9e5c9a5692dad40d6602c9efec13d026043fab6b9e0a3730e7a0715",
+            "status": "FINALIZED",
+            "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+            "recipient": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+            "valueGEN": "1",
+            "parentHash": "0x1bb2af85e1d12adb79b43a59648fe2f874b3f8edfc4096961904a0b9e2dcbf5d",
+            "executionResult": null
+          },
+          "exactContractDecreaseGEN": "1",
+          "exactRecipientIncreaseGEN": "1"
+        },
+        "close": {
+          "transactionHash": "0x64328a16fc5a393bbdd4ecd045df798a209a23d0323a1440a48cb88f727e254b",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0"
+        }
+      }
+    },
+    "pending": {
+      "lease": {
+        "accept_deadline": 1791949995,
+        "attempts": 0,
+        "base_deadline": 1791950055,
+        "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "digest": "b1a928875df7341f7441f353138b033ea8465ac4f4e20367bb6c67856821e9f0",
+        "escrow_gen": "0",
+        "exercised": false,
+        "extension_cap": 60,
+        "hard_cutoff": 1791950115,
+        "incident_ids": [
+          "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+        ],
+        "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "last_attempt": "",
+        "lease_id": "oc-pending-d3a5d349",
+        "reference_end": 1791909402,
+        "reference_start": 1791879000,
+        "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+        "state": "CLOSED"
+      },
+      "clock": {
+        "base_deadline": 1791950055,
+        "effective_deadline": 0,
+        "extension_seconds": 0,
+        "hard_cutoff": 1791950115,
+        "last_attempt": "",
+        "lease_id": "oc-pending-d3a5d349",
+        "reported_seconds": 0,
+        "verified": false
+      },
+      "credit": {
+        "credit_gen": "0",
+        "lease_id": "oc-pending-d3a5d349",
+        "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "withdrawn_gen": "1"
+      },
+      "steps": {
+        "create": {
+          "transactionHash": "0xb131c33299e5ccf182f21fb1af8f8ba4910740c8e2456b7abb1bae17fec1274c",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+          "valueGEN": "0"
+        },
+        "accept": {
+          "transactionHash": "0x40f0fdbad02ab526edaa721233ff55b54daf93bdf5fabcf1864122d38aa6fdcd",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "1"
+        },
+        "recover": {
+          "transactionHash": "0xdad585539486a2a95aa5d25a8f9b092602dac12f30e3c5e9f219375ec4aa1c6e",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0",
+          "transactionTimeUTC": "2026-10-14T03:55:19.644490+00:00",
+          "entrypointExpiryProven": true,
+          "dueUTC": "2026-10-14T03:55:15.000Z"
+        },
+        "withdraw": {
+          "transactionHash": "0x6c565f15320e53c9e9db2835c3f4574209f7a29e14ede1cb4062d719b6fee4e7",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0",
+          "nativeChild": {
+            "transactionHash": "0x12267d3e156f5391066f92fe85de7372185dc531276c64cea3380ecfe94cda92",
+            "status": "FINALIZED",
+            "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+            "recipient": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+            "valueGEN": "1",
+            "parentHash": "0x6c565f15320e53c9e9db2835c3f4574209f7a29e14ede1cb4062d719b6fee4e7",
+            "executionResult": null
+          },
+          "exactContractDecreaseGEN": "1",
+          "exactRecipientIncreaseGEN": "1"
+        },
+        "close": {
+          "transactionHash": "0x27301c8ea92aa72d65cf5b7432fa9dbd1e90f8e490ee777a07921546d1985169",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0"
+        }
+      }
+    },
+    "unpaid": {
+      "lease": {
+        "accept_deadline": 1791950314,
+        "attempts": 0,
+        "base_deadline": 1791950434,
+        "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "digest": "2734e3d615233410253e9dc7a61ee440e602cee68bad61b6880aa2a49dcfcdc5",
+        "escrow_gen": "0",
+        "exercised": false,
+        "extension_cap": 60,
+        "hard_cutoff": 1791950494,
+        "incident_ids": [
+          "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+        ],
+        "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "last_attempt": "",
+        "lease_id": "oc-unpaid-d3a5d349",
+        "reference_end": 1791909402,
+        "reference_start": 1791879000,
+        "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+        "state": "CLOSED"
+      },
+      "clock": {
+        "base_deadline": 1791950434,
+        "effective_deadline": 0,
+        "extension_seconds": 0,
+        "hard_cutoff": 1791950494,
+        "last_attempt": "",
+        "lease_id": "oc-unpaid-d3a5d349",
+        "reported_seconds": 0,
+        "verified": false
+      },
+      "credit": {
+        "credit_gen": "0",
+        "lease_id": "oc-unpaid-d3a5d349",
+        "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "withdrawn_gen": "0"
+      },
+      "steps": {
+        "create": {
+          "transactionHash": "0x9602da3f19300933678f20f97d59a0e1181697d2d48634b164e1cf34f1b98f93",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+          "valueGEN": "0"
+        },
+        "cancel": {
+          "transactionHash": "0xf3fba2a9a98dc0f0484cc0d755a312bd199f6b834ed2e129dccea37297760378",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0",
+          "transactionTimeUTC": "2026-10-14T03:58:38.126210+00:00",
+          "entrypointExpiryProven": true,
+          "dueUTC": "2026-10-14T03:58:34.000Z"
+        },
+        "close": {
+          "transactionHash": "0xbab0b3a2bda7e517130700452a524bdb9e7e4be6d14d3a526ccb5fa6d3ff4a39",
+          "status": "FINALIZED",
+          "executionResult": "SUCCESS",
+          "consensusResult": "MAJORITY_AGREE",
+          "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+          "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+          "valueGEN": "0"
+        }
+      }
+    }
+  },
+  "accounting": {
+    "credit_gen": "0",
+    "escrow_gen": "0",
+    "liability_gen": "0",
+    "received_gen": "3",
+    "withdrawn_gen": "3"
+  },
+  "nativeBalanceGEN": "0",
+  "verified": true,
+  "verifiedAt": "2026-10-14T04:01:13.895Z"
+}

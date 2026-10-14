@@ -10,11 +10,11 @@ implementation pending;1test failed. The planned money/recovery/clock negatives
 were then added and72cases failed before the implementation bodies. After real
 implementation, a typed Address conversion mismatch was diagnosed from its
 TypeError and normalized through the current Address as_hex representation.
-No assertions or cases were deleted to pass.101direct cases now PASS;13receipt
+No assertions or cases were deleted to pass.105direct cases now PASS;13receipt
 cases PASS. All tests execute locally; no critical skipped case.
 
 `npm run check`: ASCII_HEADER_CLASS_METADATA_TEMPORAL_NO_APP_OK; semantic lint
-recognizes OutageClock14methods(6view/8write);101Python+13Node PASS.
+recognizes OutageClock14methods(6view/8write);105Python+13Node PASS.
 Tests independently replay captured validator, accept differently worded rationale
 and reject contrary interval meaning. Source provenance failures preserve escrow
 and block clock/right/credit changes. Overlap/clipping/cap, both creation bounds,
@@ -23,7 +23,7 @@ ledger tests pass. Raw and normalized receipt shapes are covered.
 
 Network preflight: Studionet61999 and two distinct already authorized existing
 EOAs with positive GEN balances. No funding, faucet or new key required. Actual
-corrected product paid lifecycle remains PENDING.
+corrected product paid lifecycle now passes independent live verification.
 Separate no-custody feasibility diagnostic proved two opposite real source modes;
 it is not the product deployment or a paid lifecycle.
 
@@ -40,3 +40,14 @@ The V1 Costs incident remains archived as a contradictory-source example. V2's
 worked example locks the separate resolved Oct13 Codex/Work incident and explicit
 affected/unrelated channels before payment; its policy is unchanged. This avoids
 claiming that ambiguous Costs evidence proves an affirmative exercise outcome.
+
+Four additional malicious-leader replay cases reject hash-valid fabricated bodies,
+hash-valid changed endpoints, forged source failure and invalid semantic enum;
+canonical state/accounting remain unchanged. Source is unchanged from deployed V2.
+Final local count105 direct +13 receipt cases, all PASS and zero skipped.
+
+Live V2 verification:4 CLOSED cases,20 FINALIZED/SUCCESS parent writes,3 exact
+1 GEN native children;3 GEN received/withdrawn,zero accounting/native liability.
+Source equals deployed bytes and source commit. Exercise timestamp lies after
+nominal expiry and before capped effective deadline; due refund/cancel timestamps
+are independently checked. Archived V1 recovery is re-verified read-only.

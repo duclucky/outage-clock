@@ -1,0 +1,170 @@
+{
+  "file": "lifecycle-pending.json",
+  "network": "studionet",
+  "chainId": 61999,
+  "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "case": "pending",
+  "leaseId": "oc-pending-d3a5d349",
+  "issuer": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "buyer": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+  "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+  "incidentIds": [
+    "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+  ],
+  "referenceStart": 1791879000,
+  "referenceEnd": 1791909402,
+  "acceptDeadline": 1791949995,
+  "baseDeadline": 1791950055,
+  "cap": 60,
+  "steps": {
+    "create": {
+      "method": "create_lease",
+      "args": [
+        "oc-pending-d3a5d349",
+        "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+        "[\"01M4T4ZCM54D3ZPTQXRSWFG0XS\"]",
+        1791879000,
+        1791909402,
+        1791949995,
+        1791950055,
+        60
+      ],
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xb131c33299e5ccf182f21fb1af8f8ba4910740c8e2456b7abb1bae17fec1274c",
+      "signedAt": "2026-10-14T03:51:17.085Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "accept": {
+      "method": "accept",
+      "args": [
+        "oc-pending-d3a5d349",
+        "b1a928875df7341f7441f353138b033ea8465ac4f4e20367bb6c67856821e9f0"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1",
+      "beforeContractGEN": "0",
+      "transactionHash": "0x40f0fdbad02ab526edaa721233ff55b54daf93bdf5fabcf1864122d38aa6fdcd",
+      "signedAt": "2026-10-14T03:51:57.508Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "afterContractGEN": "1",
+      "depositVerified": true
+    },
+    "recover": {
+      "method": "recover",
+      "args": [
+        "oc-pending-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "1",
+      "transactionHash": "0xdad585539486a2a95aa5d25a8f9b092602dac12f30e3c5e9f219375ec4aa1c6e",
+      "signedAt": "2026-10-14T03:55:19.118Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "withdraw": {
+      "beforeContractGEN": "1",
+      "beforeRecipientGEN": "3.521000000000001975",
+      "method": "withdraw",
+      "args": [
+        "oc-pending-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "transactionHash": "0x6c565f15320e53c9e9db2835c3f4574209f7a29e14ede1cb4062d719b6fee4e7",
+      "signedAt": "2026-10-14T03:56:00.669Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "nativeProof": {
+        "transactionHash": "0x12267d3e156f5391066f92fe85de7372185dc531276c64cea3380ecfe94cda92",
+        "status": "FINALIZED",
+        "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+        "recipient": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "valueGEN": "1",
+        "parentHash": "0x6c565f15320e53c9e9db2835c3f4574209f7a29e14ede1cb4062d719b6fee4e7",
+        "executionResult": null
+      },
+      "afterContractGEN": "0",
+      "afterRecipientGEN": "4.521000000000001975"
+    },
+    "close": {
+      "method": "close_lease",
+      "args": [
+        "oc-pending-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0x27301c8ea92aa72d65cf5b7432fa9dbd1e90f8e490ee777a07921546d1985169",
+      "signedAt": "2026-10-14T03:56:41.084Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    }
+  },
+  "preparedAt": "2026-10-14T03:51:15.514Z",
+  "canonical": {
+    "lease": {
+      "accept_deadline": 1791949995,
+      "attempts": 0,
+      "base_deadline": 1791950055,
+      "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+      "digest": "b1a928875df7341f7441f353138b033ea8465ac4f4e20367bb6c67856821e9f0",
+      "escrow_gen": "0",
+      "exercised": false,
+      "extension_cap": 60,
+      "hard_cutoff": 1791950115,
+      "incident_ids": [
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+      ],
+      "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "last_attempt": "",
+      "lease_id": "oc-pending-d3a5d349",
+      "reference_end": 1791909402,
+      "reference_start": 1791879000,
+      "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+      "state": "CLOSED"
+    },
+    "clock": {
+      "base_deadline": 1791950055,
+      "effective_deadline": 0,
+      "extension_seconds": 0,
+      "hard_cutoff": 1791950115,
+      "last_attempt": "",
+      "lease_id": "oc-pending-d3a5d349",
+      "reported_seconds": 0,
+      "verified": false
+    },
+    "credit": {
+      "credit_gen": "0",
+      "lease_id": "oc-pending-d3a5d349",
+      "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+      "withdrawn_gen": "1"
+    },
+    "accounting": {
+      "credit_gen": "0",
+      "escrow_gen": "0",
+      "liability_gen": "0",
+      "received_gen": "3",
+      "withdrawn_gen": "3"
+    },
+    "nativeBalanceGEN": "0"
+  },
+  "complete": true,
+  "verifiedAt": "2026-10-14T03:57:26.315Z"
+}

@@ -2,8 +2,9 @@
 
 ## Identity
 
-IDEA-043; OutageClock; outage-clock; Intelligent Contracts; BUILDING, admission spec committed before code.
-Studionet61999 expressly selected by owner in this chat. Workspace D1 unchanged.
+IDEA-043; OutageClock; outage-clock; Intelligent Contracts; VERIFIED_PRIVATE, admission spec committed before code.
+Studionet61999 expressly selected by owner in this chat, also permitted by current
+D1 after verified Studio Dev unavailability. This project does not edit shared D1.
 Public repo not yet created. No product source from an existing project is reused.
 This specification completes the copied PROJECT-SPEC-TEMPLATE sections.
 
@@ -44,7 +45,7 @@ The actual diagnostic is separate from product execution.
 | Judgment | PASS_ADMISSION | Meaning of service-mode impairment, not a status flag/string |
 | Evidence availability | PASS_ADMISSION | Real GenVM feed200/34390bytes, four intervals/two differentiated scopes |
 | Evidence authenticity | PASS_ADMISSION | Complete matrix below, provider authority and transaction origin/value |
-| Equivalence | PASS_ADMISSION | Independent full vector plus source bindings, rationale excluded |
+| Equivalence | PASS_ADMISSION | Independent full vector/source bindings; consistency review, wording may differ |
 | Consequence | PASS_ADMISSION | Real clock-gated exercise/refund and native escrow1GEN |
 | Adversarial | PASS_ADMISSION | Issuer early expiration versus buyer overstated disruptions |
 | State model | PASS_ADMISSION | Keyed leases, immutable terms, clock guards, one allocation, recoverable value |
@@ -52,7 +53,7 @@ The actual diagnostic is separate from product execution.
 | Contract count | PASS_ADMISSION | One clock/right/escrow owner; EVM recipient is not a second IC |
 | Differentiation | PASS_ADMISSION | Temporal union/clock rather than incident-credit pool or causal cap |
 | Claim-to-code | PASS_ADMISSION | Filled method/view/test/live-case matrix below |
-| Full lifecycle | PASS_ADMISSION / PENDING_EXECUTION | Three exact paid acceptance cases specified |
+| Full lifecycle | PASS_ADMISSION + PASS_EXECUTION | verification.json: 4 CLOSED cases,20 parent/3 native,3 GEN withdrawn,zero liability |
 | Scope honesty | PASS_ADMISSION | Reported interval proxy, internal rights, locked incident list; honest limits |
 
 ## Actors, roles and incentives
@@ -70,7 +71,7 @@ incidents with2..16 updates each, bounded3 attempts and extension30..86400second
 No external ownership, performed service, law, physical downtime measurement,
 exhaustive provider history, forward ongoing-incident oracle or adoption claim.
 Reference windows may be retrospective by explicit agreement. The right begins
-on acceptance, not in the past. Other providers are a later milestone.
+on acceptance, not in the past. Other providers are future scope.
 
 ## Product/frontend blueprint
 
@@ -123,14 +124,14 @@ N/A for this contract-only track; scripts never count as browser execution.
 ## Evidence policy
 
 Fixed URL https://status.openai.com/api/v2/incidents.json; exact OpenAI page ID
-01JMDK9XYNY6RXSED6SDWW50WY; policy OC_V1. No caller URL/artifact body accepted.
+01JMDK9XYNY6RXSED6SDWW50WY; policy OC_V2. No caller URL/artifact body accepted.
 HTTPS acquisition by each validator; status200 and1000..300000bytes; at most100
 feed records. Selected incidents each unique, correct page_id and RESOLVED. Updates
 unique and bound incident_id, timezone-aware timestamps, ordered display_at,
 first timestamp equals created_at, last resolved equals resolved_at, all relevant
 timestamps <=current transaction time and created within30day agreed reference.
 Do not assume created_at order equals display order. Exactly one final resolved
-update; no earlier resolved/reopened timeline accepted in V1.
+update; no earlier resolved/reopened timeline accepted in this version.
 
 Each non-resolved update starts a [display_at,next_display_at) interval. This
 contractual reporting proxy is not actual customer uptime. Segment ID/time/status/
@@ -146,7 +147,7 @@ append source stage/reason safely; hard cutoff still refunds actual payer.
 
 | Consequential claim/fact | Evidence/artifact | Data controller | Authoritative source/issuer | Deterministic verification | Canonical objective/entity/actor binding | Freshness/anti-replay | Semantic role after verification | Non-penalizing failure state | Consequence blocked | Required negative test |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Internal lease exists | Immutable terms | Issuer wallet | Signed create transaction | Unique bounded ID/actors/time/scope | network/contract/OC_V1/lease/all terms | Unique ID and tx time | Fixed channel only | Revert unchanged | No lease/clock/credit | wrong entity/value/bounds |
+| Internal lease exists | Immutable terms | Issuer wallet | Signed create transaction | Unique bounded ID/actors/time/scope | network/contract/OC_V2/lease/all terms | Unique ID and tx time | Fixed channel only | Revert unchanged | No lease/clock/credit | wrong entity/value/bounds |
 | Buyer funded exact terms | Digest/value/paid state | Buyer wallet/runtime | Actual signed transaction context | exact sender/digest/value1GEN and state | Entire lease/price/deadline/source in recomputed digest | one acceptance, now<accept | Review eligibility only | Revert unchanged | No activation/reclassification | correct digest wrong caller/entity/version/value; replay/stale |
 | Official interval facts | Feed selected records | OpenAI | Fixed official HTTPS origin/page | HTTP/size/JSON/IDs/page/status/update/time guards above | selected incident/update IDs and objective scope separate | resolved<=tx time,30day horizon, each fetch | interval-specific applicability only | RETRYABLE | No clock/exercise/credit | fabricated valid-hash wrongpage/incident/update/bounds/future/sourcehost |
 | Validator decision | complete classes/source digest/intervals | Independent validators | authenticated source plus locked terms | exact ID coverage/enums/endpoints, no duplicate keys | lease/digest/attempt and exact source representation | one final clock,3attempts | semantic enums only | Revert or RETRYABLE | No deadline/money/right | malicious shape-valid dissent,extra/missing IDs,injected payout/authority |
@@ -161,7 +162,7 @@ scope from quoted data. No signer-string/image/hash is treated as origin evidenc
 Leader fetches/validates source before LLM. Expected segment IDs/endpoints derived
 by code. Model returns {classes:{exact_segment_id:enum},reason:string}; enums are
 APPLIES,NOT_APPLIES,UNVERIFIABLE. Strict complete classes, unique JSON keys, no
-missing/extra/duplicate IDs. Ignore unrelated metadata/rationale wording. Validator
+missing/extra/duplicate IDs. A second semantic pass checks evidence, enums and bounded rationale; false/malformed approval makes every enum UNVERIFIABLE. Ignore unrelated metadata and rationale wording differences. Validator
 rejects non-Return leader, independently fetches/replays and compares exact source
 digest, interval identities/endpoints and complete semantic classes. Legacy
 sandboxed gl.vm.run_nondet on matched v0.2.16; no run_nondet_unsafe.
@@ -225,14 +226,14 @@ source schema supplement direct mode. Raw/normalized receipt tests; no critical 
 
 | Claim | Contract method/state | View/read | Test | Network evidence |
 | --- | --- | --- | --- | --- |
-| Actual buyer bound1GEN acceptance | accept/digest/escrow | lease/accounting | acceptauthvalueclock | Paid lifecycle accept receipt/value/canonical escrow |
-| Official interval authority | review_clock/source guards | attempt/clock | sourcebindingprovenance | real selected source/digest/stage in finalized attempt |
-| Meaning controls time, not prose | review_clock/classes | attempt | semanticreplay/dissent | finalized affected/unaffected cases |
-| No overlapping-time duplication | clipped union/cap | clock | union/clipping/cap | actual deadline/extension read |
-| Exercise restored after base expiry | exercise/EXERCISED | lease/clock | exerciseboundary | buyer actual exercise after base before effective |
-| Actual payer recovery | recover/REFUNDED | credit/accounting | verifiedexpiry/hardrecovery | due expiry and unresolved recovery refund receipts |
-| Exact own-wallet exit | withdraw/EVM | credit/accounting/native | transfer/invariant/double | bound child/exact native/recipient1GEN delta |
-| Immutable isolation/reuse | create/views | lease/policy | isolation/lockedfields | distinct successful/recovery IDs; documented APIs |
+| Actual buyer bound1GEN acceptance | accept/digest/escrow | lease/accounting | test_accept_origin_amount_and_exact_binding_unchanged | lifecycle-affected.json accept + canonical lease |
+| Official interval authority | review_clock/source guards | attempt/clock | test_source_provenance_tripwire_blocks_hard_state_and_money; test_malicious_leader_cannot_replace_authoritative_facts_or_semantics | affected/unaffected finalized attempts/source digest |
+| Meaning controls time, not prose | review_clock/classes | attempt | test_validator_independent_replay_rejects_dissent_and_ignores_reason; test_semantic_consistency_rejection_blocks_contradictory_class_and_rationale | finalized affected/unaffected cases |
+| No overlapping-time duplication | clipped union/cap | clock | test_overlap_union_clipping_cap_not_double_counted | affected clock/report/300-second cap read |
+| Exercise restored after base expiry | exercise/EXERCISED | lease/clock | test_meaning_sets_deadline_then_exercise_after_nominal_expiry; test_entrypoint_time_stale_phase_unchanged_rejection | affected exercise transaction timestamp after base before effective |
+| Actual payer recovery | recover/REFUNDED | credit/accounting | test_unaffected_mode_zero_extension_refund_actual_payer; test_paid_refund_withdraw_survives_abandoned_issuer | unaffected/pending recovery receipts |
+| Exact own-wallet exit | withdraw/EVM | credit/accounting/native | test_withdraw_exact_own_evm_credit_then_zero_close | withdrawal nativeProof and exact before/after GEN deltas |
+| Immutable isolation/reuse | create/views | lease/policy | test_paid_immutable_isolation_and_duplicate_accept | distinct successful/recovery IDs; INTEGRATION.md |
 
 ## Analogue and differentiation matrix
 
@@ -255,8 +256,8 @@ before value. Resume from persisted signed hash; no duplicate broadcasts after
 ambiguous outcomes. One active deployment; archive any replaced source and recover
 its value or explicitly abandon broken revision without further deposits.
 Evidence docs/evidence/studionet; no Studio Dev relabeling. Real1GEN percase:
-affected Costs channel clock then wait nominal deadline and buyer exercise before
-cap-restored deadline; issuer withdraw. Unaffected API channel0extension then due
+affected Codex/Work channel clock then wait nominal deadline and buyer exercise before
+cap-restored deadline; issuer withdraw. Unrelated Compliance Costs channel0extension then due
 refund/buyer withdraw. Unreviewed paid lease hardcutoff recovery/buyer withdraw.
 Each case closes zero liability; one diagnostic outside product count.
 Safe allowlisted statuses/IDs/values/canonical reads only. Verify public source,
@@ -293,7 +294,7 @@ but no right is claimed to predate acceptance. Exact locked incident set is not
 exhaustive history. Reporting-timestamp proxy is not measured customer downtime.
 Status source controls its published facts; disappearing/changed feed can force
 retry/refund.2..16updates/incident,1..3incidents,3attempts,one1GEN right. No browser
-app, external gateway execution, legal right or adopter. Live evidence pending.
+app, external gateway execution, legal right or adopter. Four real lifecycle cases verified; public repo and CI pending.
 
 ## Kill criteria
 

@@ -1,0 +1,231 @@
+{
+  "file": "lifecycle-affected.json",
+  "network": "studionet",
+  "chainId": 61999,
+  "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "case": "affected",
+  "leaseId": "oc-affected-d3a5d349",
+  "issuer": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "buyer": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+  "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+  "incidentIds": [
+    "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+  ],
+  "referenceStart": 1791879000,
+  "referenceEnd": 1791909402,
+  "acceptDeadline": 1791949147,
+  "baseDeadline": 1791949297,
+  "cap": 300,
+  "steps": {
+    "create": {
+      "method": "create_lease",
+      "args": [
+        "oc-affected-d3a5d349",
+        "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+        "[\"01M4T4ZCM54D3ZPTQXRSWFG0XS\"]",
+        1791879000,
+        1791909402,
+        1791949147,
+        1791949297,
+        300
+      ],
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0x36563c491120d7fb83e61389a17c1b028846809336fdf183e8ec0dafc531b5ae",
+      "signedAt": "2026-10-14T03:36:38.816Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "accept": {
+      "method": "accept",
+      "args": [
+        "oc-affected-d3a5d349",
+        "b74ab3f618b3d58b7b6d88249a08f340fb0068da66ae60925029395727d7877e"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "1",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xa28028cfb800c2bfa13da1c22b7cb4fe5aedf351d9cea9b364aae05a0af741a0",
+      "signedAt": "2026-10-14T03:37:19.753Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "afterContractGEN": "1",
+      "depositVerified": true
+    },
+    "review": {
+      "method": "review_clock",
+      "args": [
+        "oc-affected-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "1",
+      "transactionHash": "0xc6e69f759d72c4f0c2ad64c422cbbdad4ed3084a98a13a42fa04744b22920bea",
+      "signedAt": "2026-10-14T03:38:00.256Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "exercise": {
+      "method": "exercise",
+      "args": [
+        "oc-affected-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "1",
+      "transactionHash": "0x9977eb853afa4c4a03cbce69dfd73cb1bdd143b1cf5e54653095f9de78f7f793",
+      "signedAt": "2026-10-14T03:41:41.857Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "withdraw": {
+      "beforeContractGEN": "1",
+      "beforeRecipientGEN": "1786.6399969999999882",
+      "method": "withdraw",
+      "args": [
+        "oc-affected-d3a5d349"
+      ],
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0",
+      "transactionHash": "0xf23f1653dbec91d76e79bb34cdf28d468b59e1e248af4d95b4c01be058176c61",
+      "signedAt": "2026-10-14T03:42:26.724Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+      "nativeProof": {
+        "transactionHash": "0x0f064d9d37a7ae4d6e203d2af97d60cd5d84eb97bd34f66997f85b8e22734744",
+        "status": "FINALIZED",
+        "sender": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+        "recipient": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+        "valueGEN": "1",
+        "parentHash": "0xf23f1653dbec91d76e79bb34cdf28d468b59e1e248af4d95b4c01be058176c61",
+        "executionResult": null
+      },
+      "afterContractGEN": "0",
+      "afterRecipientGEN": "1787.6399969999999882"
+    },
+    "close": {
+      "method": "close_lease",
+      "args": [
+        "oc-affected-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xd04e5d9a98b320e49608d766a6761e1cc9459be73e48f102b43c24b29d5cd57c",
+      "signedAt": "2026-10-14T03:43:06.608Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    }
+  },
+  "preparedAt": "2026-10-14T03:36:37.452Z",
+  "clock": {
+    "base_deadline": 1791949297,
+    "effective_deadline": 1791949597,
+    "extension_seconds": 300,
+    "hard_cutoff": 1791949597,
+    "last_attempt": "oc-affected-d3a5d349:T1",
+    "lease_id": "oc-affected-d3a5d349",
+    "reported_seconds": 30402,
+    "verified": true
+  },
+  "attempt": {
+    "attempt_id": "oc-affected-d3a5d349:T1",
+    "intervals": [
+      {
+        "class": "APPLIES",
+        "end": 1791879513,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T4ZCM5787AJ5YDEGTB37CH",
+        "start": 1791879000
+      },
+      {
+        "class": "APPLIES",
+        "end": 1791879736,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5F0WE88N1HM8SCCZ99P10",
+        "start": 1791879513
+      },
+      {
+        "class": "APPLIES",
+        "end": 1791883800,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T5NV85W4C2RDCPSSK72E93",
+        "start": 1791879736
+      },
+      {
+        "class": "APPLIES",
+        "end": 1791909402,
+        "id": "01M4T4ZCM54D3ZPTQXRSWFG0XS:01M4T9HW5AVE1TJ3EXBY2YYDY1",
+        "start": 1791883800
+      }
+    ],
+    "lease_id": "oc-affected-d3a5d349",
+    "outcome": "READY",
+    "reason": "All four intervals carry the incident title 'Degraded performance in GPT-6.1 Sol Codex and Work mode', which directly names the canonical channel (GPT-6.1 Sol via Codex and ChatGPT Work mode). Intervals 1–3 are in 'investigating' status with bodies confirming active investigation of degraded performance on those exact services, plainly impeding the agreed channel. Interval 4 states mitigation has been applied but the status is 'monitoring' — explicit full recovery has not been declared, and monitoring-only does not constitute restoration under the protocol rules. Therefore APPLIES holds across all four intervals.",
+    "source_digest": "d3d035a2ae570c5b8fa99682613d81c01b61db583e3b42370347932471a9006b",
+    "stage": "OK",
+    "timestamp": 1791949080
+  },
+  "exerciseWallTime": 1791949300,
+  "canonical": {
+    "lease": {
+      "accept_deadline": 1791949147,
+      "attempts": 1,
+      "base_deadline": 1791949297,
+      "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+      "digest": "b74ab3f618b3d58b7b6d88249a08f340fb0068da66ae60925029395727d7877e",
+      "escrow_gen": "0",
+      "exercised": true,
+      "extension_cap": 300,
+      "hard_cutoff": 1791949597,
+      "incident_ids": [
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+      ],
+      "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "last_attempt": "oc-affected-d3a5d349:T1",
+      "lease_id": "oc-affected-d3a5d349",
+      "reference_end": 1791909402,
+      "reference_start": 1791879000,
+      "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+      "state": "CLOSED"
+    },
+    "clock": {
+      "base_deadline": 1791949297,
+      "effective_deadline": 1791949597,
+      "extension_seconds": 300,
+      "hard_cutoff": 1791949597,
+      "last_attempt": "oc-affected-d3a5d349:T1",
+      "lease_id": "oc-affected-d3a5d349",
+      "reported_seconds": 30402,
+      "verified": true
+    },
+    "credit": {
+      "credit_gen": "0",
+      "lease_id": "oc-affected-d3a5d349",
+      "owner": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "withdrawn_gen": "1"
+    },
+    "accounting": {
+      "credit_gen": "0",
+      "escrow_gen": "0",
+      "liability_gen": "0",
+      "received_gen": "1",
+      "withdrawn_gen": "1"
+    },
+    "nativeBalanceGEN": "0"
+  },
+  "complete": true,
+  "verifiedAt": "2026-10-14T03:43:50.476Z"
+}

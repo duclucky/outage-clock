@@ -15,11 +15,19 @@ try{
    const receipt=successful(raw,s.transactionHash);
    if(raw.from_address?.toLowerCase()!==s.sender.toLowerCase()||raw.to_address?.toLowerCase()!==d.contractAddress.toLowerCase()||BigInt(raw.value)!==parseUnits(s.valueGEN,18))throw Error('Origin target or amount mismatch');
    const step={...receipt,sender:s.sender,valueGEN:s.valueGEN};
-   if(nameStep==='exercise'){
+   if(['exercise','recover','cancel'].includes(nameStep)){
     const candidate=raw.created_at??raw.createdAt??raw.timestamp;
     const time=typeof candidate==='string'?Date.parse(candidate.endsWith('Z')||/[+-]\d\d:\d\d$/.test(candidate)?candidate:candidate+'Z')/1000:NaN;
-    if(!Number.isFinite(time)||!(c.baseDeadline<time&&time<canonical.clock.effective_deadline))throw Error('Authoritative after-nominal exercise time absent');
-    step.transactionTimeUTC=candidate;step.afterNominalBeforeEffective=true;
+    if(!Number.isFinite(time))throw Error('Authoritative transaction time absent');
+    step.transactionTimeUTC=candidate;
+    if(nameStep==='exercise'){
+     if(!(c.baseDeadline<time&&time<canonical.clock.effective_deadline))throw Error('After-nominal exercise time not proven');
+     step.afterNominalBeforeEffective=true;
+    }else{
+     const due=nameStep==='cancel'?c.acceptDeadline:canonical.clock.verified?canonical.clock.effective_deadline:c.baseDeadline+c.cap;
+     if(time<due)throw Error('Recovery/cancellation expiry not proven');
+     step.entrypointExpiryProven=true;step.dueUTC=new Date(due*1000).toISOString();
+    }
    }
    if(nameStep==='withdraw'){
     const childProof=s.nativeProof;if(!childProof?.transactionHash)throw Error('No child proof');

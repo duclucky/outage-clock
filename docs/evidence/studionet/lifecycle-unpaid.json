@@ -1,0 +1,125 @@
+{
+  "file": "lifecycle-unpaid.json",
+  "network": "studionet",
+  "chainId": 61999,
+  "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b",
+  "sourceSHA256": "d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31",
+  "case": "unpaid",
+  "leaseId": "oc-unpaid-d3a5d349",
+  "issuer": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "buyer": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+  "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+  "incidentIds": [
+    "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+  ],
+  "referenceStart": 1791879000,
+  "referenceEnd": 1791909402,
+  "acceptDeadline": 1791950314,
+  "baseDeadline": 1791950434,
+  "cap": 60,
+  "steps": {
+    "create": {
+      "method": "create_lease",
+      "args": [
+        "oc-unpaid-d3a5d349",
+        "0x45aD397c438397A702B53a7499a78D08961D39Db",
+        "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+        "[\"01M4T4ZCM54D3ZPTQXRSWFG0XS\"]",
+        1791879000,
+        1791909402,
+        1791950314,
+        1791950434,
+        60
+      ],
+      "sender": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0x9602da3f19300933678f20f97d59a0e1181697d2d48634b164e1cf34f1b98f93",
+      "signedAt": "2026-10-14T03:57:35.563Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "cancel": {
+      "method": "cancel_unpaid",
+      "args": [
+        "oc-unpaid-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xf3fba2a9a98dc0f0484cc0d755a312bd199f6b834ed2e129dccea37297760378",
+      "signedAt": "2026-10-14T03:58:37.911Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    },
+    "close": {
+      "method": "close_lease",
+      "args": [
+        "oc-unpaid-d3a5d349"
+      ],
+      "sender": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "valueGEN": "0",
+      "beforeContractGEN": "0",
+      "transactionHash": "0xbab0b3a2bda7e517130700452a524bdb9e7e4be6d14d3a526ccb5fa6d3ff4a39",
+      "signedAt": "2026-10-14T03:59:19.974Z",
+      "status": "FINALIZED",
+      "executionResult": "SUCCESS",
+      "consensusResult": "MAJORITY_AGREE",
+      "contractAddress": "0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+    }
+  },
+  "preparedAt": "2026-10-14T03:57:34.286Z",
+  "canonical": {
+    "lease": {
+      "accept_deadline": 1791950314,
+      "attempts": 0,
+      "base_deadline": 1791950434,
+      "buyer": "0x45ad397c438397a702b53a7499a78d08961d39db",
+      "digest": "2734e3d615233410253e9dc7a61ee440e602cee68bad61b6880aa2a49dcfcdc5",
+      "escrow_gen": "0",
+      "exercised": false,
+      "extension_cap": 60,
+      "hard_cutoff": 1791950494,
+      "incident_ids": [
+        "01M4T4ZCM54D3ZPTQXRSWFG0XS"
+      ],
+      "issuer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+      "last_attempt": "",
+      "lease_id": "oc-unpaid-d3a5d349",
+      "reference_end": 1791909402,
+      "reference_start": 1791879000,
+      "scope": "Access GPT-6.1 Sol specifically through Codex and ChatGPT Work mode. Officially reported degraded performance impedes this agreed channel.",
+      "state": "CLOSED"
+    },
+    "clock": {
+      "base_deadline": 1791950434,
+      "effective_deadline": 0,
+      "extension_seconds": 0,
+      "hard_cutoff": 1791950494,
+      "last_attempt": "",
+      "lease_id": "oc-unpaid-d3a5d349",
+      "reported_seconds": 0,
+      "verified": false
+    },
+    "credit": {
+      "credit_gen": "0",
+      "lease_id": "oc-unpaid-d3a5d349",
+      "owner": "0x45ad397c438397a702b53a7499a78d08961d39db",
+      "withdrawn_gen": "0"
+    },
+    "accounting": {
+      "credit_gen": "0",
+      "escrow_gen": "0",
+      "liability_gen": "0",
+      "received_gen": "3",
+      "withdrawn_gen": "3"
+    },
+    "nativeBalanceGEN": "0"
+  },
+  "complete": true,
+  "verifiedAt": "2026-10-14T04:00:05.234Z"
+}

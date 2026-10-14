@@ -1,0 +1,38 @@
+{
+  "selectedNetwork": "studionet",
+  "chainId": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "reason": "Owner explicitly selected Studionet after the bounded Studio Dev probe; current D1 also permits verified-unavailable fallback. No later Studio Dev recovery is claimed.",
+  "priorProbeUTC": "2026-10-13T17:40:16.807Z",
+  "priorProbeKind": "unsigned sim_call; no deployment or value sent",
+  "observedStudioDevFailures": [
+    {
+      "endpoint": "https://studio-next.genlayer.com/api",
+      "chainId": 61997,
+      "http": 200,
+      "rpcErrorCode": -32603,
+      "diagnostic": "SERVER_DATABASE_TRANSACTION_REQUIRES_ROLLBACK"
+    },
+    {
+      "endpoint": "https://studio-dev.genlayer.com/api",
+      "chainId": 61997,
+      "http": 200,
+      "rpcErrorCode": -32603,
+      "diagnostic": "SERVER_DATABASE_TRANSACTION_REQUIRES_ROLLBACK"
+    }
+  ],
+  "officialIncidentConfirmation": false,
+  "officialSources": [
+    "https://docs.genlayer.com/developers/networks",
+    "https://github.com/genlayerlabs/genlayer-studio/issues"
+  ],
+  "runtimeTemplate": "https://studio.genlayer.com/assets/index-D-dlGG4S.js",
+  "pragma": "v0.2.16",
+  "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+  "SDK": "genlayer-js 1.1.8",
+  "compatibilityProof": [
+    "deployment.json",
+    "archive/v1/deployment.json"
+  ],
+  "networkEvidenceMixed": false
+}

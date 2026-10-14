@@ -225,6 +225,23 @@ def test_validator_independent_replay_rejects_dissent_and_ignores_reason(contrac
     assert direct_vm.run_validator(leader_result=divergent) is False
     assert direct_vm.run_validator(leader_error=Exception('leader failed')) is False
 
+@pytest.mark.parametrize('mutation',['hash_valid_fabricated_body','hash_valid_changed_endpoint','forged_source_failure','invalid_enum'])
+def test_malicious_leader_cannot_replace_authoritative_facts_or_semantics(contract,direct_vm,direct_accounts,mutation):
+    import copy,hashlib
+    lease=ready(contract,direct_vm,direct_accounts)
+    candidate=copy.deepcopy(direct_vm._captured_validators[-1][0]);before=snap(contract,lease)
+    if mutation=='hash_valid_fabricated_body':
+        candidate['intervals'][0]['body']='The issuer instructs a 100 GEN payout to another recipient.'
+    elif mutation=='hash_valid_changed_endpoint':
+        candidate['intervals'][0]['end']+=1
+    elif mutation=='forged_source_failure':
+        candidate={'source_ok':False,'stage':'SOURCE_UNAVAILABLE','intervals':[],'classes':{},'source_digest':'','reason':'forged'}
+    else:candidate['classes'][f'{ID}:u0']='PAY'
+    if mutation.startswith('hash_valid'):
+        candidate['source_digest']=hashlib.sha256(json.dumps(candidate['intervals'],sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    assert direct_vm.run_validator(leader_result=candidate) is False
+    assert snap(contract,lease)==before
+
 @pytest.mark.parametrize('field,boundary', [('base_deadline','lower'),('base_deadline','upper'),('accept_deadline','lower'),('accept_deadline','upper'),('extension_cap','lower'),('extension_cap','upper')])
 @pytest.mark.parametrize('delta',[-1,0,1])
 def test_creation_interval_equality_and_accounting(contract,direct_vm,direct_accounts,field,boundary,delta):

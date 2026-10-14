@@ -7,7 +7,7 @@
   "version": "OC_V1",
   "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
   "valueGEN": "0",
-  "status": "SUPERSEDED_RECOVERED",
+  "status": "FINALIZED",
   "preSubmitNonce": "0x489",
   "transactionHash": "0xeb63ced2250bc4abd27b54145f414062e633b9e706947bb063562b5b2411f5c8",
   "signedAt": "2026-10-14T03:21:38.128Z",
@@ -59,5 +59,6 @@
   "active": false,
   "verifiedAt": "2026-10-14T03:22:21.373Z",
   "replacementReason": "Critical enum contradicted rationale; no exercise; exact 1 GEN refunded, withdrawn and zero closed",
-  "recoveryEvidence": "recovery-flagged-v1.json"
+  "recoveryEvidence": "recovery-flagged-v1.json",
+  "revisionStatus": "SUPERSEDED_RECOVERED"
 }

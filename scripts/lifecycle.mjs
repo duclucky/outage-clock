@@ -9,11 +9,11 @@ try{
  const accounts=actors();if(accounts[0].address.toLowerCase()===accounts[1].address.toLowerCase())throw Error('Role separation required');
  const name=process.argv[2];if(!['affected','unaffected','pending','unpaid'].includes(name))throw Error('Select bounded lifecycle case');
  const filename='lifecycle-'+name+'.json';let r=file(filename);
- if(!r){const t=now(),base=t+(name==='pending'?150:300),cap=name==='affected'?300:60;
+ if(!r){const t=now(),base=t+(['pending','unpaid'].includes(name)?180:300),cap=name==='affected'?300:60;
   r={file:filename,network:'studionet',chainId:61999,contractAddress:d.contractAddress,sourceSHA256:d.sourceSHA256,case:name,
    leaseId:'oc-'+name+'-'+d.sourceSHA256.slice(0,8),issuer:accounts[0].address,buyer:accounts[1].address,
    scope:scopes[name==='unaffected'?'unaffected':'affected'],incidentIds:[INCIDENT],referenceStart:Date.parse('2026-10-13T08:10:00Z')/1000,
-   referenceEnd:Date.parse('2026-10-13T16:36:42Z')/1000,acceptDeadline:t+(name==='pending'?60:150),baseDeadline:base,cap,steps:{},preparedAt:new Date().toISOString()};save(filename,r);
+   referenceEnd:Date.parse('2026-10-13T16:36:42Z')/1000,acceptDeadline:t+(name==='pending'?120:name==='unpaid'?60:150),baseDeadline:base,cap,steps:{},preparedAt:new Date().toISOString()};save(filename,r);
  }
  if(r.contractAddress!==d.contractAddress||r.sourceSHA256!==d.sourceSHA256)throw Error('Lifecycle identity mismatch');
  const address=d.contractAddress,id=r.leaseId;

@@ -10,12 +10,13 @@ hard recovery refunds the actual buyer1GEN. Only own-wallet credits are withdraw
 
 Category: Intelligent Contracts. Owner-selected Studionet61999. No app/frontend.
 One ASCII `OutageClock`,8writes/6views; pinned matched v0.2.16 runner and SDK1.1.8.
-Deployment and paid execution are PENDING; local checks are not network proof.
+V2 deployment and all four real lifecycle cases are complete. Local tests and
+actual network receipts are separate evidence. Publication and CI are pending.
 
 ## Validate
 
 Python3.12: create `.venv`, install `requirements-dev.txt`, then `npm ci` and
-`npm run check`. Current local result:101 Python direct cases and13 receipt cases,
+`npm run check`. Current local result:105 Python direct cases and13 receipt cases,
 semantic lint and AST metadata all pass, zero skipped.
 
 [Specification](docs/README.md) locks authority, safety, value destinations,
@@ -31,3 +32,49 @@ property, legal title or measured customer downtime is proven. Exact selected
 incidents and retrospective reference window are explicitly agreed before payment.
 The reported timestamp proxy is contractual; source disappearance leads to
 retry or eventual payer recovery. Maximum3 incidents,16updates each,3attempts.
+
+
+## Deployment and real worked example
+
+NETWORK = Studionet (chain ID 61999), OC_V2. Result: SUCCESS; Status: FINALIZED.
+CONTRACT_ADDRESS = `0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b`.
+[Explorer address](https://explorer-studio.genlayer.com/address/0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b)
+and [deploy transaction](https://explorer-studio.genlayer.com/tx/0xf383a5df4f7c2791e6dad4e0110dfc5e3a515f8c31ef2e3e61d3417e0e66c05f).
+Deployed bytes match source SHA256 d3a5d349781fff0d787f9716a7291142e954772bdac32227e80f2b537e0d5a31
+at implementation commit fc611f0343b46bd5aac7eb755b61342db2735046.
+
+Real result, not an expected fixture: issuer offered the agreed GPT-6.1 Sol
+Codex/Work channel against official incident 01M4T4ZCM54D3ZPTQXRSWFG0XS and
+its Oct13 reporting window. Buyer accepted the exact digest with 1 GEN.
+Independent semantic review classified all four intervals APPLIES: 30,402 reported
+seconds, capped at 300 seconds. Base deadline 2026-10-14 03:41:37 UTC became
+03:46:37 UTC. Buyer exercise transaction time was 03:41:42 UTC, after the base deadline
+and before effective expiry; it subsequently finalized with Result: SUCCESS. Issuer withdrew exactly 1 GEN;
+its bound native child finalized, contract decreased 1 GEN, recipient increased
+1 GEN. Lease CLOSED, contract native balance and liability both 0 GEN.
+[Canonical case/receipt/balance proof](docs/evidence/studionet/lifecycle-affected.json).
+
+V1 is superseded and recovered: its Costs classification contradicted its own
+rationale, so no exercise was allowed. Buyer received the full 1 GEN refund and
+native balance/liability closed at zero. [Archived recovery](docs/evidence/studionet/archive/v1/recovery-flagged-v1.json).
+V2 adds a separate semantic consistency review; unsupported, ambiguous or
+contradictory classifications cannot finalize the clock. Every validator still
+independently fetches and interprets the source and must agree on the complete
+interval meanings and bound facts, rather than rationale strings or JSON shape.
+
+
+## Full lifecycle verification
+
+`node scripts/verify.mjs` independently re-read all four CLOSED leases, exact
+source/schema, 20 successful finalized parent writes, three bound native transfers,
+and authoritative exercise/recovery/cancellation timestamps. Affected: 300-second
+extension and exercise after nominal expiry, issuer paid 1 GEN. Unrelated channel:
+zero extension and due buyer refund. No-review paid lease: buyer recovery at hard
+cutoff. Unpaid offer: due cancellation and zero close. Each paid case accepts
+1 GEN; final accounting is 3 GEN received, 3 GEN withdrawn, 0 GEN escrow/credits
+and 0 GEN actual native balance. [Independent verification](docs/evidence/studionet/verification.json).
+[Integration steps](docs/INTEGRATION.md), [review](docs/REVIEW.md) and
+[network selection](docs/evidence/studionet/network-selection.json) explain the
+boundaries and versioned Studionet compatibility. `node scripts/recover_flagged.mjs`
+is now read-only and re-verifies the recovered historical V1; it cannot operate
+against the active V2 or send another transaction.

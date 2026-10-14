@@ -1,0 +1,12 @@
+[
+  {
+    "http": 200,
+    "checkedAt": "2026-10-14T03:40:14.1535913Z",
+    "url": "https://explorer-studio.genlayer.com/address/0x3782b660116bd8cBFfFB871fEAbC8FC18c225d3b"
+  },
+  {
+    "http": 200,
+    "checkedAt": "2026-10-14T03:40:15.1971695Z",
+    "url": "https://explorer-studio.genlayer.com/tx/0xf383a5df4f7c2791e6dad4e0110dfc5e3a515f8c31ef2e3e61d3417e0e66c05f"
+  }
+]
